@@ -19,6 +19,22 @@
 
 Add nodes or sub-nodes as you see fit.
 
+### Phase 1
+🟠 Single Player Perspective
+🟠 Van Elements
+- 🟠 Sanity Meter
+- 🟠 Front Door Connection
+🟠 Rooms and Room Elements
+- 🟠 Foyer
+- 🟠 Hallway
+- 🟠 Kid's Bedroom
+- 🟠 Bathroom
+- 🟠 Master's Bedroom
+🟠 Player Interaction
+- 🟠 Decor Dropping and Limitless Floor Storage
+- 🟠 Pick Up
+🟠 Light Switch
+
 ### Model
 🟠 Player
 
@@ -41,7 +57,7 @@ Add nodes or sub-nodes as you see fit.
 - 🟠 Video Camera
 
 ### Screens
-🟠 Title
+🔵 Title
 
 🟠 Lobby
 
@@ -50,3 +66,7 @@ Add nodes or sub-nodes as you see fit.
     - 🟠 Van
 
 🟠 Result
+
+#### optional suggestions that we could do
+Add suggestions you wanna include here
+- name randomizer
