@@ -7,7 +7,7 @@ Description:
 #include "string"
 
 #include "Interface.h"
-#include "../Config/Settings.h"
+#include "..\Libraries\CandyTUI\Config\Settings.h"
 
 using namespace utilities;
 
