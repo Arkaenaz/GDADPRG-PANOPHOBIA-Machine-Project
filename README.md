@@ -70,3 +70,5 @@ Add nodes or sub-nodes as you see fit.
 #### optional suggestions that we could do
 Add suggestions you wanna include here
 - name randomizer
+- More maps
+- Minimap
