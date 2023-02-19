@@ -10,7 +10,7 @@ Description:
 bool CLEAR_CONSOLE = false;
 bool SYSTEM_TEXT = true;
 
-int SCREEN_WIDTH = 70;
-int SCREEN_HEIGHT = 41;
+//int SCREEN_WIDTH = 70;
+//int SCREEN_HEIGHT = 41;
 
 #endif
