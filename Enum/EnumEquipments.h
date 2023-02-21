@@ -2,7 +2,8 @@
 #define ENUM_EQUIPMENT_H
 
 enum class Equipments : int {
-    EMF_READER = 0,
+    NONE = 0,
+    EMF_READER,
     FLASHLIGHT,
     VIDEO_CAMERA,
     SANITY_PILLS,
