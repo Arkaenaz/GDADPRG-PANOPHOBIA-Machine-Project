@@ -12,9 +12,17 @@ Description:
 using namespace utilities;
 
 void Interface::printTitleScreen() {
-    printCenter("PANOPHOBIA\n");        // prototype hadwahdgehaha
-    printCenter("[1] START\n");         // u are allowed to improve upon this
-    printCenter("[2]  EXIT\n");
+    printCenter("PANOPHOBIA");        // prototype hadwahdgehaha
+    std::cout << "\n" << std::endl;
+    printCenter("[1] START");         // u are allowed to improve upon this
+    std::cout << "\n" << std::endl;
+    printCenter("[0]  EXIT");
+    std::cout << std::endl;
+}
+
+void Interface::printLobbyScreen() {
+    printCenter("[0]  BACK");
+    std::cout << std::endl;
 }
 
 char Interface::scanChar() {
