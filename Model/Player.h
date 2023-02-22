@@ -20,7 +20,7 @@ namespace gamePlayer{
         public:
             Player();
 
-            void pan();
+            void pan(int nDirection);
             void interact();
             void changeEquipment();
             void viewJournal();
