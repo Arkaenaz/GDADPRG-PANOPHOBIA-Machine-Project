@@ -25,10 +25,10 @@ void Player::pan(int nDirection){
     }
     switch(nRoom){
         case 0:case 2:case 3:case 4:case 5:
-            errMinMax(this->nDirection[nRoom],4);
+            errMinMax(&this->nDirection[nRoom],4);
             break;
         case 1:
-            errMinMax(this->nDirection[nRoom],8);
+            errMinMax(&this->nDirection[nRoom],8);
             break;
     }
 }
