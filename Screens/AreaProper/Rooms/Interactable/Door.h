@@ -17,6 +17,8 @@ namespace gameInteractable{
             //to be used to set the player's direction when entering the connected room
             int nDirection;
 
+            bool bOpen;
+
         public:
             Door();
             Door(int nRoom, int nDirection);
@@ -26,6 +28,8 @@ namespace gameInteractable{
 
             int getRoom();
             int getDirection();
+
+            bool isOpen();
     };
 }
 

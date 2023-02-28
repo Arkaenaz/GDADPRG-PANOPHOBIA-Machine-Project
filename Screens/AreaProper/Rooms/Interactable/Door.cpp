@@ -32,3 +32,7 @@ int Door::getRoom(){
 int Door::getDirection(){
     return this->nDirection;
 }
+
+bool Door::isOpen() {
+    return this->bOpen;
+}
