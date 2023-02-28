@@ -1,5 +1,6 @@
 #include "Player.h"
 
+using namespace gameInteractable;
 using namespace gamePlayer;
 using namespace candyTUI;
 
@@ -32,10 +33,31 @@ void Player::pan(int nDirection){
     }
 }
 
-void Player::move(int nRoom){
+void Player::move(Door CDoor){
+    if(CDoor.getToggled()){
+        this->nRoom = CDoor.getRoom();
+        this->nDirection[this->getRoom()] = CDoor.getDirection();
+    }
+    
+}
+
+void Player::move(int nRoom, int nDirection){
     this->nRoom = nRoom;
+    this->nDirection[nRoom] = nDirection;
 }
 
 void Player::interact(int nIndex){
     
+}
+
+int Player::getRoom(){
+    return this->nRoom;
+}
+
+int Player::getDirection(int nRoom){
+    return this->nDirection[nRoom];
+}
+
+float Player::getSanity(){
+    return this->fSanity;
 }

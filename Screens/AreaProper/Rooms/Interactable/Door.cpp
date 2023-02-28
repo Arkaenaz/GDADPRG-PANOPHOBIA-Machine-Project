@@ -3,6 +3,13 @@
 using namespace gameInteractable;
 
 Door::Door():Interactable(){
+    this->bToggled = false;
+}
+
+Door::Door(int nRoom, int nDirection):Interactable(){
+    this->bToggled = false;
+    this->nRoom = nRoom;
+    this->nDirection = nDirection;
 }
 
 int Door::interact(){
@@ -15,4 +22,12 @@ int Door::interact(){
         //door closed
         return 4;
     }
+}
+
+int Door::getRoom(){
+    return this->nRoom;
+}
+
+int Door::getDirection(){
+    return this->nDirection;
 }

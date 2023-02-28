@@ -3,6 +3,7 @@
 using namespace gameInteractable;
 
 Lightswitch::Lightswitch():Interactable(){
+    this->bToggled = true;
 }
 
 int Lightswitch::interact(){
