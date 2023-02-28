@@ -7,6 +7,7 @@ Door::Door():Interactable(){
 }
 
 Door::Door(int nRoom, int nDirection):Interactable(){
+    this->nToggleable = -1;
     this->bToggled = false;
     this->nRoom = nRoom;
     this->nDirection = nDirection;

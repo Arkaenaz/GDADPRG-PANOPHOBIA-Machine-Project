@@ -2,8 +2,8 @@
 
 using namespace gameInteractable;
 
-Interactable::Interactable(int nIndex){
-    this->nIndex = nIndex;
+Interactable::Interactable(int nToggleable){
+    this->nToggleable = nToggleable;
     this->bToggled = true;
 }
 
