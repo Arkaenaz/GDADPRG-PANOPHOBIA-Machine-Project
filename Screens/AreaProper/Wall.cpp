@@ -24,4 +24,9 @@ int Wall::toggleInteractable(int nIndex, Floor CFloor){
     }
 }
 
+Door* Wall::getDoor(int nIndex){
+    Door* pDoor = dynamic_cast<Door*>(&this->vecDecor[nIndex]);
+    return pDoor;
+}
+
 

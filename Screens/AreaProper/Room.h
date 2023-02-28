@@ -14,6 +14,7 @@ Description: Room class
 #include "Wall.h"
 
 namespace gameArea{
+    using namespace gameInteractable;
     class Room{
         private:
             Floor CFloor;
@@ -29,6 +30,7 @@ namespace gameArea{
 
             bool getLight();
             float getTemperature();
+            Door* getDoor(int nWall, int nIndex);
     };
 }
 

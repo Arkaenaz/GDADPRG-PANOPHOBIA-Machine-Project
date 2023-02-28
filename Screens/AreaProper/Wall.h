@@ -28,6 +28,7 @@ namespace gameArea{
             void pickDecor(Decor CDecor);
 
             int toggleInteractable(int nIndex, Floor CFloor);
+            Door* getDoor(int nIndex);
     };
 }
 
