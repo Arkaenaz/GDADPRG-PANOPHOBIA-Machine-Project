@@ -12,14 +12,13 @@ Description: Decor class
 namespace gameInteractable{
     class Decor : public Interactable{
         private:
-            int nIndex;
             int nDirection;
 
         public:
             Decor(int nIndex);
         
         public:
-            int getIndex();
+            int interact();
     };
 }
 

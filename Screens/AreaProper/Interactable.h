@@ -10,6 +10,7 @@ Description: Interactable class
 namespace gameInteractable{
     class Interactable{
         protected:
+            int nIndex;
             int nToggleable;
             bool bToggled;
 
@@ -18,9 +19,11 @@ namespace gameInteractable{
             Interactable(int nToggleable);
         
         public:
-            int interact();
+            virtual int interact();
 
+            int getIndex();
             bool getToggled();
+            bool setToggled();
     };
 }
 

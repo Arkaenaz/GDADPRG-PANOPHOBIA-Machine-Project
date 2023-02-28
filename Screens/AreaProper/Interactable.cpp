@@ -8,17 +8,25 @@ Interactable::Interactable(int nToggleable){
 }
 
 int Interactable::interact(){
-    this->bToggled = !this->bToggled;
-    if(this->getToggled()){
-        //decor pick-up
-        return 1;
-    }
-    else{
-        //decor drop
-        return 0;
-    }
+    setToggled();
 }
 
 bool Interactable::getToggled(){
     return this->bToggled;
+}
+
+int Interactable::getIndex(){
+    return this->nIndex;
+}
+
+bool Interactable::setToggled(){
+    if(this->nToggleable = 1 && !this->getToggled()){
+        this->bToggled = true;
+    }
+    else if(this->nToggleable = 0 && this->getToggled()){
+        this->bToggled = false;
+    }
+    else{
+        this->bToggled = !this->bToggled;
+    }
 }

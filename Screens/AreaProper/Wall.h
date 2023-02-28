@@ -10,7 +10,7 @@ Description: Wall class
 #include "vector"
 
 #include "Floor.h"
-#include "Interactable.h"
+#include "Rooms/Interactable/Decor.h"
 #include "Rooms/Interactable/Door.h"
 #include "Rooms/Interactable/Lightswitch.h"
 
@@ -24,7 +24,9 @@ namespace gameArea{
             Wall();
             
         public:
-            void pickDecor(Interactable CDecor);
+            void pickDecor(Interactable CInteractable);
+            void pickDecor(Decor CDecor);
+
             int toggleInteractable(int nIndex, Floor CFloor);
     };
 }

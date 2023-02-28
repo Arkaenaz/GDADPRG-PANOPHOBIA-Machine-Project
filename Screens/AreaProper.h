@@ -22,7 +22,7 @@ namespace gameArea{
             Area();
 
             void toggleInteractable(int nRoom, int nWall, int nIndex);
-
+            
 
     };
 }

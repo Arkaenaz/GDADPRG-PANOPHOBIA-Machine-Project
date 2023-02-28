@@ -24,6 +24,8 @@ namespace gameArea{
         public:
             void dropDecor(Interactable CDecor);
             int toggleInteractable(int nIndex, Wall CWall);
+
+            int getInteractableIndex(int nIndex);
     };
 }
 

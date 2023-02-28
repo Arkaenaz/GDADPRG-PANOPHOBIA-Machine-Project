@@ -6,10 +6,12 @@ Room::Room(){
     this->bLight = true;
 }
 
-int Room::toggleInteractable(int nWall, int nIndex, int nPrevDir){
+int Room::toggleInteractable(int nWall, int nIndex){
     int nAction;
+    int nDir;
     if(nWall == -1){
-        nAction = this->CFloor.toggleInteractable(nIndex,this->vecWall[nPrevDir]);
+        nDir = this->CFloor.getInteractableIndex(nIndex);
+        nAction = this->CFloor.toggleInteractable(nIndex,this->vecWall[nDir]);
     }
     else{
         nAction = this->vecWall[nWall].toggleInteractable(nIndex,CFloor);

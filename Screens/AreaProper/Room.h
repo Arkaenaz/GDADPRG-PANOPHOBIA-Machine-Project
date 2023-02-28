@@ -25,7 +25,7 @@ namespace gameArea{
             Room();
 
         public:
-            int toggleInteractable(int nWall, int nIndex, int nPrevDir);
+            int toggleInteractable(int nWall, int nIndex);
 
             bool getLight();
             float getTemperature();
