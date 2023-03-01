@@ -25,8 +25,16 @@ void Interface::printTitleScreen() {
     std::cout << std::endl;
 }
 
-void Interface::printLobbyScreen(int nPlayer) {
+void Interface::printLobbyScreen(std::vector<Player> vecPlayer, int nPlayer) {
     std::cout << "Player Count: " << nPlayer << std::endl;
+    for (int i = 0; i < nPlayer; i++) {
+        std::cout << "Player " << nPlayer << ": " << vecPlayer[i].getName() << std::endl;
+    }
+    printCenter("[A] ADD PLAYER");
+    std::cout << std::endl;
+    printCenter("[B] REMOVE PLAYER");
+    std::cout << "\n" << std::endl;
+    printCenter("[1] START");
     printCenter("[0]  BACK");
     std::cout << std::endl;
 }
