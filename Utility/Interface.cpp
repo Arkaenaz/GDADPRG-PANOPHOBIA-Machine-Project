@@ -20,7 +20,8 @@ void Interface::printTitleScreen() {
     std::cout << std::endl;
 }
 
-void Interface::printLobbyScreen() {
+void Interface::printLobbyScreen(int nPlayer) {
+    std::cout << "Player Count: " << nPlayer << std::endl;
     printCenter("[0]  BACK");
     std::cout << std::endl;
 }

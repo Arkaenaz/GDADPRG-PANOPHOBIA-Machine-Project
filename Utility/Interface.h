@@ -11,7 +11,7 @@ namespace utilities {
     class Interface {
         public:
             void printTitleScreen();
-            void printLobbyScreen();
+            void printLobbyScreen(int nPlayer);
             char scanChar();
         
         private:
