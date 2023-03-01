@@ -10,7 +10,6 @@ Description: Room class
 #include "iostream"
 #include "vector"
 
-#include "Floor.h"
 #include "Wall.h"
 
 namespace gameArea{

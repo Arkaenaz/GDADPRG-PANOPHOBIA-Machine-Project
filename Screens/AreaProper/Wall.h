@@ -9,8 +9,6 @@ Description: Wall class
 
 #include "vector"
 
-class Floor;
-
 #include "Floor.h"
 #include "Rooms/Interactable/Decor.h"
 #include "Rooms/Interactable/Door.h"
