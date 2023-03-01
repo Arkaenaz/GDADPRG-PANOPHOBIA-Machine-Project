@@ -10,10 +10,6 @@ Player::Player(){
     std::copy(aDirection+0, aDirection+6, this->aDirection+0);
 }
 
-float Player::getSanity(){
-    return this->fSanity;
-}
-
 void Player::pan(int nDirection, int nRoomSize){
     switch(nDirection){
         //right
