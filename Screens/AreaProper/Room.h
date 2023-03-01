@@ -10,6 +10,7 @@ Description: Room class
 #include "iostream"
 #include "vector"
 
+class WallOBJ;
 #include "Wall.h"
 
 namespace gameArea{
