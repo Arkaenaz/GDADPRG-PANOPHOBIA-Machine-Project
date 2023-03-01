@@ -72,6 +72,10 @@ float Player::getSanity(){
     return this->fSanity;
 }
 
+string Player::getName() {
+    return this->strName;
+}
+
 void Player::setDirection(int nDirection,int nRoom){
     this->aDirection[nRoom] = nDirection;
 }
