@@ -76,5 +76,20 @@ void Game::lobby() {
             system("cls");
         this->CInterface.printLobbyScreen(this->vecPlayer, this->nPlayer);
         cInput = this->CInterface.scanChar();
+        switch(cInput) {
+            case 'a':
+            case 'A':
+                if (nPlayer > 1)
+                    removePlayer();
+                break;
+            case 'd':
+            case 'D':
+                if (nPlayer < 4)
+                    addPlayer();
+                break;
+            case '1':
+                //this->start();
+                break;
+        }
     } while (cInput != '0');
 }
