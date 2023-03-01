@@ -8,7 +8,7 @@ InteractOBJ::InteractOBJ(int nToggleType){
 }
 
 int InteractOBJ::interact(){
-    setToggled();
+    return setToggled();
 }
 
 bool InteractOBJ::getToggled(){
@@ -20,13 +20,14 @@ int InteractOBJ::getIndex(){
 }
 
 bool InteractOBJ::setToggled(){
-    if(this->nToggleType = 1 && !this->getToggled()){
+    if((this->nToggleType = 1) && (!this->getToggled())){
         this->bToggled = true;
     }
-    else if(this->nToggleType = 0 && this->getToggled()){
+    else if((this->nToggleType = 0) && (this->getToggled())){
         this->bToggled = false;
     }
     else{
         this->bToggled = !this->bToggled;
     }
+    return this->getToggled();
 }

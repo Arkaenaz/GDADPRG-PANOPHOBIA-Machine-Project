@@ -15,15 +15,15 @@ Description: Room class
 
 namespace gameArea{
     using namespace gameInteractable;
-    class Room{
+    class RoomOBJ{
         protected:
             Floor CFloor;
-            std::vector<Wall> vecWall;            
+            std::vector<WallOBJ> vecWall;            
             bool bLight;
             float fTemperature;
 
         public:
-            Room();
+            RoomOBJ();
 
         public:
             int toggleInteractable(int nWall, int nIndex);

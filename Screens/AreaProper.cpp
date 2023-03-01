@@ -8,7 +8,7 @@ Area::Area(){
 }
 
 int Area::toggleInteractable(int nRoom, int nWall, int nIndex){
-    this->vecRoom[nRoom].toggleInteractable(nWall, nIndex);
+    return this->vecRoom[nRoom].toggleInteractable(nWall, nIndex);
 }
 
 int Area::getRoomSize(int nRoom){

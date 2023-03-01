@@ -23,7 +23,7 @@ namespace gameArea{
 
         public:
             void dropDecor(InteractOBJ CDecor);
-            int toggleInteractable(int nIndex, Wall CWall);
+            int toggleInteractable(int nIndex, WallOBJ CWall);
 
             int getInteractableIndex(int nIndex);
     };

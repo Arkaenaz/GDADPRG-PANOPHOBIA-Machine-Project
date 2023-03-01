@@ -3,20 +3,20 @@
 using namespace gameArea;
 using namespace gameInteractable;
 
-Wall::Wall(){
+WallOBJ::WallOBJ(){
 
 }
 
-void Wall::pickDecor(InteractOBJ CInteractable){
+void WallOBJ::pickDecor(InteractOBJ CInteractable){
     //empty but leaving this here just in case
 }
 
-void Wall::pickDecor(Decor CDecor){
+void WallOBJ::pickDecor(Decor CDecor){
     this->vecDecor[CDecor.getIndex()].setToggled();
 }
 
 
-int Wall::toggleInteractable(int nIndex, Floor CFloor){
+int WallOBJ::toggleInteractable(int nIndex, Floor CFloor){
     int nAction = this->vecDecor[nIndex].interact();
     if(nAction == 0){
         CFloor.dropDecor(this->vecDecor[nIndex]);
@@ -24,14 +24,14 @@ int Wall::toggleInteractable(int nIndex, Floor CFloor){
     }
 }
 
-Door* Wall::getDoor(int nIndex){
+Door* WallOBJ::getDoor(int nIndex){
     Door* pDoor = dynamic_cast<Door*>(&this->vecDecor[nIndex]);
     return pDoor;
 }
 
-void Wall::createDecor(int nSize){
-    int i;
-    for(i = this->vecDecor.size(); i < nSize; i++){
+void WallOBJ::createDecor(int nSize){
+    int i = this->vecDecor.size();
+    for(i ; i < nSize ; i++){
         this->vecDecor.push_back(Decor(i));
     }
 }

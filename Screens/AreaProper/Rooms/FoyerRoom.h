@@ -12,7 +12,7 @@ Description: Foyer room class
 
 namespace gameArea{
     using namespace gameInteractable;
-    class FoyerRoom : public Room{
+    class FoyerRoom : public RoomOBJ{
         public:
             FoyerRoom();
     };

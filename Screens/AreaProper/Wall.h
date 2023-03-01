@@ -16,12 +16,12 @@ Description: Wall class
 
 namespace gameArea{
     using namespace gameInteractable;
-    class Wall{
+    class WallOBJ{
         protected:
             std::vector<InteractOBJ> vecDecor;
         
         public:
-            Wall();
+            WallOBJ();
             
         public:
             void pickDecor(InteractOBJ CInteractable);

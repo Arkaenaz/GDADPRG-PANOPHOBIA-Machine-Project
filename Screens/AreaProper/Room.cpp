@@ -3,11 +3,11 @@
 using namespace gameArea;
 using namespace gameInteractable;
 
-Room::Room(){
+RoomOBJ::RoomOBJ(){
     this->bLight = true;
 }
 
-int Room::toggleInteractable(int nWall, int nIndex){
+int RoomOBJ::toggleInteractable(int nWall, int nIndex){
     int nAction;
     int nDir;
     if(nWall == -1){
@@ -20,18 +20,18 @@ int Room::toggleInteractable(int nWall, int nIndex){
     return nAction;
 }
 
-int Room::getRoomSize(){
+int RoomOBJ::getRoomSize(){
     return this->vecWall.size();
 }
 
-bool Room::getLight(){
+bool RoomOBJ::getLight(){
     return this->bLight;
 }
 
-float Room::getTemperature(){
+float RoomOBJ::getTemperature(){
     return this->fTemperature;
 }
 
-Door* Room::getDoor(int nWall, int nIndex){
+Door* RoomOBJ::getDoor(int nWall, int nIndex){
     return this->vecWall[nWall].getDoor(nIndex);
 }
