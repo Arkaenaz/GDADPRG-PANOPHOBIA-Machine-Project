@@ -33,12 +33,12 @@ void Player::pan(int nDirection){
     }
 }
 
-void Player::move(Door CDoor){
+int Player::move(Door CDoor){
     if(CDoor.getToggled()){
         this->nRoom = CDoor.getRoom();
-        this->nDirection[this->getRoom()] = CDoor.getDirection();
+        return CDoor.getDirection();
     }
-    
+    return -1;
 }
 
 void Player::move(int nRoom, int nDirection){

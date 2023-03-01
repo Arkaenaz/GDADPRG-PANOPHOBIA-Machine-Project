@@ -7,8 +7,17 @@ Description:
 #ifndef UTILITIES_PRINTER_H
 #define UTILITIES_PRINTER_H
 
+#include "../Libraries/CandyTUI/TUIPrinter.h"
+
 namespace utilities {
+    using namespace candyTUI;
     class Interface {
+        protected:
+            TUIPrinter CTUIPrinter;
+
+        public:
+            Interface();
+
         public:
             void printTitleScreen();
             void printLobbyScreen();

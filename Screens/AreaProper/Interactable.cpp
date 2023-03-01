@@ -2,8 +2,8 @@
 
 using namespace gameInteractable;
 
-Interactable::Interactable(int nToggleable){
-    this->nToggleable = nToggleable;
+Interactable::Interactable(int nToggleType){
+    this->nToggleType = nToggleType;
     this->bToggled = true;
 }
 
@@ -20,10 +20,10 @@ int Interactable::getIndex(){
 }
 
 bool Interactable::setToggled(){
-    if(this->nToggleable = 1 && !this->getToggled()){
+    if(this->nToggleType = 1 && !this->getToggled()){
         this->bToggled = true;
     }
-    else if(this->nToggleable = 0 && this->getToggled()){
+    else if(this->nToggleType = 0 && this->getToggled()){
         this->bToggled = false;
     }
     else{

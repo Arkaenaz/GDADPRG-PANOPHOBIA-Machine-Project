@@ -11,12 +11,12 @@ namespace gameInteractable{
     class Interactable{
         protected:
             int nIndex;
-            int nToggleable;
+            int nToggleType;
             bool bToggled;
 
         public:
             Interactable();
-            Interactable(int nToggleable);
+            Interactable(int nToggleType);
         
         public:
             virtual int interact();

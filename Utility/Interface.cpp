@@ -10,6 +10,11 @@ Description:
 #include "..\Libraries\CandyTUI\Config\Settings.h"
 
 using namespace utilities;
+using namespace candyTUI;
+
+Interface::Interface(){
+    this->CTUIPrinter = TUIPrinter();
+}
 
 void Interface::printTitleScreen() {
     printCenter("PANOPHOBIA");        // prototype hadwahdgehaha

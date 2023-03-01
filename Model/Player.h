@@ -35,7 +35,7 @@ namespace gamePlayer{
             Player();
 
             void pan(int nDirection);
-            void move(Door CDoor);
+            int move(Door CDoor);
             void move(int nRoom, int nDirection);
             void interact(int nIndex);
             void changeEquipment();
