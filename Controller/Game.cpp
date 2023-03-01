@@ -74,7 +74,7 @@ void Game::lobby() {
     do {
         if (CLEAR_CONSOLE)
             system("cls");
-        this->CInterface.printLobbyScreen(this->nPlayer);
+        this->CInterface.printLobbyScreen(this->vecPlayer, this->nPlayer);
         cInput = this->CInterface.scanChar();
     } while (cInput != '0');
 }
