@@ -13,4 +13,7 @@ bool SYSTEM_TEXT = true;
 //int SCREEN_WIDTH = 70;
 //int SCREEN_HEIGHT = 41;
 
+#define PASSIVE_LIGHT_ON 0.50;
+#define PASSIVE_LIGHT_OFF 1.00;
+
 #endif

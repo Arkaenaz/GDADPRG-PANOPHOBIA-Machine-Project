@@ -9,6 +9,7 @@ Description: Player class
 
 #include "iostream"
 
+#include "Config/Settings.h"
 #include "../Enum/EnumDirection.h"
 #include "../Utility/Utility.h"
 #include "../Screens/AreaProper.h"
@@ -42,7 +43,7 @@ namespace gamePlayer{
             void changeEquipment();
             void viewJournal();
 
-            void drainSanity(float PASSIVE_DRAIN);
+            void sanityPassiveDrain(bool bLight);
 
             int getRoom();
             int getDirection(int nRoom);
