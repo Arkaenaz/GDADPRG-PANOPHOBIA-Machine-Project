@@ -7,10 +7,10 @@ Description: Foyer wall classes
 #ifndef GAME_ELEMENTS_WALL_FOYER_H
 #define GAME_ELEMENTS_WALL_FOYER_H
 
-#include "../../Wall.h";
-#include "../Interactable/Decor.h";
-#include "../Interactable/Door.h";
-#include "../Interactable/Lightswitch.h";
+#include "../../Wall.h"
+#include "../Interactable/Decor.h"
+#include "../Interactable/Door.h"
+#include "../Interactable/Lightswitch.h"
 
 namespace gameArea{
     using namespace gameInteractable;
