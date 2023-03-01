@@ -3,7 +3,7 @@
 using namespace gameInteractable;
 
 Decor::Decor(int nIndex):Interactable(){
-    this->nToggleable = 0;
+    this->nToggleType = 0;
     this->nIndex = nIndex;
 }
 

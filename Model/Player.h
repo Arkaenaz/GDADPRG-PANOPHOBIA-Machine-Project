@@ -11,7 +11,7 @@ Description: Player class
 
 #include "../Enum/EnumDirection.h"
 #include "../Utility/Utility.h"
-#include "../Screens/AreaProper/Rooms/Interactable/Door.h"
+#include "../Screens/AreaProper.h"
 #include "../Libraries/CandyTUI/TUIPrinter.h"
 #include "../Libraries/CandyTUI/Model/Enum/EnumRooms.h"
 
@@ -19,6 +19,7 @@ namespace gamePlayer{
 
     using namespace std;
     using namespace candyTUI;
+    using namespace gameArea;
     using namespace gameInteractable;
 
     class Player{
@@ -26,7 +27,7 @@ namespace gamePlayer{
             string strName;
 
             int nRoom;
-            int nDirection[6];
+            int aDirection[6];
 
             float fSanity;
             bool isDead;
@@ -34,8 +35,8 @@ namespace gamePlayer{
         public:
             Player();
 
-            void pan(int nDirection);
-            void move(Door CDoor);
+            void pan(int nDirection, int nRoomSize);
+            int move(Door CDoor);
             void move(int nRoom, int nDirection);
             void interact(int nIndex);
             void changeEquipment();
@@ -46,6 +47,8 @@ namespace gamePlayer{
             int getRoom();
             int getDirection(int nRoom);
             float getSanity();
+
+            void setDirection(int nDirection, int nRoom);
     };
 }
 

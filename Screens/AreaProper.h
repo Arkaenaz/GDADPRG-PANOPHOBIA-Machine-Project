@@ -13,6 +13,7 @@ Description: Area class
 #include "AreaProper/Room.h"
 
 namespace gameArea{
+    using namespace gameInteractable;
     class Area{
         private:
             
@@ -21,9 +22,10 @@ namespace gameArea{
         public:
             Area();
 
-            void toggleInteractable(int nRoom, int nWall, int nIndex);
-            
+            int toggleInteractable(int nRoom, int nWall, int nIndex);
 
+            int getRoomSize(int nRoom);
+            Door* getDoor(int nRoom, int nWall, int nIndex);
     };
 }
 

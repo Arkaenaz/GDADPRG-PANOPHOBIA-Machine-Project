@@ -1,6 +1,7 @@
 #include "Room.h"
 
 using namespace gameArea;
+using namespace gameInteractable;
 
 Room::Room(){
     this->bLight = true;
@@ -17,4 +18,20 @@ int Room::toggleInteractable(int nWall, int nIndex){
         nAction = this->vecWall[nWall].toggleInteractable(nIndex,CFloor);
     }
     return nAction;
+}
+
+int Room::getRoomSize(){
+    return this->vecWall.size();
+}
+
+bool Room::getLight(){
+    return this->bLight;
+}
+
+float Room::getTemperature(){
+    return this->fTemperature;
+}
+
+Door* Room::getDoor(int nWall, int nIndex){
+    return this->vecWall[nWall].getDoor(nIndex);
 }

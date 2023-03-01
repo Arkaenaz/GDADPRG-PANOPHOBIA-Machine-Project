@@ -17,7 +17,7 @@ Description: Wall class
 namespace gameArea{
     using namespace gameInteractable;
     class Wall{
-        private:
+        protected:
             std::vector<Interactable> vecDecor;
         
         public:
@@ -28,6 +28,7 @@ namespace gameArea{
             void pickDecor(Decor CDecor);
 
             int toggleInteractable(int nIndex, Floor CFloor);
+            Door* getDoor(int nIndex);
     };
 }
 
