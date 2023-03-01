@@ -56,10 +56,16 @@ void Player::interact(int nIndex){
     
 }
 
-void Player::sanityPassiveDrain(bool bLight){ //called whenever player moves
+void Player::sanityDrain(bool bLight){ //called whenever player does an action(?)
+    float fTotalDrain;
+
     //Passive Drain
-    if(bLight == true) { this->fSanity -= PASSIVE_LIGHT_ON; }
-    else { this->fSanity -= PASSIVE_LIGHT_OFF; }
+    if(bLight == true) { fTotalDrain += PASSIVE_LIGHT_ON; }
+    else { fTotalDrain += PASSIVE_LIGHT_OFF; }
+
+    //Active Drain
+
+    this->fSanity -= fTotalDrain;
 }
 
 int Player::getRoom(){

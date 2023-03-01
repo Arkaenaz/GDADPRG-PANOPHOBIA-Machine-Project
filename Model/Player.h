@@ -43,7 +43,7 @@ namespace gamePlayer{
             void changeEquipment();
             void viewJournal();
 
-            void sanityPassiveDrain(bool bLight);
+            void sanityDrain(bool bLight);
 
             int getRoom();
             int getDirection(int nRoom);
