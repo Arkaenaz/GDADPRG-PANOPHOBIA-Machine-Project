@@ -7,13 +7,24 @@ Description:
 #ifndef CONTROLLERS_GAME_H
 #define CONTROLLERS_GAME_H
 
+#include "vector"
+
 #include "../Utility/Interface.h"
+#include "../Model/Player.h"
 
 namespace controllers {
     using namespace utilities;
+    using namespace gamePlayer;
     class Game {
         private:
+            std::vector<Player> vecPlayer;
             Interface CInterface;
+            int nPlayer;
+            
+        private:
+            std::vector<Player> createPlayerVector();
+            void addPlayer();
+            void removePlayer();
 
         public:
             Game();
@@ -21,6 +32,7 @@ namespace controllers {
         public:
             void title();
             void lobby();
+            void start();
     };
 }
 
