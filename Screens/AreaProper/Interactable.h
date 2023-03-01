@@ -8,15 +8,15 @@ Description: Interactable class
 #define GAME_ELEMENTS_INTERACTABLE_H
 
 namespace gameInteractable{
-    class Interactable{
+    class InteractOBJ{
         protected:
             int nIndex;
             int nToggleType;
             bool bToggled;
 
         public:
-            Interactable();
-            Interactable(int nToggleType);
+            InteractOBJ();
+            InteractOBJ(int nToggleType);
         
         public:
             virtual int interact();

@@ -10,7 +10,7 @@ Description: Decor class
 #include "../../Interactable.h"
 
 namespace gameInteractable{
-    class Decor : public Interactable{
+    class Decor : public InteractOBJ{
         private:
             int nDirection;
 

@@ -2,7 +2,7 @@
 
 using namespace gameInteractable;
 
-Decor::Decor(int nIndex):Interactable(){
+Decor::Decor(int nIndex):InteractOBJ(){
     this->nToggleType = 0;
     this->nIndex = nIndex;
 }

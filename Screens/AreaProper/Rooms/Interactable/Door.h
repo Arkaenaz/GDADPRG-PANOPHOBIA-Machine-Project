@@ -10,7 +10,7 @@ Description: Door class
 #include "../../Interactable.h"
 
 namespace gameInteractable{
-    class Door : public Interactable{
+    class Door : public InteractOBJ{
         private:
             //gives player room index where the door is connected to
             int nRoom;

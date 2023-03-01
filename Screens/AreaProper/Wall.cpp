@@ -7,7 +7,7 @@ Wall::Wall(){
 
 }
 
-void Wall::pickDecor(Interactable CInteractable){
+void Wall::pickDecor(InteractOBJ CInteractable){
     //empty but leaving this here just in case
 }
 
@@ -29,9 +29,9 @@ Door* Wall::getDoor(int nIndex){
     return pDoor;
 }
 
-void Wall::createDecor(int nStart, int nSize){
+void Wall::createDecor(int nSize){
     int i;
-    for(i = nStart; i < nSize; i++){
+    for(i = this->vecDecor.size(); i < nSize; i++){
         this->vecDecor.push_back(Decor(i));
     }
 }

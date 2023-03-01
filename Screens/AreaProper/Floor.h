@@ -16,7 +16,7 @@ namespace gameArea{
     using namespace gameInteractable;
     class Floor{
         private:
-            std::vector<Interactable> vecDecor;
+            std::vector<InteractOBJ> vecDecor;
 
         public:
             Floor();

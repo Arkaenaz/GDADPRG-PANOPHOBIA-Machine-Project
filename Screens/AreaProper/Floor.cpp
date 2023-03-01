@@ -7,7 +7,7 @@ Floor::Floor(){
 
 }
 
-void Floor::dropDecor(Interactable CDecor){
+void Floor::dropDecor(InteractOBJ CDecor){
     this->vecDecor.push_back(CDecor);
 }
 
