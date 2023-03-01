@@ -2,6 +2,11 @@
 
 using namespace gameInteractable;
 
+InteractOBJ::InteractOBJ(){
+    this->nToggleType = -1;
+    this->bToggled = true;
+}
+
 InteractOBJ::InteractOBJ(int nToggleType){
     this->nToggleType = nToggleType;
     this->bToggled = true;
