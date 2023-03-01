@@ -9,7 +9,6 @@ Description: Floor class
 
 #include "vector"
 
-#include "Wall.h"
 #include "Interactable.h"
 
 namespace gameArea{
