@@ -9,6 +9,13 @@ Members: ARGUELLES, Joachim
 #include "iostream"
 
 #include "Utility/Interface.cpp"
+#include "Utility/Utility.cpp"
+
+#include "Model/Player.cpp"
+
+#include "Screens/AreaProper.cpp"
+
+#include "Screens/AreaProper/Interactable.cpp"
 
 #include "Controller/Game.cpp"
 
