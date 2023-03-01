@@ -16,7 +16,7 @@ Description: Room class
 namespace gameArea{
     using namespace gameInteractable;
     class Room{
-        private:
+        protected:
             Floor CFloor;
             std::vector<Wall> vecWall;            
             bool bLight;
@@ -28,6 +28,7 @@ namespace gameArea{
         public:
             int toggleInteractable(int nWall, int nIndex);
 
+            int getRoomSize();
             bool getLight();
             float getTemperature();
             Door* getDoor(int nWall, int nIndex);

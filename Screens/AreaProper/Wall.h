@@ -17,7 +17,7 @@ Description: Wall class
 namespace gameArea{
     using namespace gameInteractable;
     class Wall{
-        private:
+        protected:
             std::vector<Interactable> vecDecor;
         
         public:

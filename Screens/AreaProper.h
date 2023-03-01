@@ -24,6 +24,7 @@ namespace gameArea{
 
             int toggleInteractable(int nRoom, int nWall, int nIndex);
 
+            int getRoomSize(int nRoom);
             Door* getDoor(int nRoom, int nWall, int nIndex);
     };
 }

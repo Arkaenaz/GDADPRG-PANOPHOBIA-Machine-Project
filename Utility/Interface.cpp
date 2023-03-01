@@ -30,6 +30,30 @@ void Interface::printLobbyScreen() {
     std::cout << std::endl;
 }
 
+void Interface::turnMultiple(int nNewDirection, int nRoomSize, Player CPlayer){
+
+    int nOldDirection = CPlayer.getDirection(CPlayer.getRoom());
+    //calculate shortest turning distance
+    int nDistanceRight = std::min(std::abs(nNewDirection-nOldDirection), nRoomSize - std::abs(nNewDirection-nOldDirection));
+    int nDistanceLeft = std::min(std::abs(nOldDirection-nNewDirection), nRoomSize - std::abs(nOldDirection-nNewDirection));
+    bool bRight = (nDistanceRight < nDistanceLeft) ? true : false;
+
+    while(CPlayer.getDirection(CPlayer.getRoom()) != nNewDirection){
+        //turning right is shorter
+        if(bRight){
+            nOldDirection += 1;
+            this->CTUIPrinter.turnRight(static_cast<Rooms>(CPlayer.getRoom()));
+        }
+        //turning left is shorter
+        else{
+            nOldDirection -= 1;
+            this->CTUIPrinter.turnLeft(static_cast<Rooms>(CPlayer.getRoom()));
+        }
+        errMinMax(&nOldDirection,nRoomSize);
+    }
+    
+}
+
 char Interface::scanChar() {
     char cInput;
     std::cout << "[INPUT]: ";

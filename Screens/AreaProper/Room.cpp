@@ -20,6 +20,10 @@ int Room::toggleInteractable(int nWall, int nIndex){
     return nAction;
 }
 
+int Room::getRoomSize(){
+    return this->vecWall.size();
+}
+
 bool Room::getLight(){
     return this->bLight;
 }
