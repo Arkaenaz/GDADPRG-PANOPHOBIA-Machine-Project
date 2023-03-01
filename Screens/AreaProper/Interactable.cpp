@@ -2,24 +2,24 @@
 
 using namespace gameInteractable;
 
-Interactable::Interactable(int nToggleType){
+InteractOBJ::InteractOBJ(int nToggleType){
     this->nToggleType = nToggleType;
     this->bToggled = true;
 }
 
-int Interactable::interact(){
+int InteractOBJ::interact(){
     setToggled();
 }
 
-bool Interactable::getToggled(){
+bool InteractOBJ::getToggled(){
     return this->bToggled;
 }
 
-int Interactable::getIndex(){
+int InteractOBJ::getIndex(){
     return this->nIndex;
 }
 
-bool Interactable::setToggled(){
+bool InteractOBJ::setToggled(){
     if(this->nToggleType = 1 && !this->getToggled()){
         this->bToggled = true;
     }
