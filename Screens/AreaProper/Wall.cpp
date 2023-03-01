@@ -29,4 +29,10 @@ Door* Wall::getDoor(int nIndex){
     return pDoor;
 }
 
+void Wall::createDecor(int nStart, int nSize){
+    int i;
+    for(i = nStart; i < nSize; i++){
+        this->vecDecor.push_back(Decor(i));
+    }
+}
 

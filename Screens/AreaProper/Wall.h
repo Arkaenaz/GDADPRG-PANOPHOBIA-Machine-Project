@@ -29,6 +29,9 @@ namespace gameArea{
 
             int toggleInteractable(int nIndex, Floor CFloor);
             Door* getDoor(int nIndex);
+
+        protected:
+            void createDecor(int nStart, int nSize);
     };
 }
 
