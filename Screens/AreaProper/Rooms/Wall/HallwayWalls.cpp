@@ -4,7 +4,7 @@ using namespace gameArea;
 using namespace gameInteractable;
 
 HallwayWall1::HallwayWall1():WallOBJ(){
-    //this->vecDecor.push_back(Door(living room, nDirection));
+    this->vecDecor.push_back(Door(-1, -1));
     this->createDecor(6);
 }
 
@@ -12,16 +12,16 @@ HallwayWall2::HallwayWall2():WallOBJ(){
     //none
 }
 HallwayWall3::HallwayWall3():WallOBJ(){
-    //this->vecDecor.push_back(Door(basement, nDirection));
+    this->vecDecor.push_back(Door(-1, -1));
     this->createDecor(4);
 }
 HallwayWall4::HallwayWall4():WallOBJ(){
-    //this->vecDecor.push_back(Door(dining room, nDirection));
-    //this->vecDecor.push_back(Door(kitchen, nDirection));
+    this->vecDecor.push_back(Door(-1, -1));
+    this->vecDecor.push_back(Door(-1, -1));
     this->createDecor(6);
 }
 HallwayWall5::HallwayWall5():WallOBJ(){
-    //this->vecDecor.push_back(Door(utility, nDirection));
+    this->vecDecor.push_back(Door(-1, -1));
     this->createDecor(4);
 }
 HallwayWall6::HallwayWall6():WallOBJ(){
