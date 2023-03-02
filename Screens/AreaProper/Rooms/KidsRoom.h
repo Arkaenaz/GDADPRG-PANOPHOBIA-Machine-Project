@@ -1,6 +1,3 @@
-
-
-
 #ifndef GAME_ELEMENTS_ROOM_KIDS_H
 #define GAME_ELEMENTS_ROOM_KIDS_H
 
