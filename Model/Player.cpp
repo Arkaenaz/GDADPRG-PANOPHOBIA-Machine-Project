@@ -49,6 +49,9 @@ int Player::pan(int nDirection, int nRoomSize){
 
 int Player::move(Door CDoor){
     if(CDoor.getToggled()){
+        if(CDoor.getRoom()==-1){
+            return -1;
+        }
         this->nRoom = CDoor.getRoom();
         return CDoor.getDirection();
     }
