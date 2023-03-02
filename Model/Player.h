@@ -29,6 +29,8 @@ namespace gamePlayer{
 
             int nRoom;
             int aDirection[6];
+            //for knowing which direction you were looking at prior to looking at the floor
+            int nPrevDirection;
 
             float fSanity;
             bool isDead;
@@ -36,7 +38,7 @@ namespace gamePlayer{
         public:
             Player();
 
-            void pan(int nDirection, int nRoomSize);
+            int pan(int nDirection, int nRoomSize);
             int move(Door CDoor);
             void move(int nRoom, int nDirection);
             void interact(int nIndex);

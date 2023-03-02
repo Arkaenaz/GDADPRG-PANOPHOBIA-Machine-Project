@@ -10,22 +10,30 @@ Player::Player(){
     std::copy(aDirection+0, aDirection+6, this->aDirection+0);
 }
 
-void Player::pan(int nDirection, int nRoomSize){
-    switch(nDirection){
-        //right
-        case 0:
-            this->aDirection[nRoom] += 1;
-            break;
-        //left
-        case 1:
-            this->aDirection[nRoom] -= 1;
-            break;
-        //up or down
-        case 2:
-            this->aDirection[nRoom] = -1;
-            break;
+int Player::pan(int nDirection, int nRoomSize){
+    if(this->aDirection[nRoom] == -1){
+        this->aDirection[nRoom] = this->nPrevDirection;
+        return 0;
     }
-    errMinMax(&this->aDirection[nRoom],nRoomSize);
+    else{
+        switch(nDirection){
+            //right
+            case 0:
+                this->aDirection[nRoom] += 1;
+                errMinMax(&this->aDirection[nRoom],nRoomSize);
+                return 1;
+            //left
+            case 1:
+                this->aDirection[nRoom] -= 1;
+                errMinMax(&this->aDirection[nRoom],nRoomSize);
+                return -1;
+            //up or down
+            case 2:
+                this->nPrevDirection = this->aDirection[nRoom];
+                this->aDirection[nRoom] = -1;
+                return 0;
+        }
+    }
     /*
     switch(nRoom){
         case 0:case 2:case 3:case 4:case 5:
