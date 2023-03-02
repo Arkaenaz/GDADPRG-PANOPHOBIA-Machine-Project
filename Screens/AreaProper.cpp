@@ -2,10 +2,12 @@
 
 using namespace gameArea;
 
+
 Area::Area(){
     //do something here
     //make the rooms and all that
 }
+
 
 int Area::toggleInteractable(int nRoom, int nWall, int nIndex){
     return this->vecRoom[nRoom].toggleInteractable(nWall, nIndex);

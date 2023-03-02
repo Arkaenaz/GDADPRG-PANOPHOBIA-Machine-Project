@@ -3,13 +3,20 @@
 using namespace gameArea;
 using namespace gameInteractable;
 using namespace gamePlayer;
-//using namespace candyTUI;
 
 Player::Player(){
     int aDirection[] = {0,0,0,0,0,0};
     std::copy(aDirection+0, aDirection+6, this->aDirection+0);
 }
 
+/*Player::pan   panning of the perspective
+    return -1           = pan left
+            0           = look up/down
+            1           = pan right
+
+    @param nDirection   = in which direction to look at
+    @param nRoomSize    = max number of directions/walls in the given room
+*/
 int Player::pan(int nDirection, int nRoomSize){
     if(this->aDirection[nRoom] == -1){
         this->aDirection[nRoom] = this->nPrevDirection;
@@ -34,19 +41,14 @@ int Player::pan(int nDirection, int nRoomSize){
                 return 0;
         }
     }
-    /*
-    switch(nRoom){
-        case 0:case 2:case 3:case 4:case 5:
-        
-            errMinMax(&this->aDirection[nRoom],4);
-            break;
-        case 1:
-            errMinMax(&this->aDirection[nRoom],8);
-            break;
-    }
-    */
 }
 
+/*Player::move  handles player's movement between rooms
+    return -1           = invalid move, due to empty/closed door
+            nDirection  = move success, direction/wall to look at
+
+    @param CDOOR        = door class, function retrieves nRoom and nDirection from here
+*/
 int Player::move(Door CDoor){
     if(CDoor.getToggled()){
         if(CDoor.getRoom()==-1){
@@ -58,15 +60,25 @@ int Player::move(Door CDoor){
     return -1;
 }
 
-void Player::move(int nRoom, int nDirection){
-    this->nRoom = nRoom;
-    this->aDirection[nRoom] = nDirection;
+/*Player::interact   handling of interact action
+    return -1           = invalid/error
+            0           = decor drop
+            1           = decor pick up
+            2           = light off
+            3           = light on
+            4           = door close
+            5           = door open
+
+    @param CArea        = area class
+    @param nIndex       = which index to interact with
+*/
+int Player::interact(Area CArea, int nIndex){
+    return CArea.toggleInteractable(this->getRoom(),this->getDirection(this->getRoom()),nIndex);
 }
 
-void Player::interact(int nIndex){
-    
-}
-
+/*Player::sanityDrain   sanity drain, called whenever player does an action
+    @param bLight       = is the room's light on or not?
+*/
 void Player::sanityDrain(bool bLight){ //called whenever player does an action(?)
     float fTotalDrain;
 
@@ -79,22 +91,38 @@ void Player::sanityDrain(bool bLight){ //called whenever player does an action(?
     this->fSanity -= fTotalDrain;
 }
 
+/*Player::getRoom   returns player's current room
+    return nRoom        = player's current room
+*/
 int Player::getRoom(){
     return this->nRoom;
 }
 
+/*Player::getDirection   returns player's current direction in nRoom
+    return nRoom        = player's current direction in nRoom
+*/
 int Player::getDirection(int nRoom){
     return this->aDirection[nRoom];
 }
 
+/*Player::getSanity  returns player's current sanity
+    return fSanity      = player's current sanity
+*/
 float Player::getSanity(){
     return this->fSanity;
 }
 
+/*Player::getName  returns player's name
+    return strName      = player's name
+*/
 string Player::getName() {
     return this->strName;
 }
 
+/*Player::getName  sets player's direction
+    @param nDirection   = direction to set to
+    @param nRoom        = which direction to set
+*/
 void Player::setDirection(int nDirection,int nRoom){
     this->aDirection[nRoom] = nDirection;
 }

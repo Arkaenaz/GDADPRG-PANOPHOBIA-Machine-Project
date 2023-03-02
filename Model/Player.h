@@ -40,8 +40,8 @@ namespace gamePlayer{
 
             int pan(int nDirection, int nRoomSize);
             int move(Door CDoor);
-            void move(int nRoom, int nDirection);
-            void interact(int nIndex);
+            //void move(int nRoom, int nDirection);
+            int interact(Area CArea, int nIndex);
             void changeEquipment();
             void viewJournal();
 
