@@ -32,6 +32,7 @@ int Floor::toggleInteractable(int nIndex, gameArea::Wall CWall){
         CWall.pickDecor(this->vecDecor[nIndex]);
         this->vecDecor.erase(vecDecor.begin()+nIndex);
     }
+    return nAction;
 }
 
 /*Floor::getInteractableIndex   returns original index of interactable

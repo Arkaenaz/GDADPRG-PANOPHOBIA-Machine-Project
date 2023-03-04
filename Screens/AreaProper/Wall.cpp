@@ -33,6 +33,7 @@ int gameArea::Wall::toggleInteractable(int nIndex, Floor CFloor){
         CFloor.dropDecor(this->vecDecor[nIndex]);
         //this->vecDecor[nIndex].setToggled();
     }
+    return nAction;
 }
 
 /*gameArea::Wall::getInteractIndices   returns vecIndex
@@ -105,7 +106,7 @@ Door* gameArea::Wall::getDoor(int nIndex){
 */
 void gameArea::Wall::createDecor(int nSize){
     int i = this->vecDecor.size();
-    for(i ; i < nSize ; i++){
+    for(; i < nSize ; i++){
         this->vecDecor.push_back(Decor(i));
     }
 }

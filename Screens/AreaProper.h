@@ -17,7 +17,7 @@ namespace gameArea{
     class Area{
         private:
             
-            std::vector<gameArea::Room> vecRoom;
+            std::vector<Room> vecRoom;
 
         public:
             Area();

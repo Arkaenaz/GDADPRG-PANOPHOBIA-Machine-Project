@@ -11,7 +11,7 @@ Description: Room class
 #include "vector"
 
 namespace gameArea{
-   class gameArea::Wall;
+   class Wall;
 }
 
 #include "Wall.h"
@@ -21,7 +21,7 @@ namespace gameArea{
     class Room{
         protected:
             Floor CFloor;
-            std::vector<gameArea::Wall> vecWall;            
+            std::vector<Wall> vecWall;            
             bool bLight;
             float fTemperature;
 

@@ -47,6 +47,7 @@ int Player::pan(int nDirection, int nRoomSize){
                 return 0;
         }
     }
+    return -1;
 }
 
 /*Player::move  handles player's movement between rooms
@@ -86,7 +87,7 @@ int Player::interact(Area CArea, int nIndex){
     @param bLight       = is the room's light on or not?
 */
 void Player::sanityDrain(bool bLight){ //called whenever player does an action(?)
-    float fTotalDrain;
+    float fTotalDrain = 0.0;
 
     //Passive Drain
     if(bLight == true) { fTotalDrain += PASSIVE_LIGHT_ON; }

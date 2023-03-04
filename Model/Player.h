@@ -9,7 +9,7 @@ Description: Player class
 
 #include "iostream"
 
-#include "Config/Settings.h"
+#include "../Config/Settings.h"
 #include "../Enum/EnumDirection.h"
 #include "../Utility/Utility.h"
 #include "../Screens/AreaProper.h"
