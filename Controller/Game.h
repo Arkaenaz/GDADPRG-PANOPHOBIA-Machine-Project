@@ -15,9 +15,11 @@ Description:
 namespace controllers {
     using namespace utilities;
     using namespace gamePlayer;
+    using namespace gameArea;
     class Game {
         private:
             std::vector<Player> vecPlayer;
+            Area CArea;
             Interface CInterface;
             int nPlayer;
             
