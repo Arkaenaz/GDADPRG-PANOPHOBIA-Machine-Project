@@ -10,7 +10,7 @@ Description: Lightswitch class
 #include "../../Interactable.h"
 
 namespace gameInteractable{
-    class Lightswitch : public InteractOBJ{
+    class Lightswitch : public gameInteractable::Interactable{
         public:
             Lightswitch();
 

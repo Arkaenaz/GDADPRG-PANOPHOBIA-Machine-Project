@@ -2,11 +2,11 @@
 
 using namespace gameInteractable;
 
-Door::Door():InteractOBJ(){
+Door::Door():gameInteractable::Interactable(){
     this->bToggled = false;
 }
 
-Door::Door(int nRoom, int nDirection):InteractOBJ(){
+Door::Door(int nRoom, int nDirection):gameInteractable::Interactable(){
     this->nToggleType = -1;
     this->bToggled = false;
     this->nRoom = nRoom;

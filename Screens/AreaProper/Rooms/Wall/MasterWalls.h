@@ -8,19 +8,19 @@
 
 namespace gameArea{
     using namespace gameInteractable;
-    class MasterWall1 : public WallOBJ{
+    class MasterWall1 : public gameArea::Wall{
         public:
             MasterWall1();
     };
-    class MasterWall2 : public WallOBJ{
+    class MasterWall2 : public gameArea::Wall{
         public:
             MasterWall2();
     };
-    class MasterWall3 : public WallOBJ{
+    class MasterWall3 : public gameArea::Wall{
         public:
             MasterWall3();
     };
-    class MasterWall4 : public WallOBJ{
+    class MasterWall4 : public gameArea::Wall{
         public:
             MasterWall4();
     };

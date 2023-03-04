@@ -3,18 +3,18 @@
 using namespace gameArea;
 using namespace gameInteractable;
 
-WallOBJ::WallOBJ(){
+gameArea::Wall::Wall(){
 
 }
 
-/*WallOBJ::pickDecor   toggles CDecor's toggle, essentially placing it back onto the wall by enabling it
+/*gameArea::Wall::pickDecor   toggles CDecor's toggle, essentially placing it back onto the wall by enabling it
     @param CDecor       = Decor to toggle
 */
-void WallOBJ::pickDecor(Decor CDecor){
+void gameArea::Wall::pickDecor(Decor CDecor){
     this->vecDecor[CDecor.getIndex()].setToggled(true);
 }
 
-/*WallOBJ::toggleInteractable  handles interact action
+/*gameArea::Wall::toggleInteractable  handles interact action
     return -1           = invalid/error
             0           = decor drop
             1           = decor pick up
@@ -26,7 +26,7 @@ void WallOBJ::pickDecor(Decor CDecor){
     @param nIndex       = interactable index
     @param CFloor       = Floor
 */
-int WallOBJ::toggleInteractable(int nIndex, Floor CFloor){
+int gameArea::Wall::toggleInteractable(int nIndex, Floor CFloor){
     int nAction = this->vecDecor[nIndex].interact();
     //object is dropped
     if(nAction == 0){
@@ -35,29 +35,75 @@ int WallOBJ::toggleInteractable(int nIndex, Floor CFloor){
     }
 }
 
-/*WallOBJ::getDoor   returns InteractOBJ
-    return vecDecor     = InteractOBJ
+/*gameArea::Wall::getInteractIndices   returns vecIndex
+    return vecIndex     = vector of valid interactables, only false if decor is dropped/untoggled
+*/
+std::vector<bool> gameArea::Wall::getInteractIndices(){
+    int nSize = this->getInteractableSize();
+    int i;
+    std::vector<bool> vecIndex;
+    for(i = 0; i < nSize; i++){
+        Decor* pDecor = dynamic_cast<Decor*>(&this->vecDecor[i]);
+        if(pDecor){
+            //problems might arise if i try to use getToggled() on a null object so i separated the condition from previous
+            if(!pDecor->getToggled()){
+                vecIndex.push_back(false);
+            }
+        }
+        vecIndex.push_back(true);
+    }
+    return vecIndex;
+}
+
+/*gameArea::Wall::getDoorIndices   returns vecIndex
+    return vecIndex     = vector of door bToggled values
+*/
+std::vector<bool> gameArea::Wall::getDoorIndices(){
+    int nSize = this->getInteractableSize();
+    int i;
+    std::vector<bool> vecIndex;
+    for(i = 0; i < nSize; i++){
+        Door* pDoor = this->getDoor(i);
+        if(pDoor){
+            vecIndex.push_back(pDoor->getToggled());
+        }
+        else{
+            i = nSize; //force loop to stop if no more doors, assuming doors are always the first indices in the vector
+        }
+    }
+    return vecIndex;
+}
+
+/*gameArea::Wall::getInteractableSize   returns gameInteractable::Interactable
+    return size         = vecDecor size
+*/
+int gameArea::Wall::getInteractableSize(){
+    return this->vecDecor.size();
+}
+
+/*gameArea::Wall::getInteractable   returns gameInteractable::Interactable
+    return vecDecor     = gameInteractable::Interactable
 
     @param nIndex       = interactable index
 */
-InteractOBJ WallOBJ::getInteractable(int nIndex){
+gameInteractable::Interactable gameArea::Wall::getInteractable(int nIndex){
     return this->vecDecor[nIndex];
 }
 
-/*WallOBJ::getDoor   returns Door*
+/*gameArea::Wall::getDoor   returns Door*
     return getDoor      = Door* pointer
 
     @param nIndex       = door index
 */
-Door* WallOBJ::getDoor(int nIndex){
+Door* gameArea::Wall::getDoor(int nIndex){
     Door* pDoor = dynamic_cast<Door*>(&this->vecDecor[nIndex]);
     return pDoor;
 }
 
-/*WallOBJ::createDecor   creates Decor objects until vecDecor size hits nSize
+/*gameArea::Wall::createDecor   creates Decor objects until vecDecor size hits nSize
     @param nSize        = target size
 */
-void WallOBJ::createDecor(int nSize){
+void gameArea::Wall::createDecor(int nSize){
     int i = this->vecDecor.size();
     for(i ; i < nSize ; i++){
         this->vecDecor.push_back(Decor(i));

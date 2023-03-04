@@ -2,47 +2,47 @@
 
 using namespace gameInteractable;
 
-InteractOBJ::InteractOBJ(){
+gameInteractable::Interactable::Interactable(){
     this->nToggleType = -1;
     this->bToggled = true;
 }
 
-InteractOBJ::InteractOBJ(int nToggleType){
+gameInteractable::Interactable::Interactable(int nToggleType){
     this->nToggleType = nToggleType;
     this->bToggled = true;
 }
 
-/*InteractOBJ::interact   returns value from setToggled()
+/*gameInteractable::Interactable::interact   returns value from setToggled()
 */
-int InteractOBJ::interact(){
+int gameInteractable::Interactable::interact(){
     return this->setToggled();
 }
 
-/*InteractOBJ::getToggled   returns value from setToggled()
+/*gameInteractable::Interactable::getToggled   returns value from setToggled()
     return bToggled     = toggled boolean
 */
-bool InteractOBJ::getToggled(){
+bool gameInteractable::Interactable::getToggled(){
     return this->bToggled;
 }
 
-/*InteractOBJ::getIndex   return index on wall, used for index consistency
+/*gameInteractable::Interactable::getIndex   return index on wall, used for index consistency
     return nIndex       = index on the wall according to interactable manual
 */
-int InteractOBJ::getIndex(){
+int gameInteractable::Interactable::getIndex(){
     return this->nIndex;
 }
 
-/*InteractOBJ::getDirection   direction/wall index
+/*gameInteractable::Interactable::getDirection   direction/wall index
     return nDirection   = direction/wall
 */
-int InteractOBJ::getDirection(){
+int gameInteractable::Interactable::getDirection(){
     return this->nDirection;
 }
 
-/*InteractOBJ::setToggled   toggles the interactable according to its toggle type
+/*gameInteractable::Interactable::setToggled   toggles the interactable according to its toggle type
     return getToggled() = bToggled value
 */
-bool InteractOBJ::setToggled(){
+bool gameInteractable::Interactable::setToggled(){
     if((this->nToggleType = 1) && (!this->getToggled())){
         this->bToggled = true;
     }
@@ -55,7 +55,7 @@ bool InteractOBJ::setToggled(){
     return this->getToggled();
 }
 
-bool InteractOBJ::setToggled(bool bToggled){
+bool gameInteractable::Interactable::setToggled(bool bToggled){
     this->bToggled = bToggled;
     return this->getToggled();
 }

@@ -3,17 +3,17 @@
 using namespace gameArea;
 using namespace gameInteractable;
 
-MasterWall1::MasterWall1():WallOBJ(){
+MasterWall1::MasterWall1():gameArea::Wall(){
     //none
 }
-MasterWall2::MasterWall2():WallOBJ(){
+MasterWall2::MasterWall2():gameArea::Wall(){
     this->vecDecor.push_back(Door(1, 3));
     this->createDecor(7);
     this->vecDecor.push_back(Lightswitch());
 }
-MasterWall3::MasterWall3():WallOBJ(){
+MasterWall3::MasterWall3():gameArea::Wall(){
     this->createDecor(6);
 }
-MasterWall4::MasterWall4():WallOBJ(){
+MasterWall4::MasterWall4():gameArea::Wall(){
     //none
 }

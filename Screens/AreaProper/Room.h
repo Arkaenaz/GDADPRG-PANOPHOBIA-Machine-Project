@@ -11,22 +11,22 @@ Description: Room class
 #include "vector"
 
 namespace gameArea{
-   class WallOBJ;
+   class gameArea::Wall;
 }
 
 #include "Wall.h"
 
 namespace gameArea{
     using namespace gameInteractable;
-    class RoomOBJ{
+    class Room{
         protected:
             Floor CFloor;
-            std::vector<WallOBJ> vecWall;            
+            std::vector<gameArea::Wall> vecWall;            
             bool bLight;
             float fTemperature;
 
         public:
-            RoomOBJ();
+            Room();
 
         public:
             int toggleInteractable(int nWall, int nIndex);
@@ -34,6 +34,8 @@ namespace gameArea{
             int getRoomSize();
             bool getLight();
             float getTemperature();
+            std::vector<bool> getInteractIndices(int nWall);
+            std::vector<bool> getDoorIndices(int nWall);
             Door* getDoor(int nWall, int nIndex);
     };
 }

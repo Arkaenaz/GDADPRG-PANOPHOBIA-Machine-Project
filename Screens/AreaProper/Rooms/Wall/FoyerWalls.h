@@ -14,19 +14,19 @@ Description: Foyer wall classes
 
 namespace gameArea{
     using namespace gameInteractable;
-    class FoyerWall1 : public WallOBJ{
+    class FoyerWall1 : public gameArea::Wall{
         public:
             FoyerWall1();
     };
-    class FoyerWall2 : public WallOBJ{
+    class FoyerWall2 : public gameArea::Wall{
         public:
             FoyerWall2();
     };
-    class FoyerWall3 : public WallOBJ{
+    class FoyerWall3 : public gameArea::Wall{
         public:
             FoyerWall3();
     };
-    class FoyerWall4 : public WallOBJ{
+    class FoyerWall4 : public gameArea::Wall{
         public:
             FoyerWall4();
     };

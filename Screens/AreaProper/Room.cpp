@@ -3,11 +3,11 @@
 using namespace gameArea;
 using namespace gameInteractable;
 
-RoomOBJ::RoomOBJ(){
+gameArea::Room::Room(){
     this->bLight = true;
 }
 
-/*RoomOBJ::toggleInteractable  handles interact action
+/*gameArea::Room::toggleInteractable  handles interact action
     return -1           = invalid/error
             0           = decor drop
             1           = decor pick up
@@ -19,7 +19,7 @@ RoomOBJ::RoomOBJ(){
     @param nWall        = wall index
     @param nIndex       = interactable index
 */
-int RoomOBJ::toggleInteractable(int nWall, int nIndex){
+int gameArea::Room::toggleInteractable(int nWall, int nIndex){
     int nAction;
     int nDir;
     if(nWall == -1){
@@ -38,33 +38,52 @@ int RoomOBJ::toggleInteractable(int nWall, int nIndex){
     return nAction;
 }
 
-/*RoomOBJ::getRoomSize   returns room size (vecWall size)
+/*gameArea::Room::getRoomSize   returns room size (vecWall size)
     return vecWall      = vecWall size
 */
-int RoomOBJ::getRoomSize(){
+int gameArea::Room::getRoomSize(){
     return this->vecWall.size();
 }
 
-/*RoomOBJ::getLight   returns light state
+/*gameArea::Room::getLight   returns light state
     return bLight       = light toggled on/off
 */
-bool RoomOBJ::getLight(){
+bool gameArea::Room::getLight(){
     return this->bLight;
 }
 
-/*RoomOBJ::getLight   returns temperature
+/*gameArea::Room::getLight   returns temperature
     return fTemperature = room temperature
 */
-float RoomOBJ::getTemperature(){
+float gameArea::Room::getTemperature(){
     return this->fTemperature;
 }
 
-/*RoomOBJ::getDoor   returns Door*
+/*gameArea::Room::getInteractIndices   returns vecIndex
+    return vecIndex     = vector of valid interactables, this is everything except disabled decor (dropped decor)
+*/
+std::vector<bool> gameArea::Room::getInteractIndices(int nWall){
+    if(nWall == -1){
+        return this->CFloor.getInteractIndices();
+    }
+    else{
+        return this->vecWall[nWall].getInteractIndices();
+    }
+}
+
+/*gameArea::Room::getDoorIndices   returns vecIndex
+    return vecIndex     = vector of door bToggled values
+*/
+std::vector<bool> gameArea::Room::getDoorIndices(int nWall){
+    return this->vecWall[nWall].getDoorIndices();
+}
+
+/*gameArea::Room::getDoor   returns Door*
     return getDoor      = Door* pointer
 
     @param nWall        = wall index
     @param nIndex       = door index
 */
-Door* RoomOBJ::getDoor(int nWall, int nIndex){
+Door* gameArea::Room::getDoor(int nWall, int nIndex){
     return this->vecWall[nWall].getDoor(nIndex);
 }

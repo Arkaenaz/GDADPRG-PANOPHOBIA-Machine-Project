@@ -12,7 +12,7 @@ Description: Hallway room class
 
 namespace gameArea{
     using namespace gameInteractable;
-    class HallwayRoom : public RoomOBJ{
+    class HallwayRoom : public gameArea::Room{
         public:
             HallwayRoom();
     };

@@ -8,19 +8,19 @@
 
 namespace gameArea{
     using namespace gameInteractable;
-    class KidsWall1 : public WallOBJ{
+    class KidsWall1 : public gameArea::Wall{
         public:
             KidsWall1();
     };
-    class KidsWall2 : public WallOBJ{
+    class KidsWall2 : public gameArea::Wall{
         public:
             KidsWall2();
     };
-    class KidsWall3 : public WallOBJ{
+    class KidsWall3 : public gameArea::Wall{
         public:
             KidsWall3();
     };
-    class KidsWall4 : public WallOBJ{
+    class KidsWall4 : public gameArea::Wall{
         public:
             KidsWall4();
     };

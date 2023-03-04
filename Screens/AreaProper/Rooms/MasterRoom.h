@@ -6,7 +6,7 @@
 
 namespace gameArea{
     using namespace gameInteractable;
-    class MasterRoom : public RoomOBJ{
+    class MasterRoom : public gameArea::Room{
         public:
             MasterRoom();
     };

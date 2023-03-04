@@ -10,7 +10,7 @@ Floor::Floor(){
 /*Floor::dropDecor   pushes CDecor into vecDecor
     @param CDecor       = Decor push
 */
-void Floor::dropDecor(InteractOBJ CDecor){
+void Floor::dropDecor(gameInteractable::Interactable CDecor){
     this->vecDecor.push_back(CDecor);
 }
 
@@ -24,9 +24,9 @@ void Floor::dropDecor(InteractOBJ CDecor){
             5           = door open
 
     @param nIndex       = interactable index
-    @param CWall        = WallOBJ
+    @param CWall        = gameArea::Wall
 */
-int Floor::toggleInteractable(int nIndex, WallOBJ CWall){
+int Floor::toggleInteractable(int nIndex, gameArea::Wall CWall){
     int nAction = this->vecDecor[nIndex].interact();
     if(nAction == 1){
         CWall.pickDecor(this->vecDecor[nIndex]);
@@ -45,3 +45,31 @@ int Floor::getInteractableWall(int nIndex){
     return this->vecDecor[nIndex].getDirection();
 }
 
+/*Floor::getInteractIndices   returns vecIndex
+    return vecIndex     = vector of interactables on floor
+*/
+std::vector<bool> Floor::getInteractIndices(){
+    int nSize = this->getInteractableSize();
+    int i;
+    std::vector<bool> vecIndex;
+    for(i = 0; i < nSize; i++){
+        vecIndex.push_back(true);
+    }
+    return vecIndex;
+}
+
+/*Floor::getInteractableSize   returns gameInteractable::Interactable
+    return size         = vecDecor size
+*/
+int Floor::getInteractableSize(){
+    return this->vecDecor.size();
+}
+
+/*Floor::getInteractable   returns gameInteractable::Interactable
+    return vecDecor     = gameInteractable::Interactable
+
+    @param nIndex       = interactable index
+*/
+gameInteractable::Interactable Floor::getInteractable(int nIndex){
+    return this->vecDecor[nIndex];
+}

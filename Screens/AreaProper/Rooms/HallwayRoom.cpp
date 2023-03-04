@@ -2,7 +2,7 @@
 
 using namespace gameArea;
 
-HallwayRoom::HallwayRoom():RoomOBJ(){
+HallwayRoom::HallwayRoom():gameArea::Room(){
     this->vecWall.push_back(HallwayWall1());
     this->vecWall.push_back(HallwayWall2());
     this->vecWall.push_back(HallwayWall3());

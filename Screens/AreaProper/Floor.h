@@ -15,18 +15,20 @@ namespace gameArea{
     using namespace gameInteractable;
     class Floor{
         private:
-            std::vector<InteractOBJ> vecDecor;
+            std::vector<gameInteractable::Interactable> vecDecor;
 
         public:
             Floor();
 
         public:
-            void dropDecor(InteractOBJ CDecor);
-            int toggleInteractable(int nIndex, WallOBJ CWall);
+            void dropDecor(gameInteractable::Interactable CDecor);
+            int toggleInteractable(int nIndex, gameArea::Wall CWall);
 
             int getInteractableIndex(int nIndex);
             int getInteractableWall(int nIndex);
-            InteractOBJ getInteractable(int nIndex);
+            std::vector<bool> getInteractIndices();
+            int getInteractableSize();
+            gameInteractable::Interactable getInteractable(int nIndex);
     };
 }
 

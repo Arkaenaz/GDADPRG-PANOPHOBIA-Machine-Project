@@ -16,19 +16,22 @@ Description: Wall class
 
 namespace gameArea{
     using namespace gameInteractable;
-    class WallOBJ{
+    class Wall{
         protected:
-            std::vector<InteractOBJ> vecDecor;
+            std::vector<gameInteractable::Interactable> vecDecor;
         
         public:
-            WallOBJ();
+            Wall();
             
         public:
-            void pickDecor(InteractOBJ CInteractable);
+            void pickDecor(gameInteractable::Interactable CInteractable);
             void pickDecor(Decor CDecor);
             int toggleInteractable(int nIndex, Floor CFloor);
 
-            InteractOBJ getInteractable(int nIndex);
+            std::vector<bool> getInteractIndices();
+            std::vector<bool> getDoorIndices();
+            int getInteractableSize();
+            gameInteractable::Interactable getInteractable(int nIndex);
             Door* getDoor(int nIndex);
 
         protected:

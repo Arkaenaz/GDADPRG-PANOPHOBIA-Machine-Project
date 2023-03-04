@@ -3,17 +3,17 @@
 using namespace gameArea;
 using namespace gameInteractable;
 
-BathWall1::BathWall1():WallOBJ(){
+BathWall1::BathWall1():gameArea::Wall(){
     this->createDecor(3);
 }
-BathWall2::BathWall2():WallOBJ(){
+BathWall2::BathWall2():gameArea::Wall(){
     this->vecDecor.push_back(Door(1, 3));
     this->createDecor(2);
     this->vecDecor.push_back(Lightswitch());
 }
-BathWall3::BathWall3():WallOBJ(){
+BathWall3::BathWall3():gameArea::Wall(){
     this->createDecor(3);
 }
-BathWall4::BathWall4():WallOBJ(){
+BathWall4::BathWall4():gameArea::Wall(){
     this->createDecor(2);
 }

@@ -3,37 +3,37 @@
 using namespace gameArea;
 using namespace gameInteractable;
 
-HallwayWall1::HallwayWall1():WallOBJ(){
+HallwayWall1::HallwayWall1():gameArea::Wall(){
     this->vecDecor.push_back(Door(-1, -1));
     this->createDecor(6);
 }
 
-HallwayWall2::HallwayWall2():WallOBJ(){
+HallwayWall2::HallwayWall2():gameArea::Wall(){
     //none
 }
-HallwayWall3::HallwayWall3():WallOBJ(){
+HallwayWall3::HallwayWall3():gameArea::Wall(){
     this->vecDecor.push_back(Door(-1, -1));
     this->createDecor(4);
 }
-HallwayWall4::HallwayWall4():WallOBJ(){
+HallwayWall4::HallwayWall4():gameArea::Wall(){
     this->vecDecor.push_back(Door(-1, -1));
     this->vecDecor.push_back(Door(-1, -1));
     this->createDecor(6);
 }
-HallwayWall5::HallwayWall5():WallOBJ(){
+HallwayWall5::HallwayWall5():gameArea::Wall(){
     this->vecDecor.push_back(Door(-1, -1));
     this->createDecor(4);
 }
-HallwayWall6::HallwayWall6():WallOBJ(){
+HallwayWall6::HallwayWall6():gameArea::Wall(){
     this->createDecor(5);
 }
-HallwayWall7::HallwayWall7():WallOBJ(){
+HallwayWall7::HallwayWall7():gameArea::Wall(){
     this->vecDecor.push_back(Door(0,2));
     this->createDecor(7);
     this->vecDecor.push_back(Lightswitch());
 
 }
-HallwayWall8::HallwayWall8():WallOBJ(){
+HallwayWall8::HallwayWall8():gameArea::Wall(){
     this->vecDecor.push_back(Door(2,3));
     this->vecDecor.push_back(Door(3,3));
     this->vecDecor.push_back(Door(4,3));

@@ -8,19 +8,19 @@
 
 namespace gameArea{
     using namespace gameInteractable;
-    class BathWall1 : public WallOBJ{
+    class BathWall1 : public gameArea::Wall{
         public:
             BathWall1();
     };
-    class BathWall2 : public WallOBJ{
+    class BathWall2 : public gameArea::Wall{
         public:
             BathWall2();
     };
-    class BathWall3 : public WallOBJ{
+    class BathWall3 : public gameArea::Wall{
         public:
             BathWall3();
     };
-    class BathWall4 : public WallOBJ{
+    class BathWall4 : public gameArea::Wall{
         public:
             BathWall4();
     };

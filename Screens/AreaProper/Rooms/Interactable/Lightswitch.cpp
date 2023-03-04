@@ -2,7 +2,7 @@
 
 using namespace gameInteractable;
 
-Lightswitch::Lightswitch():InteractOBJ(){
+Lightswitch::Lightswitch():gameInteractable::Interactable(){
     this->nToggleType = -1;
     this->bToggled = true;
 }

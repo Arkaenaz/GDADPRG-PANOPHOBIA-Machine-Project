@@ -25,13 +25,27 @@ int Area::toggleInteractable(int nRoom, int nWall, int nIndex){
     return this->vecRoom[nRoom].toggleInteractable(nWall, nIndex);
 }
 
-/*Area::getRoomSize   returns room size (number of WallOBJs)
+/*Area::getRoomSize   returns room size (number of gameArea::Walls)
     return getRoomSize() = vecWall size
 
     @param nRoom        = room index
 */
 int Area::getRoomSize(int nRoom){
     return this->vecRoom[nRoom].getRoomSize();
+}
+
+/*Area::getInteractIndices   returns vecIndex
+    return vecIndex     = vector of valid interactables, this is everything except disabled decor (dropped decor)
+*/
+std::vector<bool> Area::getInteractIndices(int nRoom, int nWall){
+    return this->vecRoom[nRoom].getInteractIndices(nWall);
+}
+
+/*Area::getDoorIndices   returns vecIndex
+    return vecIndex     = vector of door bToggled values
+*/
+std::vector<bool> Area::getDoorIndices(int nRoom, int nWall){
+    return this->vecRoom[nRoom].getInteractIndices(nWall);
 }
 
 /*Area::getDoor   returns Door*

@@ -17,7 +17,7 @@ namespace gameArea{
     class Area{
         private:
             
-            std::vector<RoomOBJ> vecRoom;
+            std::vector<gameArea::Room> vecRoom;
 
         public:
             Area();
@@ -25,6 +25,8 @@ namespace gameArea{
             int toggleInteractable(int nRoom, int nWall, int nIndex);
 
             int getRoomSize(int nRoom);
+            std::vector<bool> getInteractIndices(int nRoom, int nWall);
+            std::vector<bool> getDoorIndices(int nRoom, int nWall);
             Door* getDoor(int nRoom, int nWall, int nIndex);
     };
 }

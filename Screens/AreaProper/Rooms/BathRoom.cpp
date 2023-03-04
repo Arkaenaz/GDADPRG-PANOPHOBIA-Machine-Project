@@ -2,7 +2,7 @@
 
 using namespace gameArea;
 
-BathRoom::BathRoom():RoomOBJ(){
+BathRoom::BathRoom():gameArea::Room(){
     this->vecWall.push_back(BathWall1());
     this->vecWall.push_back(BathWall2());
     this->vecWall.push_back(BathWall3());
