@@ -14,9 +14,8 @@ using namespace controllers;
 
 std::vector<Player> Game::createPlayerVector() {
     std::vector<Player> vecPlayer;
-    Player CPlayer = Player();
 
-    vecPlayer = {CPlayer};
+    vecPlayer = {Player()};
 
     return vecPlayer;
 }
@@ -42,6 +41,7 @@ Game::Game() {
         std::cout << "Constructing Game." << std::endl;
     this->vecPlayer = createPlayerVector();
     this->CInterface = Interface();
+    this->CArea = Area();
     this->nPlayer = 1;
 }
 
@@ -88,8 +88,20 @@ void Game::lobby() {
                     addPlayer();
                 break;
             case '1':
-                //this->start();
+                this->start();
                 break;
         }
+    } while (cInput != '0');
+}
+
+void Game::start() {
+    char cInput;
+    if (SYSTEM_TEXT)
+        std::cout << "Entered Game::start()." << std::endl;
+    do {
+        if (CLEAR_CONSOLE)
+            system("cls");
+        this->CInterface.printAreaProper(this->vecPlayer[0]);
+        cInput = this->CInterface.scanChar();
     } while (cInput != '0');
 }
