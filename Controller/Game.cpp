@@ -98,10 +98,23 @@ void Game::start() {
     char cInput;
     if (SYSTEM_TEXT)
         std::cout << "Entered Game::start()." << std::endl;
+    
     do {
         if (CLEAR_CONSOLE)
             system("cls");
-        this->CInterface.printAreaProper(this->vecPlayer[0]);
+        int nCurrentRoom = vecPlayer[0].getRoom();
+        int nRoomSize = CArea.getRoomSize(nCurrentRoom);
+        this->CInterface.printAreaProper(nCurrentRoom, cInput);
         cInput = this->CInterface.scanChar();
+        switch(cInput) {
+            case 'a':
+            case 'A':
+                this->vecPlayer[0].pan(1, nRoomSize);
+                break;
+            case 'd':
+            case 'D':
+                this->vecPlayer[0].pan(0, nRoomSize);
+                break;
+        }
     } while (cInput != '0');
 }

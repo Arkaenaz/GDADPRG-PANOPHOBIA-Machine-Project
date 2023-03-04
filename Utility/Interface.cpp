@@ -38,9 +38,18 @@ void Interface::printLobbyScreen(std::vector<Player> vecPlayer, int nPlayer) {
     std::cout << std::endl;
 }
 
-void Interface::printAreaProper(Player CPlayer) {
-    int nRoom = CPlayer.getRoom();
-    int nDirection = CPlayer.getDirection(nRoom);
+void Interface::printAreaProper(int nRoom, char cInput) {
+    std::cout << "Printing Area." << std::endl;
+    switch(cInput) {
+        case 'a':
+        case 'A':
+            CTUIPrinter.turnLeft(static_cast<Rooms>(nRoom));
+            break;
+        case 'd':
+        case 'D':
+            CTUIPrinter.turnRight(static_cast<Rooms>(nRoom));
+            break;
+    }
     CTUIPrinter.printRoom(static_cast<Rooms>(nRoom));
 }
 

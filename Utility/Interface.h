@@ -27,7 +27,7 @@ namespace utilities {
         public:
             void printTitleScreen();
             void printLobbyScreen(std::vector<Player> vecPlayer, int nPlayer);
-            void printAreaProper(Player CPlayer);
+            void printAreaProper(int nRoom, char cInput);
             void turnMultiple(int nNewDirection, int nRoomSize, Player CPlayer);
             char scanChar();
         
