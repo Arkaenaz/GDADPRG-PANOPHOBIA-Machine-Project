@@ -7,7 +7,7 @@ Area::Area(){
     this->vecRoom = createRoomVector();
 }
 
-std::vector<gameArea::Room> createRoomVector() {
+std::vector<gameArea::Room> Area::createRoomVector() {
     std::vector<gameArea::Room> vecRoom;
 
     vecRoom = {FoyerRoom(),
