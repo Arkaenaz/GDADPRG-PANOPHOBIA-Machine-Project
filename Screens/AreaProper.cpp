@@ -4,9 +4,25 @@ using namespace gameArea;
 
 
 Area::Area(){
-    //do something here
-    //make the rooms and all that
+    this->vecRoom = createRoomVector();
 }
+
+std::vector<gameArea::Room> createRoomVector() {
+    std::vector<gameArea::Room> vecRoom;
+
+    vecRoom = {FoyerRoom(),
+               HallwayRoom(),
+               KidsRoom(),
+               BathRoom(),
+               MasterRoom()};
+
+    return vecRoom;
+}
+
+/*void Area::update(Player CPlayer) {
+    Room CRoom = CPlayer.getRoom();
+
+}*/
 
 /*Area::toggleInteractable  handles interact action
     return -1           = invalid/error
