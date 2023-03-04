@@ -24,7 +24,7 @@ namespace gameArea{
             Wall();
             
         public:
-            void pickDecor(gameInteractable::Interactable CInteractable);
+            //void pickDecor(gameInteractable::Interactable CInteractable);
             void pickDecor(Decor CDecor);
             int toggleInteractable(int nIndex, Floor CFloor);
 
