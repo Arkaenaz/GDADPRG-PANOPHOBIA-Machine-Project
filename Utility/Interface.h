@@ -7,9 +7,12 @@ Description:
 #ifndef UTILITIES_PRINTER_H
 #define UTILITIES_PRINTER_H
 
+#include "string"
+
 #include "../Model/Player.h"
-#include "../Libraries/CandyTUI/TUIPrinter.h"
 #include "../Utility/Utility.h"
+#include "../Libraries/CandyTUI/TUIPrinter.h"
+#include "../Libraries/CandyTUI/Config/Settings.h"
 
 namespace utilities {
     using namespace candyTUI;
@@ -24,6 +27,7 @@ namespace utilities {
         public:
             void printTitleScreen();
             void printLobbyScreen(std::vector<Player> vecPlayer, int nPlayer);
+            void printAreaProper(Player CPlayer);
             void turnMultiple(int nNewDirection, int nRoomSize, Player CPlayer);
             char scanChar();
         

@@ -4,10 +4,8 @@ Date Created: February 18, 2022, 11:09 PM
 Description: 
 ****************************************************/
 
-#include "string"
-
 #include "Interface.h"
-#include "..\Libraries\CandyTUI\Config\Settings.h"
+
 
 using namespace utilities;
 using namespace candyTUI;
@@ -38,6 +36,12 @@ void Interface::printLobbyScreen(std::vector<Player> vecPlayer, int nPlayer) {
     std::cout << "\n" << std::endl;
     printCenter("[0]  BACK");
     std::cout << std::endl;
+}
+
+void Interface::printAreaProper(Player CPlayer) {
+    int nRoom = CPlayer.getRoom();
+    int nDirection = CPlayer.getDirection(nRoom);
+    CTUIPrinter.printRoom(static_cast<Rooms>(nRoom));
 }
 
 void Interface::turnMultiple(int nNewDirection, int nRoomSize, Player CPlayer){
