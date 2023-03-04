@@ -10,7 +10,13 @@ Description: Area class
 #include "iostream"
 #include "vector"
 
+#include "../Model/Player.h"
 #include "AreaProper/Room.h"
+#include "AreaProper/Rooms/FoyerRoom.h"
+#include "AreaProper/Rooms/HallwayRoom.h"
+#include "AreaProper/Rooms/KidsRoom.h"
+#include "AreaProper/Rooms/MasterRoom.h"
+#include "AreaProper/Rooms/BathRoom.h"
 
 namespace gameArea{
     using namespace gameInteractable;
@@ -21,6 +27,9 @@ namespace gameArea{
 
         public:
             Area();
+
+            //void update(Player CPlayer);
+            std::vector<Room> createRoomVector();
 
             int toggleInteractable(int nRoom, int nWall, int nIndex);
 
