@@ -1,4 +1,5 @@
 #include "Floor.h"
+#include "Wall.h"
 
 using namespace gameArea;
 using namespace gameInteractable;
@@ -38,5 +39,9 @@ int Floor::toggleInteractable(int nIndex, WallOBJ CWall){
 */
 int Floor::getInteractableIndex(int nIndex){
     return this->vecDecor[nIndex].getIndex();
+}
+
+int Floor::getInteractableWall(int nIndex){
+    return this->vecDecor[nIndex].getDirection();
 }
 

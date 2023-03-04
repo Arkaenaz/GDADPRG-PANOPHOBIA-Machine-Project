@@ -11,6 +11,7 @@ namespace gameInteractable{
     class InteractOBJ{
         protected:
             int nIndex;
+            int nDirection;
             int nToggleType;
             bool bToggled;
 
@@ -23,6 +24,7 @@ namespace gameInteractable{
 
             int getIndex();
             bool getToggled();
+            int getDirection();
             
             bool setToggled();
             bool setToggled(bool bToggled);

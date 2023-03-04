@@ -14,8 +14,6 @@ namespace gameInteractable{
         private:
             //gives player room index where the door is connected to
             int nRoom;
-            //to be used to set the player's direction when entering the connected room
-            int nDirection;
 
         public:
             Door();
@@ -25,7 +23,6 @@ namespace gameInteractable{
             int interact();
 
             int getRoom();
-            int getDirection();
     };
 }
 

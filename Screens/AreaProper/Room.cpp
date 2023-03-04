@@ -25,9 +25,15 @@ int RoomOBJ::toggleInteractable(int nWall, int nIndex){
     if(nWall == -1){
         nDir = this->CFloor.getInteractableIndex(nIndex);
         nAction = this->CFloor.toggleInteractable(nIndex,this->vecWall[nDir]);
+        if(nAction == 0){
+            this->vecWall[this->CFloor.getInteractableWall(nIndex)].pickDecor(this->CFloor.getInteractable(nIndex));
+        }
     }
     else{
         nAction = this->vecWall[nWall].toggleInteractable(nIndex,CFloor);
+        if(nAction == 1){
+            this->CFloor.dropDecor(this->vecWall[nWall].getInteractable(nIndex));
+        }
     }
     return nAction;
 }

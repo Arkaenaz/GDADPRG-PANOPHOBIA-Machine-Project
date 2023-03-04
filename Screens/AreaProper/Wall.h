@@ -26,8 +26,9 @@ namespace gameArea{
         public:
             void pickDecor(InteractOBJ CInteractable);
             void pickDecor(Decor CDecor);
-
             int toggleInteractable(int nIndex, Floor CFloor);
+
+            InteractOBJ getInteractable(int nIndex);
             Door* getDoor(int nIndex);
 
         protected:

@@ -28,7 +28,3 @@ int Door::interact(){
 int Door::getRoom(){
     return this->nRoom;
 }
-
-int Door::getDirection(){
-    return this->nDirection;
-}

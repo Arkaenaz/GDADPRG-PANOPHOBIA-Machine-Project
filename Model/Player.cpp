@@ -5,6 +5,12 @@ using namespace gameInteractable;
 using namespace gamePlayer;
 
 Player::Player(){
+    this->strName = "No name";
+    int aDirection[] = {0,0,0,0,0,0};
+    std::copy(aDirection+0, aDirection+6, this->aDirection+0);
+}
+Player::Player(string strName){
+    this->strName = strName;
     int aDirection[] = {0,0,0,0,0,0};
     std::copy(aDirection+0, aDirection+6, this->aDirection+0);
 }

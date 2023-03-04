@@ -25,6 +25,8 @@ namespace gameArea{
             int toggleInteractable(int nIndex, WallOBJ CWall);
 
             int getInteractableIndex(int nIndex);
+            int getInteractableWall(int nIndex);
+            InteractOBJ getInteractable(int nIndex);
     };
 }
 

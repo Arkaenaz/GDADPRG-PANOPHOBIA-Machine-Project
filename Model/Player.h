@@ -37,13 +37,13 @@ namespace gamePlayer{
 
         public:
             Player();
+            Player(string strName);
 
             int pan(int nDirection, int nRoomSize);
             int move(Door CDoor);
-            //void move(int nRoom, int nDirection);
             int interact(Area CArea, int nIndex);
-            void changeEquipment();
-            void viewJournal();
+            //void changeEquipment();
+            //void viewJournal();
 
             void sanityDrain(bool bLight);
 

@@ -18,18 +18,25 @@ int InteractOBJ::interact(){
     return this->setToggled();
 }
 
-/*InteractOBJ::interact   returns value from setToggled()
+/*InteractOBJ::getToggled   returns value from setToggled()
     return bToggled     = toggled boolean
 */
 bool InteractOBJ::getToggled(){
     return this->bToggled;
 }
 
-/*InteractOBJ::interact   return index on wall, used for index consistency
+/*InteractOBJ::getIndex   return index on wall, used for index consistency
     return nIndex       = index on the wall according to interactable manual
 */
 int InteractOBJ::getIndex(){
     return this->nIndex;
+}
+
+/*InteractOBJ::getDirection   direction/wall index
+    return nDirection   = direction/wall
+*/
+int InteractOBJ::getDirection(){
+    return this->nDirection;
 }
 
 /*InteractOBJ::setToggled   toggles the interactable according to its toggle type

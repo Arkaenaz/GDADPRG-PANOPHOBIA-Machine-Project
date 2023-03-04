@@ -35,6 +35,15 @@ int WallOBJ::toggleInteractable(int nIndex, Floor CFloor){
     }
 }
 
+/*WallOBJ::getDoor   returns InteractOBJ
+    return vecDecor     = InteractOBJ
+
+    @param nIndex       = interactable index
+*/
+InteractOBJ WallOBJ::getInteractable(int nIndex){
+    return this->vecDecor[nIndex];
+}
+
 /*WallOBJ::getDoor   returns Door*
     return getDoor      = Door* pointer
 
