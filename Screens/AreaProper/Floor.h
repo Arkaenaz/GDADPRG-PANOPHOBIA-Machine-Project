@@ -31,6 +31,7 @@ namespace gameArea{
             int getInteractableSize();
             gameInteractable::Interactable getInteractable(int nIndex);
             Decor* getDecor(int nIndex);
+            std::vector<int> getDecorIndices();
     };
 }
 

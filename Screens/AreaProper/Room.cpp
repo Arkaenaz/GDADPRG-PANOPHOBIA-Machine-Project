@@ -88,3 +88,7 @@ std::vector<bool> gameArea::Room::getDoorIndices(int nWall){
 Door* gameArea::Room::getDoor(int nWall, int nIndex){
     return this->vecWall[nWall].getDoor(nIndex);
 }
+
+std::vector<int> gameArea::Room::getFloorDecorIndices() {
+    return this->CFloor.getDecorIndices();
+}

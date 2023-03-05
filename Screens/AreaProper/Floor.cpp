@@ -85,3 +85,13 @@ Decor* Floor::getDecor(int nIndex){
     Decor* pDecor = dynamic_cast<Decor*>(&this->vecDecor[nIndex]);
     return pDecor;
 }
+
+std::vector<int> Floor::getDecorIndices() {
+    int nSize = this->getInteractableSize();
+    int i;
+    std::vector<int> vecIndex;
+    for(i = 0; i < nSize; i++){
+        vecIndex.push_back(this->vecDecor[i].getIndex());
+    }
+    return vecIndex;
+}

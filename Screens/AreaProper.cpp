@@ -76,3 +76,10 @@ Door* Area::getDoor(int nRoom, int nWall, int nIndex){
     return this->vecRoom[nRoom].getDoor(nWall, nIndex);
 }
 
+/*Area::getDoorIndices   returns vecIndex
+    return vecIndex     = vector of floor decor int indices
+*/
+std::vector<int> Area::getFloorDecorIndices(int nRoom) {
+    return this->vecRoom[nRoom].getFloorDecorIndices();
+}
+
