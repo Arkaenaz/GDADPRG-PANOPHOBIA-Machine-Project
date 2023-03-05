@@ -1,5 +1,5 @@
 /****************************************************
-Author: 
+Author: Shane Laurenze M. Cablayan
 Date Created: February 18, 2022, 11:09 PM
 Description: 
 ****************************************************/
@@ -38,9 +38,10 @@ void Interface::printLobbyScreen(std::vector<Player> vecPlayer, int nPlayer) {
     std::cout << std::endl;
 }
 
-void Interface::printAreaProper(int nRoom, char cInput) {
+void Interface::printAreaProper(int nDirection, int nRoomSize, Player CPlayer/*int nRoom, char cInput*/) {
+    int nRoom = CPlayer.getRoom();
     std::cout << "Printing Area." << std::endl;
-    switch(cInput) {
+    /*switch(cInput) {
         case 'a':
         case 'A':
             CTUIPrinter.turnLeft(static_cast<Rooms>(nRoom));
@@ -49,7 +50,8 @@ void Interface::printAreaProper(int nRoom, char cInput) {
         case 'D':
             CTUIPrinter.turnRight(static_cast<Rooms>(nRoom));
             break;
-    }
+    }*/
+    turnMultiple(nDirection, nRoomSize, CPlayer);
     CTUIPrinter.printRoom(static_cast<Rooms>(nRoom));
 }
 

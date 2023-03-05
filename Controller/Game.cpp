@@ -104,17 +104,33 @@ void Game::start() {
             system("cls");
         int nCurrentRoom = vecPlayer[0].getRoom();
         int nRoomSize = CArea.getRoomSize(nCurrentRoom);
-        this->CInterface.printAreaProper(nCurrentRoom, cInput);
+        int nDirection = vecPlayer[0].getDirection(nCurrentRoom);
+
+        if (nDirection != -1)
+            this->CTUIPrinter.printRoom(static_cast<Rooms>(nCurrentRoom));
+        else
+            std::cout << "looking at floor" << std::endl;
+            //this->CTUIPrinter.printFloor(static_cast<Rooms>(nCurrentRoom), );
+        //this->CInterface.printAreaProper(nDirection, nRoomSize, vecPlayer[0]);
         cInput = this->CInterface.scanChar();
         switch(cInput) {
             case 'a':
             case 'A':
                 this->vecPlayer[0].pan(1, nRoomSize);
+                this->CTUIPrinter.turnLeft(static_cast<Rooms>(nCurrentRoom));
                 break;
             case 'd':
             case 'D':
                 this->vecPlayer[0].pan(0, nRoomSize);
+                this->CTUIPrinter.turnRight(static_cast<Rooms>(nCurrentRoom));
                 break;
+            case 's':
+            case 'S':
+                this->vecPlayer[0].pan(2, nRoomSize);
+                break;
+            case 'w':
+            case 'W':
+                
         }
     } while (cInput != '0');
 }

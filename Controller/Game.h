@@ -1,5 +1,5 @@
 /****************************************************
-Author: 
+Author: Shane Laurenze M. Cablayan
 Date Created: February 18, 2022, 10:41 PM
 Description: 
 ****************************************************/
@@ -9,6 +9,7 @@ Description:
 
 #include "vector"
 
+#include "../Libraries/CandyTUI/TUIPrinter.h"
 #include "../Utility/Interface.h"
 #include "../Model/Player.h"
 
@@ -20,6 +21,7 @@ namespace controllers {
         private:
             std::vector<Player> vecPlayer;
             Area CArea;
+            TUIPrinter CTUIPrinter;
             Interface CInterface;
             int nPlayer;
             
