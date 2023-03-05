@@ -26,7 +26,8 @@ int gameArea::Room::toggleInteractable(int nWall, int nIndex){
         nDir = this->CFloor.getInteractableIndex(nIndex);
         nAction = this->CFloor.toggleInteractable(nIndex,this->vecWall[nDir]);
         if(nAction == 0){
-            this->vecWall[this->CFloor.getInteractableWall(nIndex)].pickDecor(this->CFloor.getInteractable(nIndex));
+            Decor* pDecor = this->CFloor.getDecor(nIndex);
+            this->vecWall[this->CFloor.getInteractableWall(nIndex)].pickDecor(*pDecor);
         }
     }
     else{

@@ -21,8 +21,9 @@ std::vector<Player> Game::createPlayerVector() {
 }
 
 void Game::addPlayer() {
-    if (SYSTEM_TEXT)
+    if (SYSTEM_TEXT){
         std::cout << "Adding Player." << std::endl;
+    }
     Player CPlayer = Player();
     this->vecPlayer.push_back(CPlayer);
     this->nPlayer++;
@@ -101,15 +102,15 @@ void Game::start() {
     
     do {
         if (CLEAR_CONSOLE)
-            system("cls");
+            {system("cls");}
         int nCurrentRoom = vecPlayer[0].getRoom();
         int nRoomSize = CArea.getRoomSize(nCurrentRoom);
         int nDirection = vecPlayer[0].getDirection(nCurrentRoom);
 
         if (nDirection != -1)
-            this->CTUIPrinter.printRoom(static_cast<Rooms>(nCurrentRoom));
+            {this->CTUIPrinter.printRoom(static_cast<Rooms>(nCurrentRoom));}
         else
-            std::cout << "looking at floor" << std::endl;
+            {std::cout << "looking at floor" << std::endl;}
             //this->CTUIPrinter.printFloor(static_cast<Rooms>(nCurrentRoom), );
         //this->CInterface.printAreaProper(nDirection, nRoomSize, vecPlayer[0]);
         cInput = this->CInterface.scanChar();
@@ -124,13 +125,12 @@ void Game::start() {
                 this->vecPlayer[0].pan(0, nRoomSize);
                 this->CTUIPrinter.turnRight(static_cast<Rooms>(nCurrentRoom));
                 break;
+            case 'w':
+            case 'W':
             case 's':
             case 'S':
                 this->vecPlayer[0].pan(2, nRoomSize);
                 break;
-            case 'w':
-            case 'W':
-                
         }
     } while (cInput != '0');
 }

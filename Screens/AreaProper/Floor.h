@@ -10,6 +10,7 @@ Description: Floor class
 #include "vector"
 
 #include "Interactable.h"
+#include "Rooms/Interactable/Decor.h"
 
 namespace gameArea{
     using namespace gameInteractable;
@@ -29,6 +30,7 @@ namespace gameArea{
             std::vector<bool> getInteractIndices();
             int getInteractableSize();
             gameInteractable::Interactable getInteractable(int nIndex);
+            Decor* getDecor(int nIndex);
     };
 }
 

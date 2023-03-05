@@ -29,7 +29,8 @@ void Floor::dropDecor(gameInteractable::Interactable CDecor){
 int Floor::toggleInteractable(int nIndex, gameArea::Wall CWall){
     int nAction = this->vecDecor[nIndex].interact();
     if(nAction == 1){
-        CWall.pickDecor(this->vecDecor[nIndex]);
+        Decor* pDecor = dynamic_cast<Decor*>(&this->vecDecor[nIndex]);
+        CWall.pickDecor(*pDecor);
         this->vecDecor.erase(vecDecor.begin()+nIndex);
     }
     return nAction;
@@ -73,4 +74,14 @@ int Floor::getInteractableSize(){
 */
 gameInteractable::Interactable Floor::getInteractable(int nIndex){
     return this->vecDecor[nIndex];
+}
+
+/*Floor::getDecor   returns Decor pointer from vecDecor vector for special use case
+    return pDecor     = Decor*
+
+    @param nIndex       = interactable index
+*/
+Decor* Floor::getDecor(int nIndex){
+    Decor* pDecor = dynamic_cast<Decor*>(&this->vecDecor[nIndex]);
+    return pDecor;
 }
