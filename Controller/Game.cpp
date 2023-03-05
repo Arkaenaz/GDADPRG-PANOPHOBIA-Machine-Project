@@ -112,7 +112,7 @@ void Game::start() {
         if (nDirection != -1 && nCurrentRoom != 5)
             {this->CTUIPrinter.printRoom(static_cast<Rooms>(nCurrentRoom));}
         else if(nDirection != -1 && nCurrentRoom == 5){
-            this->CVPrinter.printWall();
+            this->CVPrinter.printWall(vecPlayer[0].getSanity());
         }
         else
             {std::cout << "looking at floor" << std::endl;}
@@ -123,12 +123,22 @@ void Game::start() {
             case 'a':
             case 'A':
                 this->vecPlayer[0].pan(1, nRoomSize);
-                this->CTUIPrinter.turnLeft(static_cast<Rooms>(nCurrentRoom));
+                if(nCurrentRoom !=5){
+                    this->CTUIPrinter.turnLeft(static_cast<Rooms>(nCurrentRoom));
+                }
+                else{
+                    this->CVPrinter.turnLeft();
+                }
                 break;
             case 'd':
             case 'D':
                 this->vecPlayer[0].pan(0, nRoomSize);
-                this->CTUIPrinter.turnRight(static_cast<Rooms>(nCurrentRoom));
+                if(nCurrentRoom !=5){
+                    this->CTUIPrinter.turnRight(static_cast<Rooms>(nCurrentRoom));
+                }
+                else{
+                    this->CVPrinter.turnRight();
+                }
                 break;
             case 'w':
             case 'W':

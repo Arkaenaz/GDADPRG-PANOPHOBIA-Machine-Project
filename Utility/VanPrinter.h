@@ -13,9 +13,11 @@ namespace utilities{
             VanPrinter();
 
         public:
-            void printWall();
+            void displaySanity(float fSanity);
 
-
+            void printWall(float fSanity);
+            void turnRight();
+            void turnLeft();
 
 
     };
