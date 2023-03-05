@@ -14,7 +14,8 @@ std::vector<gameArea::Room> Area::createRoomVector() {
                HallwayRoom(),
                KidsRoom(),
                BathRoom(),
-               MasterRoom()};
+               MasterRoom(),
+               Van()};
 
     return vecRoom;
 }
@@ -74,3 +75,4 @@ std::vector<bool> Area::getDoorIndices(int nRoom, int nWall){
 Door* Area::getDoor(int nRoom, int nWall, int nIndex){
     return this->vecRoom[nRoom].getDoor(nWall, nIndex);
 }
+

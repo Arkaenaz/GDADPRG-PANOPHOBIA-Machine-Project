@@ -2,16 +2,10 @@
 
 using namespace gameArea;
 
-Van::Van(){
-    
+Van::Van() : gameArea::Room(){
+    this->vecWall.push_back(VanWall1());
+    this->vecWall.push_back(VanWall2());
+    this->vecWall.push_back(VanWall3());
+    this->vecWall.push_back(VanWall4());
 }
 
-float Van::sanityPlayer(float fSanity){
-    //display fSanity
-}
-float Van::sanityAverage(float fSanity1,float fSanity2,float fSanity3,float fSanity4){
-    //WIP
-}
-void Van::endRun(){
-
-}

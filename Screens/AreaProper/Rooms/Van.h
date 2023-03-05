@@ -8,19 +8,13 @@ Description:
 #define GAME_ELEMENTS_VAN_H
 
 #include "../Room.h"
+#include "Wall/VanWalls.h"
 
 namespace gameArea{
-    class Van{
+    class Van : public Room{
 
         public:
             Van();
-        
-
-        public:
-
-            float sanityPlayer(float fSanity);
-            float sanityAverage(float fSanity1,float fSanity2,float fSanity3,float fSanity4);
-            void endRun();
     };
 
 }

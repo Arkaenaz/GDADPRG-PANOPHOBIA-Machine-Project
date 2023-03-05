@@ -17,6 +17,7 @@ Description: Area class
 #include "AreaProper/Rooms/KidsRoom.h"
 #include "AreaProper/Rooms/MasterRoom.h"
 #include "AreaProper/Rooms/BathRoom.h"
+#include "AreaProper/Rooms/Van.h"
 
 namespace gameArea{
     using namespace gameInteractable;
