@@ -53,6 +53,7 @@ namespace gamePlayer{
             string getName();
 
             void setDirection(int nDirection, int nRoom);
+            void setRoom(int nRoom);
     };
 }
 

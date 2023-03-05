@@ -133,3 +133,7 @@ string Player::getName() {
 void Player::setDirection(int nDirection,int nRoom){
     this->aDirection[nRoom] = nDirection;
 }
+
+void Player::setRoom(int nRoom) {
+    this->nRoom = nRoom;
+}
