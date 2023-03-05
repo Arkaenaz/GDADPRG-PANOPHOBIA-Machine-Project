@@ -31,8 +31,15 @@ namespace controllers {
             std::vector<Player> createPlayerVector();
             void addPlayer();
             void removePlayer();
+            
             void printPerspective(int nTurn);
-            void playerInteract(char cInput, int nTurn);
+            void playerInput(char cInput, int nTurn);
+
+            void panLeft(int nTurn);
+            void panRight(int nTurn);
+            void panUpDown(int nTurn);
+            void playerInteract(int nTurn, int nIndex);
+            void toggleLight(int nTurn);
 
         public:
             Game();
