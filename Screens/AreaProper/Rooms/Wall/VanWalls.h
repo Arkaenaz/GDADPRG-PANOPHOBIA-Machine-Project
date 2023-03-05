@@ -20,11 +20,14 @@ namespace gameArea{
 
             float sanityPlayer(float fSanity);
             float sanityAverage(float fSanity1,float fSanity2,float fSanity3,float fSanity4);
-            void endRun();
+            
     };
     class VanWall3 : public gameArea::Wall{
         public:
             VanWall3();
+
+        public:
+            void endRun();
     };
     class VanWall4 : public gameArea::Wall{
         public:

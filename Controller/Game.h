@@ -10,6 +10,7 @@ Description:
 #include "vector"
 
 #include "../Libraries/CandyTUI/TUIPrinter.h"
+#include "../Utility/VanPrinter.h"
 #include "../Utility/Interface.h"
 #include "../Model/Player.h"
 
@@ -22,6 +23,7 @@ namespace controllers {
             std::vector<Player> vecPlayer;
             Area CArea;
             TUIPrinter CTUIPrinter;
+            VanPrinter CVPrinter;
             Interface CInterface;
             int nPlayer;
             

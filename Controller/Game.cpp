@@ -42,6 +42,7 @@ Game::Game() {
         std::cout << "Constructing Game." << std::endl;
     this->vecPlayer = createPlayerVector();
     this->CInterface = Interface();
+    this->CVPrinter = VanPrinter();
     this->CArea = Area();
     this->nPlayer = 1;
 }
@@ -104,11 +105,15 @@ void Game::start() {
         if (CLEAR_CONSOLE)
             {system("cls");}
         int nCurrentRoom = vecPlayer[0].getRoom();
+        nCurrentRoom = 5;
         int nRoomSize = CArea.getRoomSize(nCurrentRoom);
         int nDirection = vecPlayer[0].getDirection(nCurrentRoom);
 
-        if (nDirection != -1)
+        if (nDirection != -1 && nCurrentRoom != 5)
             {this->CTUIPrinter.printRoom(static_cast<Rooms>(nCurrentRoom));}
+        else if(nDirection != -1 && nCurrentRoom == 5){
+            this->CVPrinter.printWall();
+        }
         else
             {std::cout << "looking at floor" << std::endl;}
             //this->CTUIPrinter.printFloor(static_cast<Rooms>(nCurrentRoom), );

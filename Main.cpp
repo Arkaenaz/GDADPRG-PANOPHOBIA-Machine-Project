@@ -33,9 +33,11 @@ Members: ARGUELLES, Joachim
 #include "Screens/AreaProper/Rooms/Wall/HallwayWalls.cpp"
 #include "Screens/AreaProper/Rooms/Wall/KidsWall.cpp"
 #include "Screens/AreaProper/Rooms/Wall/MasterWall.cpp"
+#include "Screens/AreaProper/Rooms/Wall/VanWalls.cpp"
 
 #include "Utility/Interface.cpp"
 #include "Utility/Utility.cpp"
+#include "Utility/VanPrinter.cpp"
 
 int main() {
 
