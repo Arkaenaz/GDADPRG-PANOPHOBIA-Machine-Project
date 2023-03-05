@@ -1,5 +1,5 @@
 /****************************************************
-Author: 
+Author: Shane Laurenze M. Cablayan
 Date Created: February 18, 2022, 10:41 PM
 Description: 
 ****************************************************/
@@ -98,44 +98,81 @@ void Game::lobby() {
 
 void Game::start() {
     char cInput;
+    int nTurn = 0;
+    vecPlayer[nTurn].setRoom(0);
     if (SYSTEM_TEXT)
         std::cout << "Entered Game::start()." << std::endl;
     
     do {
         if (CLEAR_CONSOLE)
             {system("cls");}
-        int nCurrentRoom = vecPlayer[0].getRoom();
-        nCurrentRoom = 5;
-        int nRoomSize = CArea.getRoomSize(nCurrentRoom);
-        int nDirection = vecPlayer[0].getDirection(nCurrentRoom);
-
-        if (nDirection != -1 && nCurrentRoom != 5)
-            {this->CTUIPrinter.printRoom(static_cast<Rooms>(nCurrentRoom));}
-        else if(nDirection != -1 && nCurrentRoom == 5){
-            this->CVPrinter.printWall();
-        }
-        else
-            {std::cout << "looking at floor" << std::endl;}
-            //this->CTUIPrinter.printFloor(static_cast<Rooms>(nCurrentRoom), );
-        //this->CInterface.printAreaProper(nDirection, nRoomSize, vecPlayer[0]);
+        this->printPerspective(nTurn);
         cInput = this->CInterface.scanChar();
+        this->playerInteract(cInput, 0);
+    } while (cInput != '0');
+}
+
+void Game::printPerspective(int nTurn) {
+    int nCurrentRoom, nDirection;
+    nCurrentRoom = this->vecPlayer[nTurn].getRoom();
+    nDirection = this->vecPlayer[nTurn].getDirection(nCurrentRoom);
+    if (nCurrentRoom != 5) {
+        if (nDirection != -1)
+            this->CTUIPrinter.printRoom(static_cast<Rooms>(nCurrentRoom));
+        else
+            this->CTUIPrinter.printFloor(static_cast<Rooms>(nCurrentRoom), this->CArea.getFloorDecorIndices(nCurrentRoom));
+    }
+    else
+        this->CVPrinter.printWall(this->vecPlayer[nTurn].getSanity());
+}
+
+
+void Game::playerInteract(char cInput, int nTurn) {
+    int nCurrentRoom = vecPlayer[nTurn].getRoom();
+    int nRoomSize = this->CArea.getRoomSize(nCurrentRoom);
+    int nDirection = this->vecPlayer[nTurn].getDirection(nCurrentRoom);
+    if (nCurrentRoom != 5) {
         switch(cInput) {
             case 'a':
             case 'A':
-                this->vecPlayer[0].pan(1, nRoomSize);
+                this->vecPlayer[nTurn].pan(1, nRoomSize);
                 this->CTUIPrinter.turnLeft(static_cast<Rooms>(nCurrentRoom));
                 break;
             case 'd':
             case 'D':
-                this->vecPlayer[0].pan(0, nRoomSize);
+                this->vecPlayer[nTurn].pan(0, nRoomSize);
                 this->CTUIPrinter.turnRight(static_cast<Rooms>(nCurrentRoom));
                 break;
             case 'w':
             case 'W':
+
+                this->vecPlayer[nTurn].interact(this->CArea);
+                break;
             case 's':
             case 'S':
-                this->vecPlayer[0].pan(2, nRoomSize);
+                this->vecPlayer[nTurn].pan(2, nRoomSize);
+                break;
+            case 'l':
+            case 'L':
                 break;
         }
-    } while (cInput != '0');
+    } 
+    else {
+        switch(cInput) {
+            case 'w':
+            case 'W':
+                //this->vecPlayer[0].move();
+                break;
+            case 'a':
+            case 'A':
+                this->vecPlayer[nTurn].pan(1, nRoomSize);
+                this->CVPrinter.turnLeft();
+                break;
+            case 'd':
+            case 'D':
+                this->vecPlayer[nTurn].pan(0, nRoomSize);
+                this->CVPrinter.turnRight();
+                break;
+        }
+    }
 }
