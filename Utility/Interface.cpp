@@ -79,12 +79,20 @@ void Interface::turnMultiple(int nNewDirection, int nRoomSize, Player CPlayer){
     
 }
 
-char Interface::scanChar() {
+char Interface::scanChar(std::string strMessage) {
     char cInput;
-    std::cout << "[INPUT]: ";
+    std::cout << "[" << strMessage << "]: ";
     std::cin >> cInput;
 
     return cInput;
+}
+
+int Interface::scanInt(std::string strMessage) {
+    int nInput;
+    std::cout << "[" << strMessage << "]: ";
+    std::cin >> nInput;
+
+    return nInput;
 }
 
 void Interface::printFor(std::string strText, int nWidth) {
