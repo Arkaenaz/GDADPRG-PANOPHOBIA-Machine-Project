@@ -21,8 +21,6 @@ void VanPrinter::displaySanity(float fSanity){
 }
 
 void VanPrinter::printWall(float fSanity){
-    this->nWallIndex;
-
     switch (this->nWallIndex)
     {
     case 0:
