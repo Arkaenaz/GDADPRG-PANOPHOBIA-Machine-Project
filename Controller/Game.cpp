@@ -106,8 +106,8 @@ void Game::start() {
     do {
         if (CLEAR_CONSOLE)
             {system("cls");}
-        int nCurrentRoom = this->vecPlayer[nTurn].getRoom();
-        std::cout << "Wall Index: " << this->vecPlayer[nTurn].getDirection(nCurrentRoom) << std::endl;
+        //int nCurrentRoom = this->vecPlayer[nTurn].getRoom();
+        //std::cout << "Wall Index: " << this->vecPlayer[nTurn].getDirection(nCurrentRoom) << std::endl;
         this->printPerspective(nTurn);
         cInput = this->CInterface.scanChar("INPUT");
         this->playerInput(cInput, 0);
@@ -179,24 +179,24 @@ void Game::turnMultiple(int nNewDirection, int nRoomSize, int nTurn){
     int nDistanceLeft = std::min(std::abs(nOldDirection-nNewDirection), nRoomSize - std::abs(nOldDirection-nNewDirection));
     bool bRight = (nDistanceRight < nDistanceLeft) ? true : false;
 
-    std::cout<<"new direction goal: "<<nNewDirection<<endl;
+    //std::cout<<"new direction goal: "<<nNewDirection<<endl;
 
     while(this->vecPlayer[nTurn].getDirection(this->vecPlayer[nTurn].getRoom()) != nNewDirection){
         std::cout<<nOldDirection<<endl;
         //turning right is shorter
         if(bRight){
-            std::cout<<"turn right"<<endl;
+            //std::cout<<"turn right"<<endl;
             nOldDirection += 1;
             this->CTUIPrinter.turnRight(static_cast<Rooms>(this->vecPlayer[nTurn].getRoom()));
         }
         //turning left is shorter
         else{
-            std::cout<<"turn left"<<endl;
+            //std::cout<<"turn left"<<endl;
             nOldDirection -= 1;
             this->CTUIPrinter.turnLeft(static_cast<Rooms>(this->vecPlayer[nTurn].getRoom()));
         }
         errMinMax(&nOldDirection,nRoomSize);
-        std::cout<<"now "<<nOldDirection<<endl<<endl;
+        //std::cout<<"now "<<nOldDirection<<endl<<endl;
         this->vecPlayer[nTurn].setDirection(nOldDirection,this->vecPlayer[nTurn].getRoom());
     }
 }
@@ -280,7 +280,10 @@ void Game::enterDoor(int nTurn, int nIndex) {
 
 void Game::toggleLight(int nTurn) {
     int nCurrentRoom = this->vecPlayer[nTurn].getRoom();
-    //int nDirection = this->vecPlayer[nTurn].getDirection(nCurrentRoom);
+    int nDirection = this->vecPlayer[nTurn].getDirection(nCurrentRoom);
     
-    this->CTUIPrinter.toggleLight(static_cast<Rooms>(nCurrentRoom));
+    if(this->CArea.getLightswitch(nCurrentRoom, nDirection) != NULL){
+        this->CTUIPrinter.toggleLight(static_cast<Rooms>(nCurrentRoom));
+    }
+    
 }

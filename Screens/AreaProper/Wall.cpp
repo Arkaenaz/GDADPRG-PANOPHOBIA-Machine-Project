@@ -11,7 +11,7 @@ gameArea::Wall::Wall(){
     @param CInteractable= Decor to toggle
 */
 void gameArea::Wall::pickDecor(gameInteractable::Interactable *pInteractable){
-    this->vecDecor[pInteractable->getIndex()]->setToggled();
+    this->vecDecor[pInteractable->getIndex()]->setToggled(true);
 }
 
 /*gameArea::Wall::toggleInteractable  handles interact action
@@ -107,6 +107,10 @@ void gameArea::Wall::connectDoor(Door *pDoor1, Door *pDoor2) {
 Door* gameArea::Wall::getDoor(int nIndex){
     Door* pDoor = dynamic_cast<Door*>(this->vecDecor[nIndex]);
     return pDoor;
+}
+
+Lightswitch* gameArea::Wall::getLightswitch(){
+    return this->pLightswitch;
 }
 
 /*gameArea::Wall::createDecor   creates Decor objects until vecDecor size hits nSize

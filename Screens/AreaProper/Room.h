@@ -40,6 +40,7 @@ namespace gameArea{
             void connectDoor(int nWall, Door* pDoor1, Door* pDoor2);
             void updateDoor(int nWall, int nIndex, int nAction);
             Door* getDoor(int nWall, int nIndex);
+            Lightswitch* getLightswitch(int nWall);
             std::vector<int> getFloorDecorIndices();
     };
 }

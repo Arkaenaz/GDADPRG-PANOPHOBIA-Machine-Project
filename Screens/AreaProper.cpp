@@ -95,6 +95,10 @@ Door* Area::getDoor(int nRoom, int nWall, int nIndex){
     return this->vecRoom[nRoom].getDoor(nWall, nIndex);
 }
 
+Lightswitch* Area::getLightswitch(int nRoom, int nWall){
+    return this->vecRoom[nRoom].getLightswitch(nWall);
+}
+
 /*Area::getDoorIndices   returns vecIndex
     return vecIndex     = vector of floor decor int indices
 */

@@ -38,7 +38,9 @@ int Floor::toggleInteractable(int nIndex){
         //pWall->pickDecor(*pDecor);
         this->vecDecor.erase(vecDecor.begin()+nIndex);
     }*/
-
+    if(nAction == -1){
+        return 1;
+    }
     return nAction;
 }
 

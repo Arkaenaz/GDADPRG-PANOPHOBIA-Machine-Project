@@ -23,7 +23,7 @@ VanWall3::VanWall3():gameArea::Wall(){
 
 }
 void VanWall3::endRun(){
-
+    //function meant to handle ending a game (may be placed elsewhere in later patches)
 }
 
 VanWall4::VanWall4():gameArea::Wall(){

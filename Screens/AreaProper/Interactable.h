@@ -27,7 +27,7 @@ namespace gameInteractable{
             bool getToggled();
             int getDirection();
             
-            bool setToggled();
+            virtual bool setToggled();
             bool setToggled(bool bToggled);
     };
 }
