@@ -16,21 +16,22 @@ namespace gameArea{
     using namespace gameInteractable;
     class Floor{
         private:
-            std::vector<gameInteractable::Interactable> vecDecor;
+            std::vector<gameInteractable::Interactable*> vecDecor;
 
         public:
             Floor();
 
         public:
-            void dropDecor(gameInteractable::Interactable CDecor);
-            int toggleInteractable(int nIndex, Wall *pWall);
+            void eraseDecor(int nIndex);
+            void dropDecor(gameInteractable::Interactable *CDecor);
+            int toggleInteractable(int nIndex);
 
             int getInteractableIndex(int nIndex);
             int getInteractableWall(int nIndex);
             std::vector<bool> getInteractIndices();
             int getInteractableSize();
             gameInteractable::Interactable getInteractable(int nIndex);
-            Decor* getDecor(int nIndex);
+            //gameInteractable::Interactable getDecor(int nIndex);
             std::vector<int> getDecorIndices();
     };
 }

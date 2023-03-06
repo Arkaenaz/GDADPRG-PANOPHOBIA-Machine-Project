@@ -7,9 +7,9 @@ BathWall1::BathWall1():gameArea::Wall(){
     this->createDecor(3);
 }
 BathWall2::BathWall2():gameArea::Wall(){
-    this->vecDecor.push_back(Door(1, 3));
+    this->vecDecor.push_back(new Door(1, 3));
     this->createDecor(2);
-    this->vecDecor.push_back(Lightswitch());
+    this->vecDecor.push_back(new Lightswitch());
 }
 BathWall3::BathWall3():gameArea::Wall(){
     this->createDecor(3);

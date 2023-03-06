@@ -4,7 +4,7 @@ using namespace gameArea;
 using namespace gameInteractable;
 
 VanWall1::VanWall1():gameArea::Wall(){
-    this->vecDecor.push_back(Door(0, 0));
+    this->vecDecor.push_back(new Door(0, 0));
 }
 VanWall2::VanWall2():gameArea::Wall(){
     

@@ -7,10 +7,16 @@ using namespace gameInteractable;
 Floor::Floor(){
 }
 
+void Floor::eraseDecor(int nIndex){
+    if(nIndex < (int)this->vecDecor.size()){
+        this->vecDecor.erase(vecDecor.begin()+nIndex);
+    }
+}
+
 /*Floor::dropDecor   pushes CDecor into vecDecor
     @param CDecor       = Decor push
 */
-void Floor::dropDecor(gameInteractable::Interactable CDecor){
+void Floor::dropDecor(gameInteractable::Interactable *CDecor){
     this->vecDecor.push_back(CDecor);
 }
 
@@ -24,15 +30,15 @@ void Floor::dropDecor(gameInteractable::Interactable CDecor){
             5           = door open
 
     @param nIndex       = interactable index
-    @param pWall        = gameArea::Wall pointer
 */
-int Floor::toggleInteractable(int nIndex, gameArea::Wall *pWall){
-    int nAction = this->vecDecor[nIndex].interact();
-    if(nAction == 1){
+int Floor::toggleInteractable(int nIndex){
+    int nAction = this->vecDecor[nIndex]->interact();
+    /*if(nAction == 1){
         //Decor* pDecor = dynamic_cast<Decor*>(&this->vecDecor[nIndex]);
         //pWall->pickDecor(*pDecor);
         this->vecDecor.erase(vecDecor.begin()+nIndex);
-    }
+    }*/
+
     return nAction;
 }
 
@@ -40,11 +46,11 @@ int Floor::toggleInteractable(int nIndex, gameArea::Wall *pWall){
     returns getIndex()  = actual index according to interactable documentation
 */
 int Floor::getInteractableIndex(int nIndex){
-    return this->vecDecor[nIndex].getIndex();
+    return this->vecDecor[nIndex]->getIndex();
 }
 
 int Floor::getInteractableWall(int nIndex){
-    return this->vecDecor[nIndex].getDirection();
+    return this->vecDecor[nIndex]->getDirection();
 }
 
 /*Floor::getInteractIndices   returns vecIndex
@@ -73,25 +79,27 @@ int Floor::getInteractableSize(){
     @param nIndex       = interactable index
 */
 gameInteractable::Interactable Floor::getInteractable(int nIndex){
-    return this->vecDecor[nIndex];
+    return *this->vecDecor[nIndex];
 }
+
 
 /*Floor::getDecor   returns Decor pointer from vecDecor vector for special use case
     return pDecor     = Decor*
 
     @param nIndex       = interactable index
 */
-Decor* Floor::getDecor(int nIndex){
-    Decor* pDecor = dynamic_cast<Decor*>(&this->vecDecor[nIndex]);
-    return pDecor;
+/*
+gameInteractable::Interactable Floor::getDecor(int nIndex){
+    return this->vecDecor[nIndex];
 }
+*/
 
 std::vector<int> Floor::getDecorIndices() {
     int nSize = this->getInteractableSize();
     int i;
     std::vector<int> vecIndex;
     for(i = 0; i < nSize; i++){
-        vecIndex.push_back(this->vecDecor[i].getIndex());
+        vecIndex.push_back(this->vecDecor[i]->getIndex());
     }
     return vecIndex;
 }

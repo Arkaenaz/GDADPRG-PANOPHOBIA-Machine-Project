@@ -11,9 +11,6 @@ Description: Decor class
 
 namespace gameInteractable{
     class Decor : public gameInteractable::Interactable{
-        private:
-            int nDirection;
-
         public:
             Decor(int nIndex);
         

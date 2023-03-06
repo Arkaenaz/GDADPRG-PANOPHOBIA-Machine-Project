@@ -34,6 +34,7 @@ namespace gameArea{
             int getRoomSize();
             bool getLight();
             float getTemperature();
+            int getFloorInteractableIndex(int nIndex);
             std::vector<bool> getInteractIndices(int nWall);
             std::vector<bool> getDoorIndices(int nWall);
             Door* getDoor(int nWall, int nIndex);

@@ -21,21 +21,26 @@ gameArea::Room::Room(){
 */
 int gameArea::Room::toggleInteractable(int nWall, int nIndex){
     int nAction;
-    int nDir;
     if(nWall == -1){
-        nDir = this->CFloor.getInteractableIndex(nIndex);
-        nAction = this->CFloor.toggleInteractable(nIndex,&this->vecWall[nDir]);
+        nAction = this->CFloor.toggleInteractable(nIndex);
+        std::cout<<"it returned"<<endl;
         if(nAction == 1){
-            Decor* pDecor = this->CFloor.getDecor(nIndex);
-            this->vecWall[this->CFloor.getInteractableWall(nIndex)].pickDecor(*pDecor);
+            std::cout<<"getting decor"<<endl;
+            gameInteractable::Interactable CInteractable = this->CFloor.getInteractable(nIndex);
+            std::cout<<CInteractable.getIndex()<<endl;
+            std::cout<<"picking decor"<<endl;
+            this->vecWall[this->CFloor.getInteractableWall(nIndex)].pickDecor(CInteractable);
+            std::cout<<"erasing decor"<<endl;
+            this->CFloor.eraseDecor(nIndex);
         }
     }
     else{
-        nAction = this->vecWall[nWall].toggleInteractable(nIndex,&CFloor);
+        nAction = this->vecWall[nWall].toggleInteractable(nIndex);
         if(nAction == 0){
             this->CFloor.dropDecor(this->vecWall[nWall].getInteractable(nIndex));
         }
     }
+    std::cout<<"returning"<<endl;
     return nAction;
 }
 
@@ -58,6 +63,10 @@ bool gameArea::Room::getLight(){
 */
 float gameArea::Room::getTemperature(){
     return this->fTemperature;
+}
+
+int gameArea::Room::getFloorInteractableIndex(int nIndex){
+    return this->CFloor.getInteractableIndex(nIndex);
 }
 
 /*gameArea::Room::getInteractIndices   returns vecIndex

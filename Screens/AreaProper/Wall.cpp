@@ -7,11 +7,11 @@ gameArea::Wall::Wall(){
 
 }
 
-/*gameArea::Wall::pickDecor   toggles CDecor's toggle, essentially placing it back onto the wall by enabling it
-    @param CDecor       = Decor to toggle
+/*gameArea::Wall::pickDecor   toggles CInteractable's toggle, essentially placing it back onto the wall by enabling it
+    @param CInteractable= Decor to toggle
 */
-void gameArea::Wall::pickDecor(Decor CDecor){
-    this->vecDecor[CDecor.getIndex()].setToggled(true);
+void gameArea::Wall::pickDecor(gameInteractable::Interactable CInteractable){
+    this->vecDecor[CInteractable.getIndex()]->setToggled();
 }
 
 /*gameArea::Wall::toggleInteractable  handles interact action
@@ -24,10 +24,10 @@ void gameArea::Wall::pickDecor(Decor CDecor){
             5           = door open
 
     @param nIndex       = interactable index
-    @param pFloor       = Floor ppinter
+
 */
-int gameArea::Wall::toggleInteractable(int nIndex, Floor *pFloor){
-    int nAction = this->vecDecor[nIndex].interact();
+int gameArea::Wall::toggleInteractable(int nIndex){
+    int nAction = this->vecDecor[nIndex]->interact();
     //object is dropped
     /*if(nAction == 0){
         pFloor->dropDecor(this->vecDecor[nIndex]);
@@ -44,7 +44,7 @@ std::vector<bool> gameArea::Wall::getInteractIndices(){
     int i;
     std::vector<bool> vecIndex;
     for(i = 0; i < nSize; i++){
-        Decor* pDecor = dynamic_cast<Decor*>(&this->vecDecor[i]);
+        Decor* pDecor = dynamic_cast<Decor*>(this->vecDecor[i]);
         if(pDecor){
             //problems might arise if i try to use getToggled() on a null object so i separated the condition from previous
             if(!pDecor->getToggled()){
@@ -87,7 +87,7 @@ int gameArea::Wall::getInteractableSize(){
 
     @param nIndex       = interactable index
 */
-gameInteractable::Interactable gameArea::Wall::getInteractable(int nIndex){
+gameInteractable::Interactable* gameArea::Wall::getInteractable(int nIndex){
     return this->vecDecor[nIndex];
 }
 
@@ -97,7 +97,7 @@ gameInteractable::Interactable gameArea::Wall::getInteractable(int nIndex){
     @param nIndex       = door index
 */
 Door* gameArea::Wall::getDoor(int nIndex){
-    Door* pDoor = dynamic_cast<Door*>(&this->vecDecor[nIndex]);
+    Door* pDoor = dynamic_cast<Door*>(this->vecDecor[nIndex]);
     return pDoor;
 }
 
@@ -107,7 +107,7 @@ Door* gameArea::Wall::getDoor(int nIndex){
 void gameArea::Wall::createDecor(int nSize){
     int i = this->vecDecor.size();
     for(; i < nSize ; i++){
-        this->vecDecor.push_back(Decor(i));
+        this->vecDecor.push_back(new Decor(i));
     }
 }
 

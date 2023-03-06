@@ -202,17 +202,22 @@ void Game::playerInteract(int nTurn, int nIndex) {
     int nDirection = this->vecPlayer[nTurn].getDirection(nCurrentRoom);
     int nPrevDirection = this->vecPlayer[nTurn].getPrevDirection();
 
+    int nPickIndex;
+    if(nDirection == -1){
+        nPickIndex = this->CArea.getFloorInteractableIndex((int)static_cast<Rooms>(nCurrentRoom), nIndex);
+    }
     int nAction = this->CArea.toggleInteractable(nCurrentRoom, nDirection, nIndex);
 
+    std::cout<<"nAction is "<<nAction<<endl;
+
     if (nDirection != -1) {
-        std::cout<<"nAction is "<<nAction<<endl;
-        if(nAction == 0){
+        if(nAction == 0 || nAction == 4 || nAction == 5){
             this->CTUIPrinter.toggleInteractable(static_cast<Rooms>(nCurrentRoom), nDirection, nIndex);
         }
     }
     else {
         if(nAction == 1){
-            this->CTUIPrinter.toggleInteractable(static_cast<Rooms>(nCurrentRoom), nPrevDirection, nIndex);
+            this->CTUIPrinter.toggleInteractable(static_cast<Rooms>(nCurrentRoom), nPrevDirection, nPickIndex);
         }
     }
 }

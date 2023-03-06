@@ -51,6 +51,10 @@ int Area::getRoomSize(int nRoom){
     return this->vecRoom[nRoom].getRoomSize();
 }
 
+int Area::getFloorInteractableIndex(int nRoom, int nIndex){
+    return this->vecRoom[nRoom].getFloorInteractableIndex(nIndex);
+}
+
 /*Area::getInteractIndices   returns vecIndex
     return vecIndex     = vector of valid interactables, this is everything except disabled decor (dropped decor)
 */

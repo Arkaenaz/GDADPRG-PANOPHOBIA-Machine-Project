@@ -15,7 +15,7 @@ namespace gameInteractable{
             Lightswitch();
 
         public:
-            int interact();
+            int interact() override;
     };
 }
 

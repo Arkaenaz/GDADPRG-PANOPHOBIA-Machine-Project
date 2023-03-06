@@ -35,6 +35,7 @@ namespace gameArea{
             int toggleInteractable(int nRoom, int nWall, int nIndex);
 
             int getRoomSize(int nRoom);
+            int getFloorInteractableIndex(int nRoom, int nIndex);
             std::vector<bool> getInteractIndices(int nRoom, int nWall);
             std::vector<bool> getDoorIndices(int nRoom, int nWall);
             Door* getDoor(int nRoom, int nWall, int nIndex);

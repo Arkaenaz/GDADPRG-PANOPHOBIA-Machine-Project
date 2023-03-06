@@ -17,6 +17,7 @@ namespace gameInteractable{
 
         public:
             Interactable();
+            //Interactable(Interactable& COriginal);
             Interactable(int nToggleType);
         
         public:

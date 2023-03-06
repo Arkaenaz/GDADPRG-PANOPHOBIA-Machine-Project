@@ -20,7 +20,7 @@ namespace gameInteractable{
             Door(int nRoom, int nDirection);
 
         public:
-            int interact();
+            int interact() override;
 
             int getRoom();
     };
