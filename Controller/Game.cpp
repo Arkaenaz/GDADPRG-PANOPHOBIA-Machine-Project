@@ -249,10 +249,10 @@ void Game::playerInteract(int nTurn, int nIndex) {
         if(nAction == 0 || nAction == 4 || nAction == 5){
             this->CTUIPrinter.toggleInteractable(static_cast<Rooms>(nCurrentRoom), nDirection, nIndex);
             if (nAction == 4 || nAction == 5) {
-                pDoor = this->CArea.getDoor(nCurrentRoom, nDirection, nIndex);
-                pDoor = pDoor->getConnection();
-                this->CArea.updateDoor(nCurrentRoom, nDirection, nIndex, nAction);
-                this->CTUIPrinter.toggleInteractable(static_cast<Rooms>(pDoor->getRoom()), pDoor->getDirection(), nIndex);
+                //pDoor = this->CArea.getDoor(nCurrentRoom, nDirection, nIndex);
+                //pDoor = pDoor->getConnection();
+                //this->CArea.updateDoor(nCurrentRoom, nDirection, nIndex, nAction);
+                //this->CTUIPrinter.toggleInteractable(static_cast<Rooms>(pDoor->getRoom()), pDoor->getDirection(), nIndex);
             }
         }
     }
