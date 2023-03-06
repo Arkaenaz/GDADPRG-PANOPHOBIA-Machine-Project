@@ -18,17 +18,12 @@ namespace utilities {
     using namespace candyTUI;
     using namespace gamePlayer;
     class Interface {
-        protected:
-            TUIPrinter CTUIPrinter;
-
         public:
             Interface();
 
         public:
             void printTitleScreen();
             void printLobbyScreen(std::vector<Player> vecPlayer, int nPlayer);
-            void printAreaProper(int nDirection, int nRoomSize, Player CPlayer);
-            void turnMultiple(int nNewDirection, int nRoomSize, Player CPlayer);
             char scanChar(std::string strMessage);
             int scanInt(std::string strMessage);
         

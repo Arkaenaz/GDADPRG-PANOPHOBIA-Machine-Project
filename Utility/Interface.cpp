@@ -11,7 +11,6 @@ using namespace utilities;
 using namespace candyTUI;
 
 Interface::Interface(){
-    this->CTUIPrinter = TUIPrinter();
 }
 
 void Interface::printTitleScreen() {
@@ -36,47 +35,6 @@ void Interface::printLobbyScreen(std::vector<Player> vecPlayer, int nPlayer) {
     std::cout << "\n" << std::endl;
     printCenter("[0]  BACK");
     std::cout << std::endl;
-}
-
-void Interface::printAreaProper(int nDirection, int nRoomSize, Player CPlayer/*int nRoom, char cInput*/) {
-    int nRoom = CPlayer.getRoom();
-    std::cout << "Printing Area." << std::endl;
-    /*switch(cInput) {
-        case 'a':
-        case 'A':
-            CTUIPrinter.turnLeft(static_cast<Rooms>(nRoom));
-            break;
-        case 'd':
-        case 'D':
-            CTUIPrinter.turnRight(static_cast<Rooms>(nRoom));
-            break;
-    }*/
-    turnMultiple(nDirection, nRoomSize, CPlayer);
-    CTUIPrinter.printRoom(static_cast<Rooms>(nRoom));
-}
-
-void Interface::turnMultiple(int nNewDirection, int nRoomSize, Player CPlayer){
-
-    int nOldDirection = CPlayer.getDirection(CPlayer.getRoom());
-    //calculate shortest turning distance
-    int nDistanceRight = std::min(std::abs(nNewDirection-nOldDirection), nRoomSize - std::abs(nNewDirection-nOldDirection));
-    int nDistanceLeft = std::min(std::abs(nOldDirection-nNewDirection), nRoomSize - std::abs(nOldDirection-nNewDirection));
-    bool bRight = (nDistanceRight < nDistanceLeft) ? true : false;
-
-    while(CPlayer.getDirection(CPlayer.getRoom()) != nNewDirection){
-        //turning right is shorter
-        if(bRight){
-            nOldDirection += 1;
-            this->CTUIPrinter.turnRight(static_cast<Rooms>(CPlayer.getRoom()));
-        }
-        //turning left is shorter
-        else{
-            nOldDirection -= 1;
-            this->CTUIPrinter.turnLeft(static_cast<Rooms>(CPlayer.getRoom()));
-        }
-        errMinMax(&nOldDirection,nRoomSize);
-    }
-    
 }
 
 char Interface::scanChar(std::string strMessage) {

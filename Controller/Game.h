@@ -35,6 +35,7 @@ namespace controllers {
             void printPerspective(int nTurn);
             void playerInput(char cInput, int nTurn);
 
+            void turnMultiple(int nNewDirection, int nRoomSize, Player CPlayer);
             void panLeft(int nTurn);
             void panRight(int nTurn);
             void panUpDown(int nTurn);

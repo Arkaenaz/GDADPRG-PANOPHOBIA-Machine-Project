@@ -14,7 +14,6 @@ Door::Door(int nRoom, int nDirection):gameInteractable::Interactable(){
 }
 
 int Door::interact(){
-    std::cout<<"door interaction"<<endl;
     this->bToggled = !this->bToggled;
     if(this->getToggled()){
         //door open0
