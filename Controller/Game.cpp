@@ -259,7 +259,8 @@ void Game::enterDoor(int nTurn, int nIndex) {
         nNewDirection = this->vecPlayer[nTurn].move(*CArea.getDoor(nCurrentRoom, nDirection, nIndex));
         nCurrentRoom = this->vecPlayer[nTurn].getRoom();
         nRoomSize = this->CArea.getRoomSize(nCurrentRoom);
-        this->turnMultiple(nNewDirection, nRoomSize, nTurn);
+        if (nNewDirection != -1)
+            this->turnMultiple(nNewDirection, nRoomSize, nTurn);
     }
 }
 
