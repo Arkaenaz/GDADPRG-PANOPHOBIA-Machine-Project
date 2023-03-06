@@ -23,7 +23,6 @@ namespace gameArea{
     using namespace gameInteractable;
     class Area{
         private:
-            
             std::vector<Room> vecRoom;
 
         public:

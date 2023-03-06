@@ -30,7 +30,7 @@ namespace gameArea{
             int getInteractableWall(int nIndex);
             std::vector<bool> getInteractIndices();
             int getInteractableSize();
-            gameInteractable::Interactable getInteractable(int nIndex);
+            gameInteractable::Interactable* getInteractable(int nIndex);
             //gameInteractable::Interactable getDecor(int nIndex);
             std::vector<int> getDecorIndices();
     };

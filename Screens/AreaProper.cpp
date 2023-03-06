@@ -48,7 +48,7 @@ int Area::toggleInteractable(int nRoom, int nWall, int nIndex){
     @param nRoom        = room index
 */
 int Area::getRoomSize(int nRoom){
-    return this->vecRoom[nRoom].getRoomSize();
+    return this->vecRoom[nRoom].getRoomSize()-1;
 }
 
 int Area::getFloorInteractableIndex(int nRoom, int nIndex){

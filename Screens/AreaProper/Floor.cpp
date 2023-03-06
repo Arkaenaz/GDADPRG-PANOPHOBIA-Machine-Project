@@ -78,8 +78,8 @@ int Floor::getInteractableSize(){
 
     @param nIndex       = interactable index
 */
-gameInteractable::Interactable Floor::getInteractable(int nIndex){
-    return *this->vecDecor[nIndex];
+gameInteractable::Interactable* Floor::getInteractable(int nIndex){
+    return this->vecDecor[nIndex];
 }
 
 

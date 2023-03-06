@@ -26,10 +26,10 @@ int gameArea::Room::toggleInteractable(int nWall, int nIndex){
         std::cout<<"it returned"<<endl;
         if(nAction == 1){
             std::cout<<"getting decor"<<endl;
-            gameInteractable::Interactable CInteractable = this->CFloor.getInteractable(nIndex);
-            std::cout<<CInteractable.getIndex()<<endl;
+            gameInteractable::Interactable *pInteractable = this->CFloor.getInteractable(nIndex);
+            std::cout<<pInteractable->getIndex()<<endl;
             std::cout<<"picking decor"<<endl;
-            this->vecWall[this->CFloor.getInteractableWall(nIndex)].pickDecor(CInteractable);
+            this->vecWall[this->CFloor.getInteractableWall(nIndex)].pickDecor(pInteractable);
             std::cout<<"erasing decor"<<endl;
             this->CFloor.eraseDecor(nIndex);
         }
