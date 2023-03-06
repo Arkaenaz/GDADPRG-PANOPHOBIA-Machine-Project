@@ -15,7 +15,7 @@ namespace gameInteractable{
             Decor(int nIndex);
         
         public:
-            int interact();
+            int interact() override;
     };
 }
 
