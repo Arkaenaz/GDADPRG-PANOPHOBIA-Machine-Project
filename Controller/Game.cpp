@@ -179,20 +179,28 @@ void Game::turnMultiple(int nNewDirection, int nRoomSize, int nTurn){
     int nDistanceLeft = std::min(std::abs(nOldDirection-nNewDirection), nRoomSize - std::abs(nOldDirection-nNewDirection));
     bool bRight = (nDistanceRight < nDistanceLeft) ? true : false;
 
+    std::cout<<"new direction goal: "<<nNewDirection<<endl;
+
     while(this->vecPlayer[nTurn].getDirection(this->vecPlayer[nTurn].getRoom()) != nNewDirection){
+        std::cout<<nOldDirection<<endl;
         //turning right is shorter
         if(bRight){
+            std::cout<<"turn right"<<endl;
             nOldDirection += 1;
             this->CTUIPrinter.turnRight(static_cast<Rooms>(this->vecPlayer[nTurn].getRoom()));
         }
         //turning left is shorter
         else{
+            std::cout<<"turn left"<<endl;
             nOldDirection -= 1;
             this->CTUIPrinter.turnLeft(static_cast<Rooms>(this->vecPlayer[nTurn].getRoom()));
         }
         errMinMax(&nOldDirection,nRoomSize);
+        std::cout<<"now "<<nOldDirection<<endl<<endl;
+        this->vecPlayer[nTurn].setDirection(nOldDirection,this->vecPlayer[nTurn].getRoom());
     }
 }
+
 
 void Game::panLeft(int nTurn) {
     int nCurrentRoom = this->vecPlayer[nTurn].getRoom();
@@ -237,13 +245,13 @@ void Game::playerInteract(int nTurn, int nIndex) {
 
     std::cout<<"nAction is "<< nAction <<endl;
 
-    if (nDirection != -1) {
+    if (nDirection != -1 && nCurrentRoom != 5) {
         if(nAction == 0 || nAction == 4 || nAction == 5){
             this->CTUIPrinter.toggleInteractable(static_cast<Rooms>(nCurrentRoom), nDirection, nIndex);
         }
     }
     else {
-        if(nAction == 1){
+        if(nAction == 1 && nCurrentRoom != 5){
             this->CTUIPrinter.toggleInteractable(static_cast<Rooms>(nCurrentRoom), nPrevDirection, nPickIndex);
         }
     }
