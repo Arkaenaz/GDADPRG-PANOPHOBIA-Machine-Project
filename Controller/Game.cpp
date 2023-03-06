@@ -200,13 +200,20 @@ void Game::panUpDown(int nTurn) {
 void Game::playerInteract(int nTurn, int nIndex) {
     int nCurrentRoom = this->vecPlayer[nTurn].getRoom();
     int nDirection = this->vecPlayer[nTurn].getDirection(nCurrentRoom);
+    int nPrevDirection = this->vecPlayer[nTurn].getPrevDirection();
+
+    int nAction = this->CArea.toggleInteractable(nCurrentRoom, nDirection, nIndex);
 
     if (nDirection != -1) {
-        this->CArea.toggleInteractable(nCurrentRoom, nDirection, nIndex);
-        this->CTUIPrinter.toggleInteractable(static_cast<Rooms>(nCurrentRoom), nDirection, nIndex);
+        std::cout<<"nAction is "<<nAction<<endl;
+        if(nAction == 0){
+            this->CTUIPrinter.toggleInteractable(static_cast<Rooms>(nCurrentRoom), nDirection, nIndex);
+        }
     }
     else {
-
+        if(nAction == 1){
+            this->CTUIPrinter.toggleInteractable(static_cast<Rooms>(nCurrentRoom), nPrevDirection, nIndex);
+        }
     }
 }
 

@@ -24,15 +24,15 @@ int gameArea::Room::toggleInteractable(int nWall, int nIndex){
     int nDir;
     if(nWall == -1){
         nDir = this->CFloor.getInteractableIndex(nIndex);
-        nAction = this->CFloor.toggleInteractable(nIndex,this->vecWall[nDir]);
-        if(nAction == 0){
+        nAction = this->CFloor.toggleInteractable(nIndex,&this->vecWall[nDir]);
+        if(nAction == 1){
             Decor* pDecor = this->CFloor.getDecor(nIndex);
             this->vecWall[this->CFloor.getInteractableWall(nIndex)].pickDecor(*pDecor);
         }
     }
     else{
-        nAction = this->vecWall[nWall].toggleInteractable(nIndex,CFloor);
-        if(nAction == 1){
+        nAction = this->vecWall[nWall].toggleInteractable(nIndex,&CFloor);
+        if(nAction == 0){
             this->CFloor.dropDecor(this->vecWall[nWall].getInteractable(nIndex));
         }
     }

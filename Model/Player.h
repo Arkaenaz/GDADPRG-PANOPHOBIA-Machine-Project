@@ -49,6 +49,7 @@ namespace gamePlayer{
 
             int getRoom();
             int getDirection(int nRoom);
+            int getPrevDirection();
             float getSanity();
             string getName();
 

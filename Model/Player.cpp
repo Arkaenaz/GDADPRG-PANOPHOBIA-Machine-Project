@@ -112,6 +112,10 @@ int Player::getDirection(int nRoom){
     return this->aDirection[nRoom];
 }
 
+int Player::getPrevDirection(){
+    return this->nPrevDirection;
+}
+
 /*Player::getSanity  returns player's current sanity
     return fSanity      = player's current sanity
 */

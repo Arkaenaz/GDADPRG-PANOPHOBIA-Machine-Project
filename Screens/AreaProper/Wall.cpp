@@ -24,15 +24,15 @@ void gameArea::Wall::pickDecor(Decor CDecor){
             5           = door open
 
     @param nIndex       = interactable index
-    @param CFloor       = Floor
+    @param pFloor       = Floor ppinter
 */
-int gameArea::Wall::toggleInteractable(int nIndex, Floor CFloor){
+int gameArea::Wall::toggleInteractable(int nIndex, Floor *pFloor){
     int nAction = this->vecDecor[nIndex].interact();
     //object is dropped
-    if(nAction == 0){
-        CFloor.dropDecor(this->vecDecor[nIndex]);
+    /*if(nAction == 0){
+        pFloor->dropDecor(this->vecDecor[nIndex]);
         //this->vecDecor[nIndex].setToggled();
-    }
+    }*/
     return nAction;
 }
 

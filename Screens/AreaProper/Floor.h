@@ -23,7 +23,7 @@ namespace gameArea{
 
         public:
             void dropDecor(gameInteractable::Interactable CDecor);
-            int toggleInteractable(int nIndex, Wall CWall);
+            int toggleInteractable(int nIndex, Wall *pWall);
 
             int getInteractableIndex(int nIndex);
             int getInteractableWall(int nIndex);

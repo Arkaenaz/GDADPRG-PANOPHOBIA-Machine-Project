@@ -26,7 +26,7 @@ namespace gameArea{
         public:
             //void pickDecor(gameInteractable::Interactable CInteractable);
             void pickDecor(Decor CDecor);
-            int toggleInteractable(int nIndex, Floor CFloor);
+            int toggleInteractable(int nIndex, Floor *pFloor);
 
             std::vector<bool> getInteractIndices();
             std::vector<bool> getDoorIndices();

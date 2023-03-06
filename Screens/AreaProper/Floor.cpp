@@ -24,13 +24,13 @@ void Floor::dropDecor(gameInteractable::Interactable CDecor){
             5           = door open
 
     @param nIndex       = interactable index
-    @param CWall        = gameArea::Wall
+    @param pWall        = gameArea::Wall pointer
 */
-int Floor::toggleInteractable(int nIndex, gameArea::Wall CWall){
+int Floor::toggleInteractable(int nIndex, gameArea::Wall *pWall){
     int nAction = this->vecDecor[nIndex].interact();
     if(nAction == 1){
-        Decor* pDecor = dynamic_cast<Decor*>(&this->vecDecor[nIndex]);
-        CWall.pickDecor(*pDecor);
+        //Decor* pDecor = dynamic_cast<Decor*>(&this->vecDecor[nIndex]);
+        //pWall->pickDecor(*pDecor);
         this->vecDecor.erase(vecDecor.begin()+nIndex);
     }
     return nAction;
