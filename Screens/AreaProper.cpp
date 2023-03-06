@@ -20,10 +20,21 @@ std::vector<gameArea::Room> Area::createRoomVector() {
     return vecRoom;
 }
 
-/*void Area::update(Player CPlayer) {
-    Room CRoom = CPlayer.getRoom();
+void Area::initializeDoors() {
+    Door *pDoor1 = getDoor(5, 0, 0);
+    Door *pDoor2 = getDoor(0, 2, 0);
+    connectDoor(5,0,pDoor1,pDoor2);
+    connectDoor(0,2,pDoor1,pDoor2);
+    pDoor1 = getDoor(0,0,0);
+    pDoor2 = getDoor(1,6,0);
+    connectDoor(0,0,pDoor1,pDoor2);
+    connectDoor(1,6,pDoor1,pDoor2);
+}
 
-}*/
+void Area::updateDoor(int nRoom, int nWall, int nIndex, int nAction) {
+    Door *pDoor = getDoor(nRoom, nWall, nIndex);
+    pDoor->update(nAction);
+}
 
 /*Area::toggleInteractable  handles interact action
     return -1           = invalid/error
@@ -67,6 +78,10 @@ std::vector<bool> Area::getInteractIndices(int nRoom, int nWall){
 */
 std::vector<bool> Area::getDoorIndices(int nRoom, int nWall){
     return this->vecRoom[nRoom].getInteractIndices(nWall);
+}
+
+void Area::connectDoor(int nRoom, int nWall, Door* pDoor1, Door* pDoor2) {
+    this->vecRoom[nRoom].connectDoor(nWall, pDoor1, pDoor2);
 }
 
 /*Area::getDoor   returns Door*

@@ -81,6 +81,14 @@ std::vector<bool> gameArea::Room::getInteractIndices(int nWall){
     }
 }
 
+void gameArea::Room::connectDoor(int nWall, Door* pDoor1, Door* pDoor2) {
+    this->vecWall[nWall].connectDoor(pDoor1, pDoor2);
+}
+
+/*void gameArea::Room::updateDoor(int nRoom, int nWall, int nIndex, int nAction) {
+
+}*/
+
 /*gameArea::Room::getDoorIndices   returns vecIndex
     return vecIndex     = vector of door bToggled values
 */

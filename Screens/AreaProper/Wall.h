@@ -31,6 +31,8 @@ namespace gameArea{
             std::vector<bool> getInteractIndices();
             std::vector<bool> getDoorIndices();
             int getInteractableSize();
+            void connectDoor(Door *pDoor1, Door *pDoor2);
+            void updateDoor(int nIndex, int nAction);
             gameInteractable::Interactable* getInteractable(int nIndex);
             Door* getDoor(int nIndex);
 

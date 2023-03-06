@@ -28,7 +28,7 @@ namespace gameArea{
         public:
             Area();
 
-            //void update(Player CPlayer);
+            void initializeDoors();
             std::vector<Room> createRoomVector();
 
             int toggleInteractable(int nRoom, int nWall, int nIndex);
@@ -37,6 +37,8 @@ namespace gameArea{
             int getFloorInteractableIndex(int nRoom, int nIndex);
             std::vector<bool> getInteractIndices(int nRoom, int nWall);
             std::vector<bool> getDoorIndices(int nRoom, int nWall);
+            void connectDoor(int nRoom, int nWall, Door* pDoor1, Door* pDoor2);
+            void updateDoor(int nRoom, int nWall, int nIndex, int nAction);
             Door* getDoor(int nRoom, int nWall, int nIndex);
             std::vector<int> getFloorDecorIndices(int nRoom);
     };

@@ -14,6 +14,7 @@ namespace gameInteractable{
         private:
             //gives player room index where the door is connected to
             int nRoom;
+            Door* pDoor;
 
         public:
             Door();
@@ -21,8 +22,11 @@ namespace gameInteractable{
 
         public:
             int interact() override;
-
+            void connectDoor(Door* CDoor);
+            void update(int nAction);
             int getRoom();
+            int getDirection();
+            Door* getConnection();
     };
 }
 

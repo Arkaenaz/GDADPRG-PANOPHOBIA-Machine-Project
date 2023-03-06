@@ -99,10 +99,10 @@ void Game::lobby() {
 void Game::start() {
     char cInput;
     int nTurn = 0;
-    vecPlayer[nTurn].setRoom(0);
+    vecPlayer[nTurn].setRoom(5);
     if (SYSTEM_TEXT)
         std::cout << "Entered Game::start()." << std::endl;
-    
+    this->CArea.initializeDoors();
     do {
         if (CLEAR_CONSOLE)
             {system("cls");}
@@ -236,7 +236,7 @@ void Game::playerInteract(int nTurn, int nIndex) {
     int nCurrentRoom = this->vecPlayer[nTurn].getRoom();
     int nDirection = this->vecPlayer[nTurn].getDirection(nCurrentRoom);
     int nPrevDirection = this->vecPlayer[nTurn].getPrevDirection();
-
+    Door *pDoor;
     int nPickIndex;
     if(nDirection == -1){
         nPickIndex = this->CArea.getFloorInteractableIndex((int)static_cast<Rooms>(nCurrentRoom), nIndex);
@@ -248,6 +248,12 @@ void Game::playerInteract(int nTurn, int nIndex) {
     if (nDirection != -1 && nCurrentRoom != 5) {
         if(nAction == 0 || nAction == 4 || nAction == 5){
             this->CTUIPrinter.toggleInteractable(static_cast<Rooms>(nCurrentRoom), nDirection, nIndex);
+            if (nAction == 4 || nAction == 5) {
+                pDoor = this->CArea.getDoor(nCurrentRoom, nDirection, nIndex);
+                pDoor = pDoor->getConnection();
+                this->CArea.updateDoor(nCurrentRoom, nDirection, nIndex, nAction);
+                this->CTUIPrinter.toggleInteractable(static_cast<Rooms>(pDoor->getRoom()), pDoor->getDirection(), nIndex);
+            }
         }
     }
     else {

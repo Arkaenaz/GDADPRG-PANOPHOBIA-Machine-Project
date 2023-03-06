@@ -91,6 +91,14 @@ gameInteractable::Interactable* gameArea::Wall::getInteractable(int nIndex){
     return this->vecDecor[nIndex];
 }
 
+void gameArea::Wall::connectDoor(Door *pDoor1, Door *pDoor2) {
+    pDoor1->connectDoor(pDoor2);
+}
+
+/*void gameArea::Wall::updateDoor(int nIndex, int nAction) {
+    Door *pDoor = this->getDoor(nIndex);
+    pDoor->update(nAction);
+}*/
 /*gameArea::Wall::getDoor   returns Door*
     return getDoor      = Door* pointer
 
