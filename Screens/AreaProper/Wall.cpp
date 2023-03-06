@@ -11,7 +11,7 @@ gameArea::Wall::Wall(){
     @param CInteractable= Decor to toggle
 */
 void gameArea::Wall::pickDecor(gameInteractable::Interactable *pInteractable){
-    this->vecDecor[pInteractable->getIndex()]->setToggled();
+    this->vecDecor[pInteractable->getIndex()]->setToggled(true);
 }
 
 /*gameArea::Wall::toggleInteractable  handles interact action

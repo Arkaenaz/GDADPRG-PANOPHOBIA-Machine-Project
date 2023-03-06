@@ -16,6 +16,8 @@ namespace gameInteractable{
         
         public:
             int interact() override;
+
+            bool setToggled() override;
     };
 }
 

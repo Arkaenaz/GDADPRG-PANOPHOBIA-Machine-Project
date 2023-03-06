@@ -43,15 +43,7 @@ int gameInteractable::Interactable::getDirection(){
     return getToggled() = bToggled value
 */
 bool gameInteractable::Interactable::setToggled(){
-    if((this->nToggleType = 1) && (!this->getToggled())){
-        this->bToggled = true;
-    }
-    else if((this->nToggleType = 0) && (this->getToggled())){
-        this->bToggled = false;
-    }
-    else{
-        this->bToggled = !this->bToggled;
-    }
+    this->bToggled = !this->bToggled;
     return this->getToggled();
 }
 

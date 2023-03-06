@@ -2,8 +2,8 @@
 
 using namespace gameInteractable;
 
-Decor::Decor(int nIndex):gameInteractable::Interactable(){
-    this->nToggleType = 0;
+Decor::Decor(int nIndex):gameInteractable::Interactable(0){
+    //this->nToggleType = 0;
     this->nIndex = nIndex;
 }
 
@@ -22,4 +22,9 @@ int Decor::interact(){
         }
     }
     return -1;
+}
+
+bool Decor::setToggled(){
+    this->bToggled = false;
+    return this->getToggled();
 }
