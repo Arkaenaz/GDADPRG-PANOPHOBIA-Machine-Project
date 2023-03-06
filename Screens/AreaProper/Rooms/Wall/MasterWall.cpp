@@ -9,7 +9,8 @@ MasterWall1::MasterWall1():gameArea::Wall(){
 MasterWall2::MasterWall2():gameArea::Wall(){
     this->vecDecor.push_back(new Door(1, 3));
     this->createDecor(7);
-    this->vecDecor.push_back(new Lightswitch());
+    //this->vecDecor.push_back(new Lightswitch());
+    this->pLightswitch = new Lightswitch();
 }
 MasterWall3::MasterWall3():gameArea::Wall(){
     this->createDecor(6);

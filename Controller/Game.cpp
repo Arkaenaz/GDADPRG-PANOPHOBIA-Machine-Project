@@ -274,7 +274,10 @@ void Game::enterDoor(int nTurn, int nIndex) {
 
 void Game::toggleLight(int nTurn) {
     int nCurrentRoom = this->vecPlayer[nTurn].getRoom();
-    //int nDirection = this->vecPlayer[nTurn].getDirection(nCurrentRoom);
+    int nDirection = this->vecPlayer[nTurn].getDirection(nCurrentRoom);
     
-    this->CTUIPrinter.toggleLight(static_cast<Rooms>(nCurrentRoom));
+    if(this->CArea.getLightswitch(nCurrentRoom, nDirection) != NULL){
+        this->CTUIPrinter.toggleLight(static_cast<Rooms>(nCurrentRoom));
+    }
+    
 }

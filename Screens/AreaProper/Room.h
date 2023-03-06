@@ -38,6 +38,7 @@ namespace gameArea{
             std::vector<bool> getInteractIndices(int nWall);
             std::vector<bool> getDoorIndices(int nWall);
             Door* getDoor(int nWall, int nIndex);
+            Lightswitch* getLightswitch(int nWall);
             std::vector<int> getFloorDecorIndices();
     };
 }

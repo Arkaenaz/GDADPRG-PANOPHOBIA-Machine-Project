@@ -102,6 +102,10 @@ Door* gameArea::Room::getDoor(int nWall, int nIndex){
     return this->vecWall[nWall].getDoor(nIndex);
 }
 
+Lightswitch* gameArea::Room::getLightswitch(int nWall){
+    return this->vecWall[nWall].getLightswitch();
+}
+
 std::vector<int> gameArea::Room::getFloorDecorIndices() {
     return this->CFloor.getDecorIndices();
 }

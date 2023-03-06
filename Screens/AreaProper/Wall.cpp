@@ -101,6 +101,10 @@ Door* gameArea::Wall::getDoor(int nIndex){
     return pDoor;
 }
 
+Lightswitch* gameArea::Wall::getLightswitch(){
+    return this->pLightswitch;
+}
+
 /*gameArea::Wall::createDecor   creates Decor objects until vecDecor size hits nSize
     @param nSize        = target size
 */

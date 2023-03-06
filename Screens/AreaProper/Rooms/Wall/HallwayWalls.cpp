@@ -30,8 +30,8 @@ HallwayWall6::HallwayWall6():gameArea::Wall(){
 HallwayWall7::HallwayWall7():gameArea::Wall(){
     this->vecDecor.push_back(new Door(0,2));
     this->createDecor(7);
-    this->vecDecor.push_back(new Lightswitch());
-
+    //this->vecDecor.push_back(new Lightswitch());
+    this->pLightswitch = new Lightswitch();
 }
 HallwayWall8::HallwayWall8():gameArea::Wall(){
     this->vecDecor.push_back(new Door(2,3));

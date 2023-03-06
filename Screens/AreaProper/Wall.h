@@ -19,6 +19,7 @@ namespace gameArea{
     class Wall{
         protected:
             std::vector<gameInteractable::Interactable*> vecDecor;
+            Lightswitch* pLightswitch;
         
         public:
             Wall();
@@ -33,6 +34,7 @@ namespace gameArea{
             int getInteractableSize();
             gameInteractable::Interactable* getInteractable(int nIndex);
             Door* getDoor(int nIndex);
+            Lightswitch* getLightswitch();
 
         protected:
             void createDecor(int nSize);

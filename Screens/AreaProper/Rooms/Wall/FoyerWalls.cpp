@@ -14,7 +14,8 @@ FoyerWall2::FoyerWall2():gameArea::Wall(){
 
 FoyerWall3::FoyerWall3():gameArea::Wall(){
     this->vecDecor.push_back(new Door(5,0));
-    this->vecDecor.push_back(new Lightswitch());
+    //this->vecDecor.push_back(new Lightswitch());
+    this->pLightswitch = new Lightswitch();
 }
 
 FoyerWall4::FoyerWall4():gameArea::Wall(){
