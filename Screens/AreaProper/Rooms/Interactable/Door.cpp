@@ -4,13 +4,16 @@ using namespace gameInteractable;
 
 Door::Door():gameInteractable::Interactable(){
     this->bToggled = false;
+    this->EType = Interactables::DOOR;
 }
 
 Door::Door(int nRoom, int nDirection):gameInteractable::Interactable(){
     this->nToggleType = -1;
     this->bToggled = false;
+    this->EType = Interactables::DOOR;
     this->nRoom = nRoom;
     this->nDirection = nDirection;
+    this->pDoor = NULL;
 }
 
 int Door::interact(){

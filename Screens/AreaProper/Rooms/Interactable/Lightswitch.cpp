@@ -5,6 +5,7 @@ using namespace gameInteractable;
 Lightswitch::Lightswitch():gameInteractable::Interactable(){
     this->nToggleType = -1;
     this->bToggled = true;
+    this->EType = Interactables::LIGHT_SWITCH;;
 }
 
 int Lightswitch::interact(){

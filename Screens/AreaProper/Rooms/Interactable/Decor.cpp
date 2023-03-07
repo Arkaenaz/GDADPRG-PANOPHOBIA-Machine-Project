@@ -5,6 +5,7 @@ using namespace gameInteractable;
 Decor::Decor(int nIndex):gameInteractable::Interactable(0){
     //this->nToggleType = 0;
     this->nIndex = nIndex;
+    this->EType = Interactables::DECOR;
 }
 
 int Decor::interact(){

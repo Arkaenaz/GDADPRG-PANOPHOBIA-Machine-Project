@@ -7,6 +7,7 @@ Description: Interactable class
 #ifndef GAME_ELEMENTS_INTERACTABLE_H
 #define GAME_ELEMENTS_INTERACTABLE_H
 
+#include "../../Enum/EnumInteractables.h"
 namespace gameInteractable{
     class Interactable{
         protected:
@@ -14,6 +15,7 @@ namespace gameInteractable{
             int nDirection;
             int nToggleType;
             bool bToggled;
+            Interactables EType;
 
         public:
             Interactable();
