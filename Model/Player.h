@@ -8,8 +8,11 @@ Description: Player class
 #define GAME_ELEMENTS_PLAYER_H
 
 #include "string"
+<<<<<<< HEAD
 
 #include "AreaProper.h"
+=======
+>>>>>>> c508d341fa82e1bb67254f394fedb764836fd3bd
 
 #include "../Config/Settings.h"
 #include "../Enum/EnumDirection.h"

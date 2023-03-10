@@ -46,5 +46,3 @@ namespace gameElements {
             std::vector<int> getFloorDecorIndices(int nRoom);
     };
 }
-
-#endif
