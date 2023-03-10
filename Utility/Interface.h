@@ -4,8 +4,8 @@ Date Created: February 18, 2022, 11:09 PM
 Description: 
 ****************************************************/
 
-#ifndef UTILITIES_PRINTER_H
-#define UTILITIES_PRINTER_H
+#ifndef UTILITIES_INTERFACE_H
+#define UTILITIES_INTERFACE_H
 
 #include "string"
 
@@ -16,11 +16,8 @@ Description:
 
 namespace utilities {
     using namespace candyTUI;
-    using namespace gamePlayer;
+    using namespace gameElements;
     class Interface {
-        public:
-            Interface();
-
         public:
             void printTitleScreen();
             void printLobbyScreen(std::vector<Player> vecPlayer, int nPlayer);

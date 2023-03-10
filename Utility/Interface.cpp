@@ -10,9 +10,6 @@ Description:
 using namespace utilities;
 using namespace candyTUI;
 
-Interface::Interface(){
-}
-
 void Interface::printTitleScreen() {
     printCenter("PANOPHOBIA");        // prototype hadwahdgehaha
     std::cout << "\n" << std::endl;

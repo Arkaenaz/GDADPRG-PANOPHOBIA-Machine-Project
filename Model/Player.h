@@ -7,25 +7,28 @@ Description: Player class
 #ifndef GAME_ELEMENTS_PLAYER_H
 #define GAME_ELEMENTS_PLAYER_H
 
-#include "iostream"
+#include "string"
+
+#include "AreaProper.h"
 
 #include "../Config/Settings.h"
 #include "../Enum/EnumDirection.h"
 #include "../Utility/Utility.h"
-#include "../Screens/AreaProper.h"
 #include "../Libraries/CandyTUI/TUIPrinter.h"
 #include "../Libraries/CandyTUI/Model/Enum/EnumRooms.h"
 
-namespace gamePlayer{
+#define UP 0
+#define DOWN 1
+#define LEFT 2
+#define RIGHT 3
 
-    using namespace std;
+namespace gameElements {
     using namespace candyTUI;
-    using namespace gameArea;
     using namespace gameInteractable;
 
     class Player{
         private:
-            string strName;
+            std::string strName;
 
             int nRoom;
             int aDirection[6];
@@ -37,7 +40,7 @@ namespace gamePlayer{
 
         public:
             Player();
-            Player(string strName);
+            Player(std::string strName);
 
             int pan(int nDirection, int nRoomSize);
             int move(Door CDoor);
@@ -51,7 +54,7 @@ namespace gamePlayer{
             int getDirection(int nRoom);
             int getPrevDirection();
             float getSanity();
-            string getName();
+            std::string getName();
 
             void setDirection(int nDirection, int nRoom);
             void setRoom(int nRoom);
