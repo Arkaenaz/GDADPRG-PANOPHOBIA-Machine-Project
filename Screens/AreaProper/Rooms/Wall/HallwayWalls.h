@@ -1,42 +1,42 @@
-#ifndef GAME_ELEMENTS_WALL_HALLWAY_H
-#define GAME_ELEMENTS_WALL_HALLWAY_H
+#ifndef GAME_ROOMS_HALLWAY_WALLS_H
+#define GAME_ROOMS_HALLWAY_WALLS_H
 
 #include "../../Wall.h"
 #include "../Interactable/Decor.h"
 #include "../Interactable/Door.h"
 #include "../Interactable/Lightswitch.h"
 
-namespace gameArea{
+namespace gameRooms {
     using namespace gameInteractable;
-    class HallwayWall1 : public gameArea::Wall{
+    class HallwayWall1 : public gameRooms::Wall {
         public:
             HallwayWall1();
     };
-    class HallwayWall2 : public gameArea::Wall{
+    class HallwayWall2 : public gameRooms::Wall {
         public:
             HallwayWall2();
     };
-    class HallwayWall3 : public gameArea::Wall{
+    class HallwayWall3 : public gameRooms::Wall {
         public:
             HallwayWall3();
     };
-    class HallwayWall4 : public gameArea::Wall{
+    class HallwayWall4 : public gameRooms::Wall {
         public:
             HallwayWall4();
     };
-    class HallwayWall5 : public gameArea::Wall{
+    class HallwayWall5 : public gameRooms::Wall {
         public:
             HallwayWall5();
     };
-    class HallwayWall6 : public gameArea::Wall{
+    class HallwayWall6 : public gameRooms::Wall {
         public:
             HallwayWall6();
     };
-    class HallwayWall7 : public gameArea::Wall{
+    class HallwayWall7 : public gameRooms::Wall {
         public:
             HallwayWall7();
     };
-    class HallwayWall8 : public gameArea::Wall{
+    class HallwayWall8 : public gameRooms::Wall {
         public:
             HallwayWall8();
     };

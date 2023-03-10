@@ -1,26 +1,26 @@
-#ifndef GAME_ELEMENTS_WALL_KIDS_H
-#define GAME_ELEMENTS_WALL_KIDS_H
+#ifndef GAME_ROOMS_KIDS_WALLS_H
+#define GAME_ROOMS_KIDS_WALLS_H
 
 #include "../../Wall.h"
 #include "../Interactable/Decor.h"
 #include "../Interactable/Door.h"
 #include "../Interactable/Lightswitch.h"
 
-namespace gameArea{
+namespace gameRooms {
     using namespace gameInteractable;
-    class KidsWall1 : public gameArea::Wall{
+    class KidsWall1 : public gameRooms::Wall {
         public:
             KidsWall1();
     };
-    class KidsWall2 : public gameArea::Wall{
+    class KidsWall2 : public gameRooms::Wall {
         public:
             KidsWall2();
     };
-    class KidsWall3 : public gameArea::Wall{
+    class KidsWall3 : public gameRooms::Wall {
         public:
             KidsWall3();
     };
-    class KidsWall4 : public gameArea::Wall{
+    class KidsWall4 : public gameRooms::Wall {
         public:
             KidsWall4();
     };

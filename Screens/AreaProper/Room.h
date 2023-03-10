@@ -4,21 +4,21 @@ Date Created: February 27, 2023
 Description: Room class
 ****************************************************/
 
-#ifndef GAME_ELEMENTS_ROOM_H
-#define GAME_ELEMENTS_ROOM_H
+#ifndef GAME_ROOMS_ROOM_H
+#define GAME_ROOMS_ROOM_H
 
 #include "iostream"
 #include "vector"
 
-namespace gameArea{
+namespace gameRooms {
    class Wall;
 }
 
 #include "Wall.h"
 
-namespace gameArea{
+namespace gameRooms {
     using namespace gameInteractable;
-    class Room{
+    class Room {
         protected:
             Floor CFloor;
             std::vector<Wall> vecWall;            
@@ -37,8 +37,8 @@ namespace gameArea{
             int getFloorInteractableIndex(int nIndex);
             std::vector<bool> getInteractIndices(int nWall);
             std::vector<bool> getDoorIndices(int nWall);
-            void connectDoor(int nWall, Door* pDoor1, Door* pDoor2);
-            void updateDoor(int nWall, int nIndex, int nAction);
+            //void connectDoor(int nWall, Door* pDoor1, Door* pDoor2);
+            //void updateDoor(int nWall, int nIndex, int nAction);
             Door* getDoor(int nWall, int nIndex);
             Lightswitch* getLightswitch(int nWall);
             std::vector<int> getFloorDecorIndices();

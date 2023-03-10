@@ -14,10 +14,14 @@ Description:
 #include "../Utility/Interface.h"
 #include "../Model/Player.h"
 
+#define UP 0
+#define DOWN 1
+#define LEFT 2
+#define RIGHT 3
+
 namespace controllers {
     using namespace utilities;
-    using namespace gamePlayer;
-    using namespace gameArea;
+    using namespace gameElements;
     class Game {
         private:
             std::vector<Player> vecPlayer;

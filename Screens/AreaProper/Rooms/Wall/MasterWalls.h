@@ -1,26 +1,26 @@
-#ifndef GAME_ELEMENTS_WALL_MASTER_H
-#define GAME_ELEMENTS_WALL_MASTER_H
+#ifndef GAME_ROOMS_MASTER_WALLS_H
+#define GAME_ROOMS_MASTER_WALLS_H
 
 #include "../../Wall.h"
 #include "../Interactable/Decor.h"
 #include "../Interactable/Door.h"
 #include "../Interactable/Lightswitch.h"
 
-namespace gameArea{
+namespace gameRooms {
     using namespace gameInteractable;
-    class MasterWall1 : public gameArea::Wall{
+    class MasterWall1 : public gameRooms::Wall {
         public:
             MasterWall1();
     };
-    class MasterWall2 : public gameArea::Wall{
+    class MasterWall2 : public gameRooms::Wall {
         public:
             MasterWall2();
     };
-    class MasterWall3 : public gameArea::Wall{
+    class MasterWall3 : public gameRooms::Wall {
         public:
             MasterWall3();
     };
-    class MasterWall4 : public gameArea::Wall{
+    class MasterWall4 : public gameRooms::Wall {
         public:
             MasterWall4();
     };

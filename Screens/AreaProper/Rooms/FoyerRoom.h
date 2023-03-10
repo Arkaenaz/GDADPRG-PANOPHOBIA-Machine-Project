@@ -4,15 +4,15 @@ Date Created: March 1, 2023
 Description: Foyer room class
 ****************************************************/
 
-#ifndef GAME_ELEMENTS_ROOM_FOYER_H
-#define GAME_ELEMENTS_ROOM_FOYER_H
+#ifndef GAME_ROOMS_FOYER_ROOM_H
+#define GAME_ROOMS_FOYER_ROOM_H
 
 #include "../Room.h"
 #include "Wall/FoyerWalls.h"
 
-namespace gameArea{
+namespace gameRooms {
     using namespace gameInteractable;
-    class FoyerRoom : public gameArea::Room{
+    class FoyerRoom : public gameRooms::Room {
         public:
             FoyerRoom();
     };

@@ -1,8 +1,8 @@
 #include "HallwayRoom.h"
 
-using namespace gameArea;
+using namespace gameRooms;
 
-HallwayRoom::HallwayRoom():gameArea::Room(){
+HallwayRoom::HallwayRoom():gameRooms::Room(){
     this->vecWall.push_back(HallwayWall1());
     this->vecWall.push_back(HallwayWall2());
     this->vecWall.push_back(HallwayWall3());

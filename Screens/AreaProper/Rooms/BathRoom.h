@@ -1,12 +1,12 @@
-#ifndef GAME_ELEMENTS_ROOM_BATH_H
-#define GAME_ELEMENTS_ROOM_BATH_H
+#ifndef GAME_ROOMS_BATH_ROOM_H
+#define GAME_ROOMS_BATH_ROOM_H
 
 #include "../Room.h"
 #include "Wall/BathWalls.h"
 
-namespace gameArea{
+namespace gameRooms {
     using namespace gameInteractable;
-    class BathRoom : public gameArea::Room{
+    class BathRoom : public gameRooms::Room {
         public:
             BathRoom();
     };

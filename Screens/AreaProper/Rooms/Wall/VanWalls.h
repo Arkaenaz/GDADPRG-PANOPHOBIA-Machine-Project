@@ -1,18 +1,18 @@
-#ifndef GAME_ELEMENTS_WALL_VAN_H
-#define GAME_ELEMENTS_WALL_VAN_H
+#ifndef GAME_ROOMS_VAN_WALLS_H
+#define GAME_ROOMS_VAN_WALLS_H
 
 #include "../../Wall.h"
 #include "../Interactable/Decor.h"
 #include "../Interactable/Door.h"
 #include "../Interactable/Lightswitch.h"
 
-namespace gameArea{
+namespace gameRooms {
     using namespace gameInteractable;
-    class VanWall1 : public gameArea::Wall{
+    class VanWall1 : public gameRooms::Wall{
         public:
             VanWall1();
     };
-    class VanWall2 : public gameArea::Wall{
+    class VanWall2 : public gameRooms::Wall{
         public:
             VanWall2();
         
@@ -22,14 +22,14 @@ namespace gameArea{
             float sanityAverage(float fSanity1,float fSanity2,float fSanity3,float fSanity4);
             
     };
-    class VanWall3 : public gameArea::Wall{
+    class VanWall3 : public gameRooms::Wall{
         public:
             VanWall3();
 
         public:
             void endRun();
     };
-    class VanWall4 : public gameArea::Wall{
+    class VanWall4 : public gameRooms::Wall{
         public:
             VanWall4();
     };

@@ -4,15 +4,15 @@ Date Created: February 27, 2023
 Description: Floor class
 ****************************************************/
 
-#ifndef GAME_ELEMENTS_FLOOR_H
-#define GAME_ELEMENTS_FLOOR_H
+#ifndef GAME_ROOMS_FLOOR_H
+#define GAME_ROOMS_FLOOR_H
 
 #include "vector"
 
 #include "Interactable.h"
 #include "Rooms/Interactable/Decor.h"
 
-namespace gameArea{
+namespace gameRooms {
     using namespace gameInteractable;
     class Floor{
         private:

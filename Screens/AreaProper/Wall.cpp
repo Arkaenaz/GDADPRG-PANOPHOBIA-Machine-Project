@@ -1,16 +1,16 @@
 #include "Wall.h"
 
-using namespace gameArea;
+using namespace gameRooms;
 using namespace gameInteractable;
 
-gameArea::Wall::Wall(){
+gameRooms::Wall::Wall(){
 
 }
 
 /*gameArea::Wall::pickDecor   toggles CInteractable's toggle, essentially placing it back onto the wall by enabling it
     @param CInteractable= Decor to toggle
 */
-void gameArea::Wall::pickDecor(gameInteractable::Interactable *pInteractable){
+void gameRooms::Wall::pickDecor(gameInteractable::Interactable *pInteractable){
     this->vecDecor[pInteractable->getIndex()]->setToggled(true);
 }
 
@@ -26,7 +26,7 @@ void gameArea::Wall::pickDecor(gameInteractable::Interactable *pInteractable){
     @param nIndex       = interactable index
 
 */
-int gameArea::Wall::toggleInteractable(int nIndex){
+int gameRooms::Wall::toggleInteractable(int nIndex){
     int nAction = this->vecDecor[nIndex]->interact();
     //object is dropped
     /*if(nAction == 0){
@@ -39,7 +39,7 @@ int gameArea::Wall::toggleInteractable(int nIndex){
 /*gameArea::Wall::getInteractIndices   returns vecIndex
     return vecIndex     = vector of valid interactables, only false if decor is dropped/untoggled
 */
-std::vector<bool> gameArea::Wall::getInteractIndices(){
+std::vector<bool> gameRooms::Wall::getInteractIndices(){
     int nSize = this->getInteractableSize();
     int i;
     std::vector<bool> vecIndex;
@@ -59,7 +59,7 @@ std::vector<bool> gameArea::Wall::getInteractIndices(){
 /*gameArea::Wall::getDoorIndices   returns vecIndex
     return vecIndex     = vector of door bToggled values
 */
-std::vector<bool> gameArea::Wall::getDoorIndices(){
+std::vector<bool> gameRooms::Wall::getDoorIndices(){
     int nSize = this->getInteractableSize();
     int i;
     std::vector<bool> vecIndex;
@@ -78,7 +78,7 @@ std::vector<bool> gameArea::Wall::getDoorIndices(){
 /*gameArea::Wall::getInteractableSize   returns gameInteractable::Interactable
     return size         = vecDecor size
 */
-int gameArea::Wall::getInteractableSize(){
+int gameRooms::Wall::getInteractableSize(){
     return this->vecDecor.size();
 }
 
@@ -87,36 +87,38 @@ int gameArea::Wall::getInteractableSize(){
 
     @param nIndex       = interactable index
 */
-gameInteractable::Interactable* gameArea::Wall::getInteractable(int nIndex){
+gameInteractable::Interactable* gameRooms::Wall::getInteractable(int nIndex){
     return this->vecDecor[nIndex];
 }
 
-void gameArea::Wall::connectDoor(Door *pDoor1, Door *pDoor2) {
+//! will come back later for this
+/*void gameRooms::Wall::connectDoor(Door *pDoor1, Door *pDoor2) {
     pDoor1->connectDoor(pDoor2);
-}
+}*/
 
 /*void gameArea::Wall::updateDoor(int nIndex, int nAction) {
     Door *pDoor = this->getDoor(nIndex);
     pDoor->update(nAction);
 }*/
+
 /*gameArea::Wall::getDoor   returns Door*
     return getDoor      = Door* pointer
 
     @param nIndex       = door index
 */
-Door* gameArea::Wall::getDoor(int nIndex){
+Door* gameRooms::Wall::getDoor(int nIndex){
     Door* pDoor = dynamic_cast<Door*>(this->vecDecor[nIndex]);
     return pDoor;
 }
 
-Lightswitch* gameArea::Wall::getLightswitch(){
+Lightswitch* gameRooms::Wall::getLightswitch(){
     return this->pLightswitch;
 }
 
 /*gameArea::Wall::createDecor   creates Decor objects until vecDecor size hits nSize
     @param nSize        = target size
 */
-void gameArea::Wall::createDecor(int nSize){
+void gameRooms::Wall::createDecor(int nSize){
     int i = this->vecDecor.size();
     for(; i < nSize ; i++){
         this->vecDecor.push_back(new Decor(i));

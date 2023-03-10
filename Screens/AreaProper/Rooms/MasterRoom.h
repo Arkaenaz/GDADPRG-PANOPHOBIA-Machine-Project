@@ -1,12 +1,12 @@
-#ifndef GAME_ELEMENTS_ROOM_MASTER_H
-#define GAME_ELEMENTS_ROOM_MASTER_H
+#ifndef GAME_ROOMS_MASTER_ROOM_H
+#define GAME_ROOMS_MASTER_ROOM_H
 
 #include "../Room.h"
 #include "Wall/MasterWalls.h"
 
-namespace gameArea{
+namespace gameRooms {
     using namespace gameInteractable;
-    class MasterRoom : public gameArea::Room{
+    class MasterRoom : public gameRooms::Room {
         public:
             MasterRoom();
     };

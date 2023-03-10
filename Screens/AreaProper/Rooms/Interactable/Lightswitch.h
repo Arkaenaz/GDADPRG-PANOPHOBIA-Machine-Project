@@ -4,13 +4,13 @@ Date Created: February 27, 2023
 Description: Lightswitch class
 ****************************************************/
 
-#ifndef GAME_ELEMENTS_INTERACTABLE_LIGHTSWITCH_H
-#define GAME_ELEMENTS_INTERACTABLE_LIGHTSWITCH_H
+#ifndef GAME_INTERACTABLE_LIGHTSWITCH_H
+#define GAME_INTERACTABLE_LIGHTSWITCH_H
 
 #include "../../Interactable.h"
 
 namespace gameInteractable{
-    class Lightswitch : public gameInteractable::Interactable{
+    class Lightswitch : public gameInteractable::Interactable {
         public:
             Lightswitch();
 

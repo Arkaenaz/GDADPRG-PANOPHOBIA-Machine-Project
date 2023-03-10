@@ -1,7 +1,7 @@
 #include "Floor.h"
 #include "Wall.h"
 
-using namespace gameArea;
+using namespace gameRooms;
 using namespace gameInteractable;
 
 Floor::Floor(){

@@ -1,8 +1,8 @@
 #include "KidsRoom.h"
 
-using namespace gameArea;
+using namespace gameRooms;
 
-KidsRoom::KidsRoom():gameArea::Room(){
+KidsRoom::KidsRoom():gameRooms::Room(){
     this->vecWall.push_back(KidsWall1());  
     this->vecWall.push_back(KidsWall2());  
     this->vecWall.push_back(KidsWall3());  

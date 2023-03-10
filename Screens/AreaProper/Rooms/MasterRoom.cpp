@@ -1,8 +1,8 @@
 #include "MasterRoom.h"
 
-using namespace gameArea;
+using namespace gameRooms;
 
-MasterRoom::MasterRoom():gameArea::Room(){
+MasterRoom::MasterRoom():gameRooms::Room(){
     this->vecWall.push_back(MasterWall1());
     this->vecWall.push_back(MasterWall2());
     this->vecWall.push_back(MasterWall3());

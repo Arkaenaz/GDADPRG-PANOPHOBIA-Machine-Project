@@ -4,8 +4,8 @@ Date Created: February 27, 2023
 Description: Interactable class
 ****************************************************/
 
-#ifndef GAME_ELEMENTS_INTERACTABLE_H
-#define GAME_ELEMENTS_INTERACTABLE_H
+#ifndef GAME_INTERACTABLE_INTERACTABLE_H
+#define GAME_INTERACTABLE_INTERACTABLE_H
 
 #include "../../Enum/EnumInteractables.h"
 namespace gameInteractable{

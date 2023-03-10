@@ -1,8 +1,8 @@
 #include "Van.h"
 
-using namespace gameArea;
+using namespace gameRooms;
 
-Van::Van() : gameArea::Room(){
+Van::Van() : gameRooms::Room(){
     this->vecWall.push_back(VanWall1());
     this->vecWall.push_back(VanWall2());
     this->vecWall.push_back(VanWall3());

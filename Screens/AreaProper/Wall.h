@@ -4,8 +4,8 @@ Date Created: February 27, 2023
 Description: Wall class
 ****************************************************/
 
-#ifndef GAME_ELEMENTS_WALL_H
-#define GAME_ELEMENTS_WALL_H
+#ifndef GAME_ROOMS_WALL_H
+#define GAME_ROOMS_WALL_H
 
 #include "vector"
 
@@ -14,7 +14,7 @@ Description: Wall class
 #include "Rooms/Interactable/Door.h"
 #include "Rooms/Interactable/Lightswitch.h"
 
-namespace gameArea{
+namespace gameRooms {
     using namespace gameInteractable;
     class Wall{
         protected:
@@ -32,8 +32,8 @@ namespace gameArea{
             std::vector<bool> getInteractIndices();
             std::vector<bool> getDoorIndices();
             int getInteractableSize();
-            void connectDoor(Door *pDoor1, Door *pDoor2);
-            void updateDoor(int nIndex, int nAction);
+            //!void connectDoor(Door *pDoor1, Door *pDoor2);
+            //!void updateDoor(int nIndex, int nAction);
             gameInteractable::Interactable* getInteractable(int nIndex);
             Door* getDoor(int nIndex);
             Lightswitch* getLightswitch();

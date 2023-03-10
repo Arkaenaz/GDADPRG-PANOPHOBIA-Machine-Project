@@ -1,8 +1,8 @@
 #include "BathRoom.h"
 
-using namespace gameArea;
+using namespace gameRooms;
 
-BathRoom::BathRoom():gameArea::Room(){
+BathRoom::BathRoom():gameRooms::Room() {
     this->vecWall.push_back(BathWall1());
     this->vecWall.push_back(BathWall2());
     this->vecWall.push_back(BathWall3());

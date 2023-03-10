@@ -1,26 +1,26 @@
-#ifndef GAME_ELEMENTS_WALL_BATH_H
-#define GAME_ELEMENTS_WALL_BATH_H
+#ifndef GAME_ROOMS_BATH_WALLS_H
+#define GAME_ROOMS_BATH_WALLS_H
 
 #include "../../Wall.h"
 #include "../Interactable/Decor.h"
 #include "../Interactable/Door.h"
 #include "../Interactable/Lightswitch.h"
 
-namespace gameArea{
+namespace gameRooms {
     using namespace gameInteractable;
-    class BathWall1 : public gameArea::Wall{
+    class BathWall1 : public gameRooms::Wall {
         public:
             BathWall1();
     };
-    class BathWall2 : public gameArea::Wall{
+    class BathWall2 : public gameRooms::Wall {
         public:
             BathWall2();
     };
-    class BathWall3 : public gameArea::Wall{
+    class BathWall3 : public gameRooms::Wall {
         public:
             BathWall3();
     };
-    class BathWall4 : public gameArea::Wall{
+    class BathWall4 : public gameRooms::Wall {
         public:
             BathWall4();
     };

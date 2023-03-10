@@ -1,8 +1,8 @@
 #include "FoyerRoom.h"
 
-using namespace gameArea;
+using namespace gameRooms;
 
-FoyerRoom::FoyerRoom():gameArea::Room(){
+FoyerRoom::FoyerRoom():gameRooms::Room(){
     this->vecWall.push_back(FoyerWall1());
     this->vecWall.push_back(FoyerWall2());
     this->vecWall.push_back(FoyerWall3());

@@ -1,12 +1,12 @@
-#ifndef GAME_ELEMENTS_ROOM_KIDS_H
-#define GAME_ELEMENTS_ROOM_KIDS_H
+#ifndef GAME_ROOMS_KIDS_ROOM_H
+#define GAME_ROOMS_KIDS_ROOM_H
 
 #include "../Room.h"
 #include "Wall/KidsWalls.h"
 
-namespace gameArea{
+namespace gameRooms {
     using namespace gameInteractable;
-    class KidsRoom : public gameArea::Room{
+    class KidsRoom : public gameRooms::Room {
         public:
             KidsRoom();
     };

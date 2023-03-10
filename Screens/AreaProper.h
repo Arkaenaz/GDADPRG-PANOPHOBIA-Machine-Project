@@ -19,17 +19,18 @@ Description: Area class
 #include "AreaProper/Rooms/BathRoom.h"
 #include "AreaProper/Rooms/Van.h"
 
-namespace gameArea{
+namespace gameElements {
+    using namespace gameRooms;
     using namespace gameInteractable;
     class Area{
         private:
-            std::vector<Room> vecRoom;
+            std::vector<gameRooms::Room> vecRoom;
 
         public:
             Area();
 
-            void initializeDoors();
-            std::vector<Room> createRoomVector();
+            //void initializeDoors();
+            std::vector<gameRooms::Room> createRoomVector();
 
             int toggleInteractable(int nRoom, int nWall, int nIndex);
 
@@ -37,8 +38,8 @@ namespace gameArea{
             int getFloorInteractableIndex(int nRoom, int nIndex);
             std::vector<bool> getInteractIndices(int nRoom, int nWall);
             std::vector<bool> getDoorIndices(int nRoom, int nWall);
-            void connectDoor(int nRoom, int nWall, Door* pDoor1, Door* pDoor2);
-            void updateDoor(int nRoom, int nWall, int nIndex, int nAction);
+            //void connectDoor(int nRoom, int nWall, Door* pDoor1, Door* pDoor2);
+            //void updateDoor(int nRoom, int nWall, int nIndex, int nAction);
             Door* getDoor(int nRoom, int nWall, int nIndex);
             Lightswitch* getLightswitch(int nRoom, int nWall);
             std::vector<int> getFloorDecorIndices(int nRoom);

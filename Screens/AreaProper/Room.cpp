@@ -1,9 +1,9 @@
 #include "Room.h"
 
-using namespace gameArea;
+using namespace gameRooms;
 using namespace gameInteractable;
 
-gameArea::Room::Room(){
+gameRooms::Room::Room(){
     this->bLight = true;
 }
 
@@ -19,7 +19,7 @@ gameArea::Room::Room(){
     @param nWall        = wall index
     @param nIndex       = interactable index
 */
-int gameArea::Room::toggleInteractable(int nWall, int nIndex){
+int gameRooms::Room::toggleInteractable(int nWall, int nIndex){
     int nAction;
 
     // the line of code below, particularly the first and only if statement, 
@@ -30,7 +30,7 @@ int gameArea::Room::toggleInteractable(int nWall, int nIndex){
         if(nAction == 1){
             //std::cout<<"getting decor"<<endl;
             gameInteractable::Interactable *pInteractable = this->CFloor.getInteractable(nIndex);
-            std::cout<<pInteractable->getIndex()<<endl;
+            std::cout << pInteractable->getIndex() << std::endl;
             //std::cout<<"picking decor"<<endl;
             this->vecWall[this->CFloor.getInteractableWall(nIndex)].pickDecor(pInteractable);
             //std::cout<<"erasing decor"<<endl;
@@ -44,39 +44,39 @@ int gameArea::Room::toggleInteractable(int nWall, int nIndex){
             //this->CFloor.getInteractable(this->CFloor.getInteractableSize()-1)->setToggled(true);
         }
     }
-    std::cout<<"returning"<<endl;
+    std::cout << "returning" << std::endl;
     return nAction;
 }
 
 /*gameArea::Room::getRoomSize   returns room size (vecWall size)
     return vecWall      = vecWall size
 */
-int gameArea::Room::getRoomSize(){
+int gameRooms::Room::getRoomSize(){
     return this->vecWall.size();
 }
 
 /*gameArea::Room::getLight   returns light state
     return bLight       = light toggled on/off
 */
-bool gameArea::Room::getLight(){
+bool gameRooms::Room::getLight(){
     return this->bLight;
 }
 
 /*gameArea::Room::getLight   returns temperature
     return fTemperature = room temperature
 */
-float gameArea::Room::getTemperature(){
+float gameRooms::Room::getTemperature(){
     return this->fTemperature;
 }
 
-int gameArea::Room::getFloorInteractableIndex(int nIndex){
+int gameRooms::Room::getFloorInteractableIndex(int nIndex){
     return this->CFloor.getInteractableIndex(nIndex);
 }
 
 /*gameArea::Room::getInteractIndices   returns vecIndex
     return vecIndex     = vector of valid interactables, this is everything except disabled decor (dropped decor)
 */
-std::vector<bool> gameArea::Room::getInteractIndices(int nWall){
+std::vector<bool> gameRooms::Room::getInteractIndices(int nWall){
     if(nWall == -1){
         return this->CFloor.getInteractIndices();
     }
@@ -85,9 +85,9 @@ std::vector<bool> gameArea::Room::getInteractIndices(int nWall){
     }
 }
 
-void gameArea::Room::connectDoor(int nWall, Door* pDoor1, Door* pDoor2) {
+/*void gameArea::Room::connectDoor(int nWall, Door* pDoor1, Door* pDoor2) {
     this->vecWall[nWall].connectDoor(pDoor1, pDoor2);
-}
+}*/
 
 /*void gameArea::Room::updateDoor(int nRoom, int nWall, int nIndex, int nAction) {
 
@@ -96,7 +96,7 @@ void gameArea::Room::connectDoor(int nWall, Door* pDoor1, Door* pDoor2) {
 /*gameArea::Room::getDoorIndices   returns vecIndex
     return vecIndex     = vector of door bToggled values
 */
-std::vector<bool> gameArea::Room::getDoorIndices(int nWall){
+std::vector<bool> gameRooms::Room::getDoorIndices(int nWall){
     return this->vecWall[nWall].getDoorIndices();
 }
 
@@ -106,14 +106,14 @@ std::vector<bool> gameArea::Room::getDoorIndices(int nWall){
     @param nWall        = wall index
     @param nIndex       = door index
 */
-Door* gameArea::Room::getDoor(int nWall, int nIndex){
+Door* gameRooms::Room::getDoor(int nWall, int nIndex){
     return this->vecWall[nWall].getDoor(nIndex);
 }
 
-Lightswitch* gameArea::Room::getLightswitch(int nWall){
+Lightswitch* gameRooms::Room::getLightswitch(int nWall){
     return this->vecWall[nWall].getLightswitch();
 }
 
-std::vector<int> gameArea::Room::getFloorDecorIndices() {
+std::vector<int> gameRooms::Room::getFloorDecorIndices() {
     return this->CFloor.getDecorIndices();
 }
