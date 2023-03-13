@@ -1,22 +1,30 @@
 #include "Floor.h"
 #include "Wall.h"
+#include "algorithm"
 
 using namespace gameRooms;
 using namespace gameInteractable;
 
 Floor::Floor(){
+    this->nDecor = 0;
 }
 
-void Floor::eraseDecor(int nIndex){
-    if(nIndex < (int)this->vecDecor.size()){
+void Floor::removeDecor(int nIndex){
+    if (SYSTEM_TEXT)
+        std::cout << "Entered Floor::removeDecor." << std::endl;
+    if(nIndex < this->nDecor){
+        this->nDecor--;
         this->vecDecor.erase(vecDecor.begin()+nIndex);
     }
 }
 
+
+
 /*Floor::dropDecor   pushes CDecor into vecDecor
     @param CDecor       = Decor push
 */
-void Floor::dropDecor(gameInteractable::Interactable *CDecor){
+void Floor::placeDecor(gameInteractable::Interactable *CDecor){
+    this->nDecor++;
     this->vecDecor.push_back(CDecor);
 }
 
@@ -31,18 +39,18 @@ void Floor::dropDecor(gameInteractable::Interactable *CDecor){
 
     @param nIndex       = interactable index
 */
-int Floor::toggleInteractable(int nIndex){
-    int nAction = this->vecDecor[nIndex]->interact();
-    /*if(nAction == 1){
+/*void Floor::toggleInteractable(int nIndex){
+    int nAction = this->vecDecor[nIndex]->toggle();
+    if(nAction == 1){
         //Decor* pDecor = dynamic_cast<Decor*>(&this->vecDecor[nIndex]);
         //pWall->pickDecor(*pDecor);
         this->vecDecor.erase(vecDecor.begin()+nIndex);
-    }*/
+    }
     if(nAction == -1){
         return 1;
     }
     return nAction;
-}
+} */
 
 /*Floor::getInteractableIndex   returns original index of interactable
     returns getIndex()  = actual index according to interactable documentation
@@ -52,7 +60,7 @@ int Floor::getInteractableIndex(int nIndex){
 }
 
 int Floor::getInteractableWall(int nIndex){
-    return this->vecDecor[nIndex]->getDirection();
+    return this->vecDecor[nIndex]->getWall();
 }
 
 /*Floor::getInteractIndices   returns vecIndex
@@ -104,4 +112,8 @@ std::vector<int> Floor::getDecorIndices() {
         vecIndex.push_back(this->vecDecor[i]->getIndex());
     }
     return vecIndex;
+}
+
+int Floor::getDecor() {
+    return this->nDecor;
 }

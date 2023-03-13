@@ -12,12 +12,12 @@ Description: Decor class
 namespace gameInteractable{
     class Decor : public gameInteractable::Interactable {
         public:
-            Decor(int nIndex);
+            Decor(int nIndex, int nWall);
         
         public:
-            int interact() override;
-
-            bool setToggled() override;
+            //int interact() override;
+            //int getIndex();
+            //bool setToggled() override;
     };
 }
 

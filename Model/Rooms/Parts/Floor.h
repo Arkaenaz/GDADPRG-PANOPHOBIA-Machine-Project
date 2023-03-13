@@ -9,6 +9,7 @@ Description: Floor class
 
 #include "vector"
 
+#include "../../../Config/Settings.h"
 #include "Interactable.h"
 #include "Interactables/Decor.h"
 
@@ -17,14 +18,15 @@ namespace gameRooms {
     class Floor{
         private:
             std::vector<gameInteractable::Interactable*> vecDecor;
+            int nDecor;
 
         public:
             Floor();
 
         public:
-            void eraseDecor(int nIndex);
-            void dropDecor(gameInteractable::Interactable *CDecor);
-            int toggleInteractable(int nIndex);
+            void removeDecor(int nIndex);
+            void placeDecor(gameInteractable::Interactable *CDecor);
+            void toggleInteractable(int nIndex);
 
             int getInteractableIndex(int nIndex);
             int getInteractableWall(int nIndex);
@@ -33,6 +35,7 @@ namespace gameRooms {
             gameInteractable::Interactable* getInteractable(int nIndex);
             //gameInteractable::Interactable getDecor(int nIndex);
             std::vector<int> getDecorIndices();
+            int getDecor();
     };
 }
 

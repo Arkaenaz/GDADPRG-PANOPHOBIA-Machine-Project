@@ -10,10 +10,6 @@ Description: Room class
 #include "iostream"
 #include "vector"
 
-namespace gameRooms {
-   class Wall;
-}
-
 #include "Parts/Wall.h"
 
 namespace gameRooms {
@@ -35,10 +31,12 @@ namespace gameRooms {
             bool getLight();
             float getTemperature();
             int getFloorInteractableIndex(int nIndex);
+            int getFloorInteractableWall(int nIndex);
             std::vector<bool> getInteractIndices(int nWall);
             std::vector<bool> getDoorIndices(int nWall);
             //void connectDoor(int nWall, Door* pDoor1, Door* pDoor2);
             //void updateDoor(int nWall, int nIndex, int nAction);
+            InteractablesType getInteractablesType(int nWall, int nIndex);
             Door* getDoor(int nWall, int nIndex);
             Lightswitch* getLightswitch(int nWall);
             std::vector<int> getFloorDecorIndices();

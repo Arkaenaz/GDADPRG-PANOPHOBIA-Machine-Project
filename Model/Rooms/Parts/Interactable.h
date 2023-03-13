@@ -7,30 +7,25 @@ Description: Interactable class
 #ifndef GAME_INTERACTABLE_INTERACTABLE_H
 #define GAME_INTERACTABLE_INTERACTABLE_H
 
-#include "../../../Enum/EnumInteractables.h"
+#include "../../../Enum/EnumInteractablesType.h"
 namespace gameInteractable{
     class Interactable{
         protected:
             int nIndex;
-            int nDirection;
-            int nToggleType;
+            int nWall;
             bool bToggled;
-            Interactables EType;
+            InteractablesType EType;
 
         public:
-            Interactable();
-            //Interactable(Interactable& COriginal);
-            Interactable(int nToggleType);
-        
+            Interactable(int nWall, InteractablesType EType);
         public:
-            virtual int interact();
-
             int getIndex();
             bool getToggled();
-            int getDirection();
+            int getWall();
             
-            virtual bool setToggled();
-            bool setToggled(bool bToggled);
+            InteractablesType getInteractablesType();
+            virtual void toggle();
+            void setToggled(bool bToggled);
     };
 }
 

@@ -8,25 +8,25 @@ Description: Door class
 #define GAME_INTERACTABLE_DOOR_H
 
 #include "../Interactable.h"
+#include "../../../../Config/Settings.h"
 
 namespace gameInteractable{
     class Door : public gameInteractable::Interactable {
         private:
-            //gives player room index where the door is connected to
             int nRoom;
+            int nOppositeWall;
             Door* pDoor;
 
         public:
-            Door();
-            Door(int nRoom, int nDirection);
+            Door(int nRoom, int nWall, int nOppositeWall);
 
         public:
-            int interact() override;
-            void connectDoor(Door* CDoor);
-            void update(int nAction);
+            void connectDoor(Door* pDoor);
+            //void update(int nAction);
+            void toggle() override;
             int getRoom();
-            int getDirection();
             Door* getConnection();
+            int getOppositeWall();
     };
 }
 

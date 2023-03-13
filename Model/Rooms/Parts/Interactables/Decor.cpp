@@ -2,13 +2,12 @@
 
 using namespace gameInteractable;
 
-Decor::Decor(int nIndex):gameInteractable::Interactable(0){
+Decor::Decor(int nIndex, int nWall) : gameInteractable::Interactable(nWall, InteractablesType::DECOR) {
     //this->nToggleType = 0;
     this->nIndex = nIndex;
-    this->EType = Interactables::DECOR;
 }
 
-int Decor::interact(){
+/*int Decor::interact(){
     bool bTemp = this->getToggled();
     this->setToggled();
 
@@ -28,4 +27,4 @@ int Decor::interact(){
 bool Decor::setToggled(){
     this->bToggled = false;
     return this->getToggled();
-}
+}*/

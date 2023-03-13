@@ -101,7 +101,7 @@ void Game::start() {
     vecPlayer[nTurn].setRoom(5);
     if (SYSTEM_TEXT)
         std::cout << "Entered Game::start()." << std::endl;
-    //!this->CArea.initializeDoors();
+    this->CArea.initializeDoors();
     do {
         if (CLEAR_CONSOLE)
             {system("cls");}
@@ -148,11 +148,15 @@ void Game::playerInput(char cInput, int nTurn) {
         case 'A':
             if (nDirection != -1)
                 this->panLeft(nTurn);
+            if (SYSTEM_TEXT)
+                std::cout << "Player Wall: " << this->vecPlayer[nTurn].getDirection(nCurrentRoom) << std::endl;
             break;
         case 'd':
         case 'D':
             if (nDirection != -1)
                 this->panRight(nTurn);
+            if (SYSTEM_TEXT)
+                std::cout << "Player Wall: " << this->vecPlayer[nTurn].getDirection(nCurrentRoom) << std::endl;
             break;
         case 'e':
         case 'E':
@@ -163,6 +167,8 @@ void Game::playerInput(char cInput, int nTurn) {
         case 'S':
             if (nDirection != -1)
                 this->panUpDown(nTurn);
+            if (SYSTEM_TEXT)
+                std::cout << "Player Wall: " << this->vecPlayer[nTurn].getDirection(nCurrentRoom) << std::endl;
             break;
         case 'l':
         case 'L':
@@ -186,13 +192,19 @@ void Game::turnMultiple(int nNewDirection, int nRoomSize, int nTurn){
         if(bRight){
             //std::cout<<"turn right"<<endl;
             nOldDirection += 1;
-            this->CTUIPrinter.turnRight(static_cast<Rooms>(this->vecPlayer[nTurn].getRoom()));
+            if (this->vecPlayer[nTurn].getRoom() != 5)
+                this->CTUIPrinter.turnRight(static_cast<Rooms>(this->vecPlayer[nTurn].getRoom()));
+            else
+                this->CVPrinter.turnRight();
         }
         //turning left is shorter
         else{
             //std::cout<<"turn left"<<endl;
             nOldDirection -= 1;
-            this->CTUIPrinter.turnLeft(static_cast<Rooms>(this->vecPlayer[nTurn].getRoom()));
+            if (this->vecPlayer[nTurn].getRoom() != 5)
+                this->CTUIPrinter.turnLeft(static_cast<Rooms>(this->vecPlayer[nTurn].getRoom()));
+            else
+                this->CVPrinter.turnLeft();
         }
         errMinMax(&nOldDirection,nRoomSize);
         //std::cout<<"now "<<nOldDirection<<endl<<endl;
@@ -234,54 +246,87 @@ void Game::panUpDown(int nTurn) {
 void Game::playerInteract(int nTurn, int nIndex) {
     int nCurrentRoom = this->vecPlayer[nTurn].getRoom();
     int nDirection = this->vecPlayer[nTurn].getDirection(nCurrentRoom);
-    int nPrevDirection = this->vecPlayer[nTurn].getPrevDirection();
+    std::vector<bool> vecBoolIndex = this->CArea.getInteractIndices(nCurrentRoom, nDirection);
     //Door *pDoor;
-    int nPickIndex;
-    if(nDirection == -1){
-        nPickIndex = this->CArea.getFloorInteractableIndex((int)static_cast<Rooms>(nCurrentRoom), nIndex);
-    }
-    int nAction = this->CArea.toggleInteractable(nCurrentRoom, nDirection, nIndex);
+    //int nAction = 
+    //this->CArea.toggleInteractable(nCurrentRoom, nDirection, nIndex);
 
-    std::cout << "nAction is " << nAction << std::endl;
-
-    if (nDirection != -1 && nCurrentRoom != 5) {
-        if(nAction == 0 || nAction == 4 || nAction == 5){
-            this->CTUIPrinter.toggleInteractable(static_cast<Rooms>(nCurrentRoom), nDirection, nIndex);
-            if (nAction == 4 || nAction == 5) {
+    //std::cout << "nAction is " << nAction << std::endl;
+    if (nDirection != -1) {
+        //if(nAction == 0 || nAction == 4 || nAction == 5) {
+        switch (this->CArea.getInteractablesType(nCurrentRoom, nDirection, nIndex)) {
+            case InteractablesType::DECOR:
+                {
+                if (vecBoolIndex[nIndex] == true) {
+                    this->CArea.toggleInteractable(nCurrentRoom, nDirection, nIndex);
+                    this->CTUIPrinter.toggleInteractable(static_cast<Rooms>(nCurrentRoom), nDirection, nIndex);
+                }
+                break;
+                }
+            case InteractablesType::DOOR:
+                {
+                Door* pDoor1 = this->CArea.getDoor(nCurrentRoom, nDirection, nIndex);
+                Door* pDoor2 = pDoor1->getConnection();
+                this->CArea.toggleInteractable(nCurrentRoom, nDirection, nIndex);
+                if (pDoor1->getRoom() != 5) {
+                    this->CTUIPrinter.toggleInteractable(static_cast<Rooms>(nCurrentRoom), nDirection, nIndex);
+                }
+                if (pDoor2 != nullptr && pDoor2->getRoom() != 5){
+                    this->CTUIPrinter.toggleInteractable(static_cast<Rooms>(pDoor2->getRoom()), pDoor2->getWall(), pDoor2->getIndex());
+                }
+                break;
+                }
+            default:
+                {break;}
+        }
+            //if (nAction == 4 || nAction == 5) {
                 //pDoor = this->CArea.getDoor(nCurrentRoom, nDirection, nIndex);
                 //pDoor = pDoor->getConnection();
                 //this->CArea.updateDoor(nCurrentRoom, nDirection, nIndex, nAction);
                 //this->CTUIPrinter.toggleInteractable(static_cast<Rooms>(pDoor->getRoom()), pDoor->getDirection(), nIndex);
             }
-        }
-    }
+        //}
+    //}
     else {
-        if(nAction == 1 && nCurrentRoom != 5){
-            this->CTUIPrinter.toggleInteractable(static_cast<Rooms>(nCurrentRoom), nPrevDirection, nPickIndex);
+    //    if(nAction == 1 && nCurrentRoom != 5){
+        if (vecBoolIndex[nIndex] == true) {
+            this->CArea.toggleInteractable(nCurrentRoom, nDirection, nIndex);
+            this->CTUIPrinter.toggleInteractable(static_cast<Rooms>(nCurrentRoom), 
+                                                 this->CArea.getFloorInteractableWall(nCurrentRoom, nIndex), 
+                                                 this->CArea.getFloorInteractableIndex((int)static_cast<Rooms>(nCurrentRoom), nIndex));
         }
     }
 }
+    //}
+
 
 void Game::enterDoor(int nTurn, int nIndex) {
     int nCurrentRoom = this->vecPlayer[nTurn].getRoom();
     int nDirection = this->vecPlayer[nTurn].getDirection(nCurrentRoom);
     int nNewDirection, nRoomSize;
     std::vector<bool> vecBoolIndex = this->CArea.getDoorIndices(nCurrentRoom, nDirection);
-
-    if (vecBoolIndex[nIndex] == true) {
-        nNewDirection = this->vecPlayer[nTurn].move(*CArea.getDoor(nCurrentRoom, nDirection, nIndex));
+    if (!vecBoolIndex[nIndex]) {
+        Door* pDoor = CArea.getDoor(nCurrentRoom, nDirection, nIndex);
+        nNewDirection = this->vecPlayer[nTurn].move(*pDoor->getConnection());
         nCurrentRoom = this->vecPlayer[nTurn].getRoom();
+        std::cout << "Player successfully moved " << nCurrentRoom << std::endl;
+        //std::cout << "Player new direction " << this->vecPlayer[nTurn].getDirection(nCurrentRoom) << std::endl;
+        std::cout << "Current room: " << nCurrentRoom << std::endl;
         nRoomSize = this->CArea.getRoomSize(nCurrentRoom);
         if (nNewDirection != -1)
             this->turnMultiple(nNewDirection, nRoomSize, nTurn);
     }
 }
 
+//void Game::getOppositeWall() {
+
+//}
+
 void Game::toggleLight(int nTurn) {
     int nCurrentRoom = this->vecPlayer[nTurn].getRoom();
     int nDirection = this->vecPlayer[nTurn].getDirection(nCurrentRoom);
     
-    if(this->CArea.getLightswitch(nCurrentRoom, nDirection) != NULL){
+    if(this->CArea.getLightswitch(nCurrentRoom, nDirection) != nullptr){
         this->CTUIPrinter.toggleLight(static_cast<Rooms>(nCurrentRoom));
     }
     

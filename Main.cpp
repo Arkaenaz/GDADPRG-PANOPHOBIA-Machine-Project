@@ -10,6 +10,8 @@ Members: ARGUELLES, Joachim
 
 #include "Libraries/CandyTUI/TUIPrinter.cpp"
 
+#include "Config/Settings.h"
+
 #include "Controller/Game.cpp"
 
 #include "Model/Player.cpp"

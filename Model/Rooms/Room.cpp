@@ -19,8 +19,33 @@ gameRooms::Room::Room(){
     @param nWall        = wall index
     @param nIndex       = interactable index
 */
-int gameRooms::Room::toggleInteractable(int nWall, int nIndex){
-    int nAction;
+int gameRooms::Room::toggleInteractable(int nWall, int nIndex) {
+    if (SYSTEM_TEXT)
+        std::cout << "Entered Room::toggleInteractable." << std::endl;
+    if (nWall == -1) {
+        if (this->CFloor.getDecor() > nIndex) {
+            this->CFloor.removeDecor(nIndex);
+            this->vecWall[this->CFloor.getInteractableWall(nIndex)].toggleInteractable(this->CFloor.getInteractableIndex(nIndex));
+            return 1;
+        }
+    }
+    else {
+        gameInteractable::Interactable *pInteractable = vecWall[nWall].getInteractable(nIndex);
+        if (pInteractable->getInteractablesType() == InteractablesType::DECOR) {
+            this->CFloor.placeDecor(vecWall[nWall].getInteractable(nIndex));
+            this->vecWall[nWall].toggleInteractable(nIndex);
+            return 1;
+        }
+        else if (pInteractable->getInteractablesType() == InteractablesType::DOOR) {
+            this->vecWall[nWall].toggleInteractable(nIndex);
+            return 1;
+        }
+    }
+    return -1;
+                
+    
+
+    /*int nAction;
 
     // the line of code below, particularly the first and only if statement, 
     // has a 50/50 chance of crashing and i do not understand why
@@ -34,18 +59,18 @@ int gameRooms::Room::toggleInteractable(int nWall, int nIndex){
             //std::cout<<"picking decor"<<endl;
             this->vecWall[this->CFloor.getInteractableWall(nIndex)].pickDecor(pInteractable);
             //std::cout<<"erasing decor"<<endl;
-            this->CFloor.eraseDecor(nIndex);
+            this->CFloor.remove(nIndex);
         }
     }
     else{
         nAction = this->vecWall[nWall].toggleInteractable(nIndex);
         if(nAction == 0){
-            this->CFloor.dropDecor(this->vecWall[nWall].getInteractable(nIndex));
+            this->CFloor.placeDecor(this->vecWall[nWall].getInteractable(nIndex));
             //this->CFloor.getInteractable(this->CFloor.getInteractableSize()-1)->setToggled(true);
         }
     }
     std::cout << "returning" << std::endl;
-    return nAction;
+    return nAction;*/
 }
 
 /*gameArea::Room::getRoomSize   returns room size (vecWall size)
@@ -73,6 +98,10 @@ int gameRooms::Room::getFloorInteractableIndex(int nIndex){
     return this->CFloor.getInteractableIndex(nIndex);
 }
 
+int gameRooms::Room::getFloorInteractableWall(int nIndex) {
+    return this->CFloor.getInteractableWall(nIndex);
+}
+
 /*gameArea::Room::getInteractIndices   returns vecIndex
     return vecIndex     = vector of valid interactables, this is everything except disabled decor (dropped decor)
 */
@@ -98,6 +127,11 @@ std::vector<bool> gameRooms::Room::getInteractIndices(int nWall){
 */
 std::vector<bool> gameRooms::Room::getDoorIndices(int nWall){
     return this->vecWall[nWall].getDoorIndices();
+}
+
+InteractablesType gameRooms::Room::getInteractablesType(int nWall, int nIndex) {
+    gameInteractable::Interactable *pInteractable = this->vecWall[nWall].getInteractable(nIndex);
+    return pInteractable->getInteractablesType();
 }
 
 /*gameArea::Room::getDoor   returns Door*

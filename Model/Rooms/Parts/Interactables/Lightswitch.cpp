@@ -2,13 +2,11 @@
 
 using namespace gameInteractable;
 
-Lightswitch::Lightswitch():gameInteractable::Interactable(){
-    this->nToggleType = -1;
-    this->bToggled = true;
-    this->EType = Interactables::LIGHT_SWITCH;;
+Lightswitch::Lightswitch(int nWall) : gameInteractable::Interactable(nWall, InteractablesType::LIGHT_SWITCH){
+
 }
 
-int Lightswitch::interact(){
+/*int Lightswitch::interact(){
     this->bToggled = !this->bToggled;
     if(this->getToggled()){
         //lightswitch on
@@ -18,4 +16,4 @@ int Lightswitch::interact(){
         //lightswitch off
         return 2;
     }
-}
+}*/

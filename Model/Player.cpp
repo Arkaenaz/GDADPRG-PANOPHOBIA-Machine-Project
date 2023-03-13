@@ -24,6 +24,8 @@ Player::Player(std::string strName) {
     @param nRoomSize    = max number of directions/walls in the given room
 */
 int Player::pan(int nDirection, int nRoomSize) {
+    if (SYSTEM_TEXT)
+        std::cout << "Entered Player::pan." << std::endl;
     if(this->aDirection[nRoom] == -1) {
         this->aDirection[nRoom] = this->nPrevDirection;
         return 0;
@@ -57,15 +59,19 @@ int Player::pan(int nDirection, int nRoomSize) {
     @param CDOOR        = door class, function retrieves nRoom and nDirection from here
 */
 int Player::move(Door CDoor) {
-    if(CDoor.getToggled()) {
-        if(CDoor.getRoom()==-1) {
-            return -1;
-        }
+    if (SYSTEM_TEXT)
+        std::cout << "Entered Player::move." << std::endl;
+    //std::cout << CDoor->getToggled();
+    //if(CDoor.getToggled()) {
+    //    if(CDoor.getRoom()==-1) {
+    //        return -1;
+    //    }
         this->nRoom = CDoor.getRoom();
-        return CDoor.getDirection();
+        return CDoor.getOppositeWall();
+        //return CDoor.getOppositeWall();
     }
-    return -1;
-}
+    //return -1;
+//}
 
 /*Player::interact   handling of interact action
     return -1           = invalid/error
@@ -79,14 +85,16 @@ int Player::move(Door CDoor) {
     @param CArea        = area class
     @param nIndex       = which index to interact with
 */
-int Player::interact(Area CArea, int nIndex) {
-    return CArea.toggleInteractable(this->getRoom(),this->getDirection(this->getRoom()),nIndex);
-}
+//int Player::interact(Area CArea, int nIndex) {
+//    return CArea.toggleInteractable(this->getRoom(),this->getDirection(this->getRoom()),nIndex);
+//}
 
 /*Player::sanityDrain   sanity drain, called whenever player does an action
     @param bLight       = is the room's light on or not?
 */
 void Player::sanityDrain(bool bLight) { //called whenever player does an action(?)
+    if (SYSTEM_TEXT)
+        std::cout << "Entered Player::sanityDrain." << std::endl;
     float fTotalDrain = 0.0;
 
     //Passive Drain

@@ -12,10 +12,10 @@ Description: Lightswitch class
 namespace gameInteractable{
     class Lightswitch : public gameInteractable::Interactable {
         public:
-            Lightswitch();
+            Lightswitch(int nWall);
 
         public:
-            int interact() override;
+            //int interact() override;
     };
 }
 

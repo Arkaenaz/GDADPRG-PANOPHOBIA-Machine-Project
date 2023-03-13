@@ -44,7 +44,7 @@ namespace gameElements {
 
             int pan(int nDirection, int nRoomSize);
             int move(Door CDoor);
-            int interact(Area CArea, int nIndex);
+            //int interact(Area CArea, int nIndex);
             //void changeEquipment();
             //void viewJournal();
 

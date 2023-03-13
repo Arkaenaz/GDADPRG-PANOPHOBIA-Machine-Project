@@ -10,8 +10,10 @@ gameRooms::Wall::Wall(){
 /*gameArea::Wall::pickDecor   toggles CInteractable's toggle, essentially placing it back onto the wall by enabling it
     @param CInteractable= Decor to toggle
 */
-void gameRooms::Wall::pickDecor(gameInteractable::Interactable *pInteractable){
-    this->vecDecor[pInteractable->getIndex()]->setToggled(true);
+void gameRooms::Wall::placeDecor(gameInteractable::Interactable *pInteractable, Floor *pFloor) {
+    if (SYSTEM_TEXT)
+        std::cout << "Entered Wall::placeDecor." << std::endl;
+    pFloor->removeDecor(pInteractable->getIndex());
 }
 
 /*gameArea::Wall::toggleInteractable  handles interact action
@@ -26,14 +28,16 @@ void gameRooms::Wall::pickDecor(gameInteractable::Interactable *pInteractable){
     @param nIndex       = interactable index
 
 */
-int gameRooms::Wall::toggleInteractable(int nIndex){
-    int nAction = this->vecDecor[nIndex]->interact();
+void gameRooms::Wall::toggleInteractable(int nIndex){
+    if (SYSTEM_TEXT)
+        std::cout << "Entered Wall::toggleInteractable." << std::endl;
+    this->vecDecor[nIndex]->toggle();
     //object is dropped
     /*if(nAction == 0){
         pFloor->dropDecor(this->vecDecor[nIndex]);
         //this->vecDecor[nIndex].setToggled();
     }*/
-    return nAction;
+    
 }
 
 /*gameArea::Wall::getInteractIndices   returns vecIndex
@@ -44,14 +48,15 @@ std::vector<bool> gameRooms::Wall::getInteractIndices(){
     int i;
     std::vector<bool> vecIndex;
     for(i = 0; i < nSize; i++){
-        Decor* pDecor = dynamic_cast<Decor*>(this->vecDecor[i]);
+        /*Decor* pDecor = dynamic_cast<Decor*>(this->vecDecor[i]);
         if(pDecor){
             //problems might arise if i try to use getToggled() on a null object so i separated the condition from previous
             if(!pDecor->getToggled()){
                 vecIndex.push_back(false);
             }
         }
-        vecIndex.push_back(true);
+        vecIndex.push_back(true);*/
+        vecIndex.push_back(this->vecDecor[i]->getToggled());
     }
     return vecIndex;
 }
@@ -91,7 +96,7 @@ gameInteractable::Interactable* gameRooms::Wall::getInteractable(int nIndex){
     return this->vecDecor[nIndex];
 }
 
-//! will come back later for this
+//! deprecated
 /*void gameRooms::Wall::connectDoor(Door *pDoor1, Door *pDoor2) {
     pDoor1->connectDoor(pDoor2);
 }*/
@@ -118,10 +123,12 @@ Lightswitch* gameRooms::Wall::getLightswitch(){
 /*gameArea::Wall::createDecor   creates Decor objects until vecDecor size hits nSize
     @param nSize        = target size
 */
-void gameRooms::Wall::createDecor(int nSize){
+void gameRooms::Wall::createDecor(int nSize, int nWall){
+    if (SYSTEM_TEXT)
+        std::cout << "Entered Wall::createDecor." << std::endl;
     int i = this->vecDecor.size();
-    for(; i < nSize ; i++){
-        this->vecDecor.push_back(new Decor(i));
+    for(;i < nSize;i++){
+        this->vecDecor.push_back(new Decor(i, nWall));
     }
 }
 

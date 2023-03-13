@@ -26,8 +26,8 @@ namespace gameRooms {
             
         public:
             //void pickDecor(gameInteractable::Interactable CInteractable);
-            void pickDecor(gameInteractable::Interactable *pInteractable);
-            int toggleInteractable(int nIndex);
+            void placeDecor(gameInteractable::Interactable *pInteractable, Floor *pFloor);
+            void toggleInteractable(int nIndex);
 
             std::vector<bool> getInteractIndices();
             std::vector<bool> getDoorIndices();
@@ -39,7 +39,7 @@ namespace gameRooms {
             Lightswitch* getLightswitch();
 
         protected:
-            void createDecor(int nSize);
+            void createDecor(int nWall, int nSize);
     };
 }
 
